@@ -6,7 +6,6 @@ class POI {
     #direccion;
     #categoria;
     #descripcion;
-    #imagen;
     #horarioApertura;
     #horarioCierre;
 
@@ -15,10 +14,11 @@ class POI {
         this.#direccion = direccion;
         this.#categoria = categoria;
         this.#descripcion = descripcion;
-        this.#imagen = imagen;
         this.#horarioApertura = horarioApertura;
         this.#horarioCierre = horarioCierre;
     }
+
+    //falta imagen 
 
     // Getters
     getNombre() {
@@ -37,10 +37,6 @@ class POI {
         return this.#descripcion;
     }
 
-    getImagen() {
-        return this.#imagen;
-    }
-
     getHorarioApertura() {
         return this.#horarioApertura;
     }
@@ -49,11 +45,25 @@ class POI {
         return this.#horarioCierre;
     }
 
-    // Método de validación, el usuario tiene que incluir estos campos para crear un POI
+    //Método de validación
     validate() {
         if (!this.#nombre || !this.#direccion || !this.#categoria) {
         throw new Error('Faltan campos obligatorios en el POI.');
-    }
+        }
+
+        //el horario de apertura y cierre sean fechas válidas
+        if (isNaN(Date.parse(this.#horarioApertura)) || isNaN(Date.parse(this.#horarioCierre))) {
+        throw new Error("Las fechas de apertura o cierre no son válidas.");
+        }
+  
+        //la hora de apertura sea anterior a la de cierre
+        if (new Date(this.#horarioApertura) >= new Date(this.#horarioCierre)) {
+        throw new Error("El horario de apertura debe ser anterior al de cierre.");
+        }
+
+        if(this.categoria.toLowerCase() != 'lugar' || this.categoria != 'evento') {
+            throw new Error("La categoría no es válida");
+        }
     
     }
 }
