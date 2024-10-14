@@ -1,0 +1,11 @@
+<div class="pin-container">
+    <h3>Ingresa tu PIN</h3>
+    <input 
+      type="password" 
+      (input)="onPinChange($event)" 
+      placeholder="PIN" 
+    />
+    <button (click)="validatePin()">Ingresar</button>
+    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+  </div>
+  
