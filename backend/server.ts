@@ -1,21 +1,21 @@
-import express, { Request, Response, Express } from 'express'; // Importamos Express y tipos
+import express, { Request, Response, Express } from 'express'; 
 import { GestorDePOIs } from './gestorpoi';
 import { Admin } from './admin';
 import { POI } from './poi';
 import { Evento } from './evento';
 import bodyParser from 'body-parser';
 
-const app: Express = express(); // Creamos la aplicación Express
-const port = 3000; // Definimos el puerto
+const app: Express = express(); 
+const port = 3000; 
 
 app.use(bodyParser.json());
 
 const gestor = new GestorDePOIs();
 const admin = new Admin(gestor);
 
-// obtener POIs
+// obtener POIs pendienes
 app.get('/points-of-interest', (req: Request, res: Response) => {
-  res.json(gestor.getPOIs());
+  res.json(gestor.getPendingPOIs());
 });
 
 //crear POI
