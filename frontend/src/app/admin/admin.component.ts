@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { PoiService } from '../services/poi.service'; // Ajusta la ruta si es necesario
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-admin',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })

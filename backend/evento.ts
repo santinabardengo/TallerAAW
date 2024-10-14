@@ -1,4 +1,4 @@
-const POI = require('./poi');
+import { POI } from './poi';
 
   export class Evento extends POI {
     #fecha: string;

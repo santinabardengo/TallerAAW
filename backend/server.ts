@@ -14,7 +14,7 @@ const gestor = new GestorDePOIs();
 const admin = new Admin(gestor);
 
 // obtener POIs pendienes
-app.get('/points-of-interest', (req: Request, res: Response) => {
+app.get('/points-of-interest/pending', (req: Request, res: Response) => {
   res.json(gestor.getPendingPOIs());
 });
 

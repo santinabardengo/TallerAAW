@@ -17,7 +17,7 @@ export class PoiService {
 
   // Obtener todos los POIs
   getPendingPOIs() {
-    return this.http.get<any[]>(`${this.baseUrl}`);
+    return this.http.get<any[]>(`${this.baseUrl}/pending`);
   }
 
   // Aprobar un POI

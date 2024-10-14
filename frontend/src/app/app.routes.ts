@@ -10,4 +10,5 @@ export const routes: Routes = [
   { path: 'user-map', component: UserMapComponent },
   { path: 'admin', component: AdminComponent},
   { path: 'admin-pin', component: AdminPinComponent },
+  { path: 'points-of-interest/pending', component: AdminComponent}
 ];
