@@ -25,6 +25,7 @@ export class AdminPinComponent {
       console.log('PIN válido');
       this.errorMessage = null;
       this.router.navigate(['/admin']);
+      
     } else {
       this.errorMessage = 'PIN inválido. Inténtalo de nuevo.';
       console.log('PIN inválido');
