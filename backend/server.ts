@@ -25,7 +25,7 @@ app.post('/points-of-interest', (req: Request, res: Response) => {
     gestor.crearPOI(datosPOI);
     res.status(201).json({ message: 'POI creado con éxito' });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: (error as Error).message });
   }
 });
 

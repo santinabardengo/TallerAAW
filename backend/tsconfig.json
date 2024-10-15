@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "bundler",  
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,  // Habilita la opción
+    "noEmit": true,  // Necesario para evitar conflictos de compilación
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules"]
+}

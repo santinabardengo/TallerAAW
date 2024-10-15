@@ -1,9 +1,21 @@
-import { GestorDePOIs } from './gestorpoi';
+import { GestorDePOIs } from './gestorpoi.ts'; // Importamos la clase GestorDePOIs
 
+// Definir la interfaz para los datos del POI
+interface POIData {
+  nombre: string;
+  direccion: string;
+  categoria: string;
+  descripcion: string;
+  horarioApertura: string;
+  horarioCierre: string;
+  status: string;
+}
+
+// Crear una instancia del GestorDePOIs
 const gestor = new GestorDePOIs();
 
 // Crear un POI de prueba
-const datosPOI = {
+const datosPOI: POIData = {
   nombre: "Museo de Neuquén",
   direccion: "Calle Falsa 123",
   categoria: "Lugar",
@@ -13,6 +25,7 @@ const datosPOI = {
   status: "pending"
 };
 
+// Crear el POI
 gestor.crearPOI(datosPOI);
 
 // Verificar que el POI se agregó al JSON

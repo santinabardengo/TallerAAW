@@ -1,4 +1,4 @@
-import { GestorDePOIs } from './gestorpoi'; // Asegúrate de la ruta correcta
+import { GestorDePOIs } from './gestorpoi'; 
 
 export class Admin {
   private gestor: GestorDePOIs;
