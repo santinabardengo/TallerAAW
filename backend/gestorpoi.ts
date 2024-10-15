@@ -1,5 +1,7 @@
 import { POI } from './poi'; // Importamos la clase POI
 import { Evento } from './evento'; // Importamos la clase Evento
+import * as fs from 'fs'; //esto es para los archivos 
+
 
 interface DatosPOI {
   nombre: string;
@@ -16,6 +18,11 @@ export class GestorDePOIs {
 
   private listaDePOIs: (POI | Evento)[] = []; 
 
+   // Función para escribir pois en el json
+  private guardarEnJSON(): void {
+    const data = JSON.stringify(this.listaDePOIs, null, 2); // Convierte el array en JSON
+    fs.writeFileSync('pois.json', data, 'utf-8'); // Escribe el JSON en el archivo
+  }
 
   crearPOI(datosPOI: DatosPOI): void {
     const { nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, fecha } = datosPOI;
@@ -32,7 +39,8 @@ export class GestorDePOIs {
       const nuevoEvento = new Evento(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status, fecha);
       this.listaDePOIs.push(nuevoEvento);
     }
-
+    // Guardar en JSON cada vez que se agrega un nuevo POI
+    this.guardarEnJSON();
   }
 
   getPOIs(): (POI | Evento)[] {
