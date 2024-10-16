@@ -16,8 +16,8 @@ const gestor = new GestorDePOIs();
 
 // Crear un POI de prueba
 const datosPOI: POIData = {
-  nombre: "Museo de Neuquén",
-  direccion: "Calle Falsa 123",
+  nombre: "Cerro Chapelco",
+  direccion: "Calle Falsa 434",
   categoria: "Lugar",
   descripcion: "Un lugar cultural en Neuquén.",
   horarioApertura: "09:00",
@@ -25,8 +25,21 @@ const datosPOI: POIData = {
   status: "pending"
 };
 
+const datosPOI2: POIData = {
+  nombre: "Lago Lolog",
+  direccion: "Calle 434",
+  categoria: "Lugar",
+  descripcion: "Un lago en Neuquén.",
+  horarioApertura: "09:00",
+  horarioCierre: "18:00",
+  status: "pending"
+};
+
 // Crear el POI
 gestor.crearPOI(datosPOI);
+gestor.crearPOI(datosPOI2);
+
+gestor.leerArchivo("pois.json")
 
 // Verificar que el POI se agregó al JSON
 console.log(gestor.getPOIs());

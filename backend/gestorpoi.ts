@@ -58,11 +58,24 @@ export class GestorDePOIs {
     this.guardarEnJSON();
   }
 
+  public leerArchivo(ruta: string): void {
+    try {
+      const data = fs.readFileSync(ruta, 'utf-8');
+      const poisLeidos: (POI | Evento)[] = JSON.parse(data);
+      this.listaDePOIs = poisLeidos;
+      console.log('Archivo JSON leído correctamente:');
+    } catch (error) {
+      console.error('Error al leer el archivo JSON:', error);
+    }
+  }
+
   getPOIs(): (POI | Evento)[] {
+    this.leerArchivo("pois.json")
     return this.listaDePOIs;
   }
 
   getPendingPOIs(): (POI | Evento)[] {
+    this.leerArchivo("pois.json")
     return this.listaDePOIs.filter(poi => 'status' in poi && poi.status === 'pending');
   }
   
@@ -75,6 +88,8 @@ export class GestorDePOIs {
       }
       return false;
     }
+
+   
     
 }
 
