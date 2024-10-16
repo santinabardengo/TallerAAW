@@ -4,8 +4,15 @@ import { Admin } from './admin';
 import { POI } from './poi';
 import { Evento } from './evento';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app: Express = express(); 
+app.use(cors({
+  origin: 'http://localhost:4200',  
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const port = 3000; 
 
 app.use(bodyParser.json());

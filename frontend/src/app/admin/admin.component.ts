@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PoiService } from '../services/poi.service'; // Ajusta la ruta si es necesario
+import { PoiService } from '../services/poi.service'; 
 import { CommonModule } from '@angular/common'; 
 
 @Component({
@@ -20,7 +20,7 @@ export class AdminComponent {
     console.log('Cargando POIs pendientes...');
     this.poiService.getPendingPOIs().subscribe({
       next: (pois) => {
-        console.log('Datos recibidos:', pois); // Esto debería mostrar los POIs en la consola
+        console.log('Datos recibidos:', pois); 
         this.pendingPOIs = pois; 
         this.showPendingPOIs = true; 
       },
