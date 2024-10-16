@@ -17,8 +17,10 @@ export class AdminComponent {
   showPendingPOIs: boolean = false; 
 
   loadPendingPOIs() {
+    console.log('Cargando POIs pendientes...');
     this.poiService.getPendingPOIs().subscribe({
       next: (pois) => {
+        console.log('Datos recibidos:', pois); // Esto debería mostrar los POIs en la consola
         this.pendingPOIs = pois; 
         this.showPendingPOIs = true; 
       },
