@@ -1,8 +1,6 @@
 import express, { Request, Response, Express } from 'express'; 
 import { GestorDePOIs } from './gestorpoi';
 import { Admin } from './admin';
-import { POI } from './poi';
-import { Evento } from './evento';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 

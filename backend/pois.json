@@ -10,7 +10,11 @@
   },
   {
     "nombre": "Museo de Neuquén",
+<<<<<<< HEAD
     "direccion": "Calle Falsa 123",
+=======
+    "direccion": "LPM",
+>>>>>>> c5561c6005f6d20022ce62425d951194e77793c4
     "categoria": "Lugar",
     "descripcion": "Un lugar cultural en Neuquén.",
     "horarioApertura": "09:00",
