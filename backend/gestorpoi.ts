@@ -1,7 +1,6 @@
-import { POI } from './poi.ts'; // Importamos la clase POI
-import { Evento } from './evento.ts'; // Importamos la clase Evento
-import fs from 'fs'; //esto es para los archivos 
-import { GestorBaseDeDatos } from './gestordata.ts';
+import { POI } from './poi'; // Importamos la clase POI
+import { Evento } from './evento'; // Importamos la clase Evento
+import { GestorBaseDeDatos } from './gestordata'; // Importamos el gestor de base de datos
 
 interface DatosPOI {
   nombre: string;
@@ -21,76 +20,60 @@ export class GestorDePOIs {
 
   constructor() {
     this.gestorBD = new GestorBaseDeDatos();
+    this.cargarDesdeBD();
   }
 
-  //llama al gestor para que escriba en el json
-  private guardarEnJSON(): void {
-    const data = this.listaDePOIs.map(poi => ({
-        nombre: poi.getNombre(),
-        direccion: poi.getDireccion(),
-        categoria: poi.getCategoria(),
-        descripcion: poi.getDescripcion(),
-        horarioApertura: poi.getHorarioApertura(),
-        horarioCierre: poi.getHorarioCierre(),
-        status: poi.getStatus(),
-        ...(poi instanceof Evento && { fecha: poi.getFecha() })
-    }));
+  // llamar al GestorBaseDeDatos para leer el archivo JSON y cargar los POIs
+  private cargarDesdeBD(): void {
+    const poisLeidos = this.gestorBD.leerArchivo('pois.json');
+    if (poisLeidos) {
+      this.listaDePOIs = poisLeidos;
+      console.log('POIs cargados correctamente desde la base de datos.');
+    } else {
+      console.log('No se pudieron cargar los POIs desde la base de datos.');
+    }
+  }
 
-    // llamar al GestorBaseDeDatos para que guarde el archivo
-    this.gestorBD.guardarArchivo('pois.json', data);
-}
-
-
+  //llama a GestorBaseDeDatos para guardar los POIs en JSON
+  private guardarEnBD(): void {
+    this.gestorBD.guardarArchivo('pois.json', this.listaDePOIs);
+  }
 
   crearPOI(datosPOI: DatosPOI): void {
     const { nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, fecha } = datosPOI;
     const status = 'pending';
 
-    if(categoria == 'Lugar'){
+    if (categoria === 'Lugar') {
       const nuevoPOI = new POI(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status);
       this.listaDePOIs.push(nuevoPOI);
-    }
-    if(categoria == 'Evento'){
+    } else if (categoria === 'Evento') {
       if (!fecha) {
-        throw new Error("La fecha es obligatoria para crear un evento."); // Verificación de la fecha
+        throw new Error("La fecha es obligatoria para crear un evento.");
       }
-
       const nuevoEvento = new Evento(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status, fecha);
       this.listaDePOIs.push(nuevoEvento);
     }
-    // Guardar en JSON cada vez que se agrega un nuevo POI
-    this.guardarEnJSON();
-  }
 
-  public leerArchivo(): void {
-    const poisLeidos = this.gestorBD.leerArchivo('pois.json');
-    if (poisLeidos) {
-      this.listaDePOIs = poisLeidos;
-      console.log('Archivo JSON leído correctamente');
-    }
+    // Guardar en JSON cada vez que se agrega un nuevo POI
+    this.guardarEnBD();
   }
 
   getPOIs(): (POI | Evento)[] {
-    this.leerArchivo()
     return this.listaDePOIs;
   }
 
   getPendingPOIs(): (POI | Evento)[] {
-    this.leerArchivo()
-    return this.listaDePOIs.filter(poi => 'status' in poi && poi.status === 'pending');
+    return this.listaDePOIs.filter(poi => poi.getStatus() === 'pending');
   }
-  
+
   actualizarEstadoPOI(nombre: string, nuevoEstado: string): boolean {
-      const poi = this.listaDePOIs.find(poi => 'nombre' in poi && poi.nombre === nombre);
+    const poi = this.listaDePOIs.find(poi => poi.getNombre() === nombre);
     
-      if (poi && 'status' in poi ) {
-        poi.status = nuevoEstado;
-        this.guardarEnJSON();
-        return true;
-      }
-      return false;
+    if (poi) {
+      poi.getStatus();
+      this.guardarEnBD();  // Guardar los cambios en la base de datos
+      return true;
     }
-
-    
+    return false;
+  }
 }
-
