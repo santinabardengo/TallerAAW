@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Museo de Neuquén",
+    "direccion": "Calle Falsa 123",
+    "categoria": "Lugar",
+    "descripcion": "Un lugar cultural en Neuquén.",
+    "horarioApertura": "09:00",
+    "horarioCierre": "18:00",
+    "status": "pending"
+  },
+  {
+    "nombre": "Museo de Neuquén",
+    "direccion": "Calle Falsa 123",
+    "categoria": "Lugar",
+    "descripcion": "Un lugar cultural en Neuquén.",
+    "horarioApertura": "09:00",
+    "horarioCierre": "18:00",
+    "status": "pending"
+  }
+]

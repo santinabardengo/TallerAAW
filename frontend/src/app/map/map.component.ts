@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mapa',
@@ -7,6 +8,7 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements AfterViewInit {
+  constructor(private router: Router) { }
   private mapa: any;
 
   // Método para inyectar el CSS de Leaflet en tiempo de ejecución
@@ -30,5 +32,9 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.cargarLeafletCSS(); // Inyectar el CSS antes de inicializar el mapa
     this.initMapa(); // Inicializar el mapa
+  }
+
+  navigateToForm() {
+    this.router.navigate(['/formulario']);
   }
 }

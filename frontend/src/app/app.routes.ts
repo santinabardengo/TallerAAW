@@ -4,7 +4,7 @@ import { AdminPinComponent } from './admin-pin/admin-pin.component';
 import { MapComponent } from './map/map.component';
 import { UserMapComponent } from './user-map/user-map.component';
 import { AdminComponent } from './admin/admin.component';
-
+import { FormularioComponent } from './formulario/formulario.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +13,7 @@ export const routes: Routes = [
   { path: 'admin-pin', component: AdminPinComponent },
   { path: 'map', component: MapComponent},
   { path: 'user-map', component: UserMapComponent },
- 
+  { path: 'formulario', component: FormularioComponent}
+
 
 ];
