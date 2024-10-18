@@ -1,6 +1,7 @@
 import { POI } from './poi.ts'; // Importamos la clase POI
 import { Evento } from './evento.ts'; // Importamos la clase Evento
 import fs from 'fs'; //esto es para los archivos 
+import { GestorBaseDeDatos } from './gestordata.ts';
 
 interface DatosPOI {
   nombre: string;
@@ -16,26 +17,29 @@ interface DatosPOI {
 export class GestorDePOIs {
 
   private listaDePOIs: (POI | Evento)[] = []; 
+  private gestorBD: GestorBaseDeDatos;
 
-   // Función para escribir pois en el json
-   private guardarEnJSON(): void {
-    const data = JSON.stringify(
-        this.listaDePOIs.map(poi => ({
-            nombre: poi.getNombre(),
-            direccion: poi.getDireccion(),
-            categoria: poi.getCategoria(),
-            descripcion: poi.getDescripcion(),
-            horarioApertura: poi.getHorarioApertura(),
-            horarioCierre: poi.getHorarioCierre(),
-            status: poi.getStatus(),
-            ...(poi instanceof Evento && { fecha: poi.getFecha() }) // Si es un evento, agregar la fecha
-        })),
-        null,
-        2
-    );
+  constructor() {
+    this.gestorBD = new GestorBaseDeDatos();
+  }
 
-    fs.writeFileSync('pois.json', data, 'utf-8');
+  //llama al gestor para que escriba en el json
+  private guardarEnJSON(): void {
+    const data = this.listaDePOIs.map(poi => ({
+        nombre: poi.getNombre(),
+        direccion: poi.getDireccion(),
+        categoria: poi.getCategoria(),
+        descripcion: poi.getDescripcion(),
+        horarioApertura: poi.getHorarioApertura(),
+        horarioCierre: poi.getHorarioCierre(),
+        status: poi.getStatus(),
+        ...(poi instanceof Evento && { fecha: poi.getFecha() })
+    }));
+
+    // llamar al GestorBaseDeDatos para que guarde el archivo
+    this.gestorBD.guardarArchivo('pois.json', data);
 }
+
 
 
   crearPOI(datosPOI: DatosPOI): void {
@@ -58,24 +62,21 @@ export class GestorDePOIs {
     this.guardarEnJSON();
   }
 
-  public leerArchivo(ruta: string): void {
-    try {
-      const data = fs.readFileSync(ruta, 'utf-8');
-      const poisLeidos: (POI | Evento)[] = JSON.parse(data);
+  public leerArchivo(): void {
+    const poisLeidos = this.gestorBD.leerArchivo('pois.json');
+    if (poisLeidos) {
       this.listaDePOIs = poisLeidos;
-      console.log('Archivo JSON leído correctamente:');
-    } catch (error) {
-      console.error('Error al leer el archivo JSON:', error);
+      console.log('Archivo JSON leído correctamente');
     }
   }
 
   getPOIs(): (POI | Evento)[] {
-    this.leerArchivo("pois.json")
+    this.leerArchivo()
     return this.listaDePOIs;
   }
 
   getPendingPOIs(): (POI | Evento)[] {
-    this.leerArchivo("pois.json")
+    this.leerArchivo()
     return this.listaDePOIs.filter(poi => 'status' in poi && poi.status === 'pending');
   }
   
@@ -84,12 +85,12 @@ export class GestorDePOIs {
     
       if (poi && 'status' in poi ) {
         poi.status = nuevoEstado;
+        this.guardarEnJSON();
         return true;
       }
       return false;
     }
 
-   
     
 }
 
