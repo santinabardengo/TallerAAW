@@ -24,7 +24,7 @@
     font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
     font-weight: 600; /* Asegura un peso moderado */
     color: #ffffff; /* color del texto */
-    background-color: #5496e6; /* Color de fondo */
+    background-color: #457b9d; /* Color de fondo */
     width: 250px; 
     height: 80px; 
     border: none; /* Eliminar bordes por defecto */
@@ -37,13 +37,13 @@
 
 
 button:hover {
-  background-color: #297de4; /* Color más oscuro en hover */
+  background-color: #2774a4; /* Color más oscuro en hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
 }
 
 /* Estilo para el enlace */
 .button-admin {
-  color: #297de4; /* Color del texto */
+  color: #457b9d; /* Color del texto */
   justify-content: center;
   align-items: center;
   font-weight: bold; /* Hacer el texto en negrita */
@@ -52,10 +52,11 @@ button:hover {
   text-decoration: underline; /* Añadir subrayado al pasar el mouse */
   margin: 0;
   height: 30vh;
+  cursor: pointer;
   display: flex;
 }
 
 /* Cambiar el color del texto al pasar el mouse */
 .button-admin:hover {
-  color: #297de4;
+  color: #2774a4;
 }

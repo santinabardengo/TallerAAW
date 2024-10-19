@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { PoiService } from '../services/poi.service'; 
 import { CommonModule } from '@angular/common'; 
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MapComponent],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })

@@ -1,23 +1,22 @@
 <div class="admin-container">
-  <!-- Botón para cargar los POIs pendientes -->
-  <button (click)="loadPendingPOIs()">POIs pendientes</button>
+  <!-- Mapa integrado -->
+  <app-mapa></app-mapa> <!-- Aquí se renderiza el mapa -->
 
-  <!-- Lista de POIs pendientes -->
-  <div *ngIf="showPendingPOIs && pendingPOIs.length > 0">
+  <!-- Botón para cargar los POIs pendientes -->
+  <div class="pois-pendientes-btn">
+    <button (click)="loadPendingPOIs()">POIs pendientes</button>
+  </div>
+
+  <!-- Recuadro de POIs pendientes superpuesto sobre el mapa -->
+  <div class="pois-pendientes" *ngIf="showPendingPOIs">
     <h3>POIs pendientes:</h3>
     <ul>
       <li *ngFor="let poi of pendingPOIs">
         {{ poi.nombre }}
-        <!-- Botones para aprobar o rechazar -->
         <button (click)="approvePOI(poi.nombre)">Aprobar</button>
         <button (click)="rejectPOI(poi.nombre)">Rechazar</button>
       </li>
     </ul>
-  </div>
-
-  <!-- Mensaje si no hay POIs pendientes -->
-  <div *ngIf="showPendingPOIs && pendingPOIs.length === 0">
-    <p>No hay puntos de interés pendientes de revisión.</p>
   </div>
 </div>
 

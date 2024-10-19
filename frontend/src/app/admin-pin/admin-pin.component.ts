@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-admin-pin',
   standalone: true,
   templateUrl: './admin-pin.component.html',
+  styleUrls: ['./admin-pin.component.css'],
   imports: [CommonModule],
 })
 
