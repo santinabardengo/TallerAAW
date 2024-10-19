@@ -11,7 +11,7 @@
   margin-left: 6cm;
  }
 
-.button-container {
+.button-user {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,13 +22,13 @@
   button {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
-    font-weight: 500; /* Asegura un peso moderado */
-    color: #000; /* color del texto */
-    background-color: #A8DADC; /* Color de fondo */
-    width: 300px; 
+    font-weight: 600; /* Asegura un peso moderado */
+    color: #ffffff; /* color del texto */
+    background-color: #5496e6; /* Color de fondo */
+    width: 250px; 
     height: 80px; 
     border: none; /* Eliminar bordes por defecto */
-    border-radius: 8px; /* Bordes redondeados para un look moderno */
+    border-radius: 100px; /* Bordes redondeados para un look moderno */
     padding: 12px 24px; /* Espaciado interno cómodo */
     cursor: pointer; /* Cambiar el cursor a mano para botones */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
@@ -37,6 +37,25 @@
 
 
 button:hover {
-  background-color: #79bfc1; /* Color más oscuro en hover */
+  background-color: #297de4; /* Color más oscuro en hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+}
+
+/* Estilo para el enlace */
+.button-admin {
+  color: #297de4; /* Color del texto */
+  justify-content: center;
+  align-items: center;
+  font-weight: bold; /* Hacer el texto en negrita */
+  font-size: 18px; /* Tamaño de la fuente */
+  transition: color 0.3s ease; /* Animación suave para cambiar el color */
+  text-decoration: underline; /* Añadir subrayado al pasar el mouse */
+  margin: 0;
+  height: 30vh;
+  display: flex;
+}
+
+/* Cambiar el color del texto al pasar el mouse */
+.button-admin:hover {
+  color: #297de4;
 }
