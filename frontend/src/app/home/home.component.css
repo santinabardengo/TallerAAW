@@ -1,13 +1,42 @@
+ h1 {
+  font-family: "Arima", system-ui;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 2cm;
+
+ } 
+
+ p {
+  font-size: 20px;
+  margin-left: 6cm;
+ }
+
 .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
+    gap: 1rem;
   }
   
   button {
-    font-size: 20px;
-    padding: 20px;
-    margin: 20px;
-  }
-  
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
+    font-weight: 500; /* Asegura un peso moderado */
+    color: #000; /* color del texto */
+    background-color: #A8DADC; /* Color de fondo */
+    width: 300px; 
+    height: 80px; 
+    border: none; /* Eliminar bordes por defecto */
+    border-radius: 8px; /* Bordes redondeados para un look moderno */
+    padding: 12px 24px; /* Espaciado interno cómodo */
+    cursor: pointer; /* Cambiar el cursor a mano para botones */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+}
+
+
+button:hover {
+  background-color: #79bfc1; /* Color más oscuro en hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+}
