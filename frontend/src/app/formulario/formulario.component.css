@@ -1,0 +1,77 @@
+/* Centrado del formulario */
+.formulario_poi {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    max-height: 80vh; /* Altura máxima para permitir el scroll */
+    overflow-y: auto; 
+}
+
+/* Estilos para el título */
+.formulario_poi h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Estilos para las etiquetas */
+.formulario_poi label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Estilos para los campos de entrada */
+.formulario_poi .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    color: #333;
+}
+
+/* Efecto de hover en los campos de entrada */
+.formulario_poi .input-field:hover {
+    border-color: #457B9D;
+}
+
+/* Efecto de foco en los campos de entrada */
+.formulario_poi .input-field:focus {
+    border-color: #457B9D;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.formulario_poi::-webkit-scrollbar {
+    width: 8px;
+}
+
+.formulario_poi::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.formulario_poi::-webkit-scrollbar-thumb {
+    background-color: #457B9D;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.formulario_poi::-webkit-scrollbar-thumb:hover {
+    background-color: #233a66;
+}
