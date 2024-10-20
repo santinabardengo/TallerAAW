@@ -127,3 +127,22 @@ select {
     outline: none;
 }
 
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; /* Ajusta este valor según el tamaño que necesites */
+    font-weight: 600; /* Asegura un peso moderado */
+    color: #ffffff; /* color del texto */
+    background-color: #457b9d; /* Color de fondo */
+    width: 150px; 
+    height: 40px; 
+    border: none; /* Eliminar bordes por defecto */
+    border-radius: 100px; /* Bordes redondeados para un look moderno */
+    padding: 12px 24px; /* Espaciado interno cómodo */
+    cursor: pointer; /* Cambiar el cursor a mano para botones */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+}
+button:hover {
+    background-color: #154360; /* Color más oscuro en hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+}

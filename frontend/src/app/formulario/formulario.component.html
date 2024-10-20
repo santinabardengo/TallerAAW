@@ -1,35 +1,59 @@
 <div class="formulario_poi">
     <h3>Agregar Punto de interés</h3>
     
-    <label>Nombre:</label>
-    <input type="text" placeholder="Nombre del POI" class="input-field"/><br/><br/>
+    <form (ngSubmit) = "enviarFormulario()">
 
-    <label>Dirección:</label>
-    <input type="text" placeholder="Dirección del POI" class="input-field"/><br/><br/>
+        <label for = "nombre">Nombre:</label>
+        <input type="text" 
+            placeholder="Nombre del POI" 
+            [(ngModel)]="nombre" 
+            name="nombre" 
+            class="input-field" required /><br/><br/>
 
-    <label>Categoría:</label>
-    <div class="custom-select">
-    <select [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" class="input-field">
-        <option value="" disabled selected>Seleccionar categoría</option>
-        <option value="lugar">Lugar</option>
-        <option value="evento">Evento</option>
-    </select><br/><br/>
-    </div>  
+        <label>Dirección:</label>
+        <input type="text" 
+            placeholder="Dirección del POI" 
+            [(ngModel)]="direccion" 
+            name="direccion" 
+            class="input-field" required /><br/><br/>
+
+        <label>Categoría:</label>
+        <div class="custom-select">
+        <select [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" class="input-field">
+            <option value="" disabled selected>Seleccionar categoría</option>
+            <option value="lugar">Lugar</option>
+            <option value="evento">Evento</option>
+        </select><br/><br/>
+        </div>  
 
 
-    <label>Descripción:</label>
-    <input type="text" placeholder="Descripción" class="input-field"/><br/><br/>
+        <label>Descripción:</label>
+        <input type="text" 
+            placeholder="Descripción" 
+            [(ngModel)]="descripcion" 
+            name="descripcion" 
+            class="input-field" required /><br/><br/>
 
-    <label>Horario Apertura:</label>
-    <input type="time" [(ngModel)]="horarioApertura" class="input-field"/><br/><br/>
+        <label>Horario Apertura:</label>
+        <input type="time" 
+            [(ngModel)]="horarioApertura" 
+            name="horarioApertura" 
+            class="input-field" required /><br/><br/>
 
-    <label>Horario Cierre:</label>
-    <input type="time" [(ngModel)]="horarioCierre" class="input-field"/><br/><br/>
+        <label>Horario Cierre:</label>
+        <input type="time" 
+            [(ngModel)]="horarioCierre" 
+            name="horarioCierre" 
+            class="input-field" required /><br/><br/>
 
-    <div *ngIf="mostrarFechaEvento">
-        <label>Fecha del Evento:</label>
-        <input type="date" class="input-field"/><br/><br/>
-    </div>
+        <div *ngIf="mostrarFechaEvento">
+            <label>Fecha del Evento:</label>
+            <input type="date" 
+                [(ngModel)]="fechaEvento" 
+                name="fechaEvento" 
+                class="input-field" /><br/><br/>
+        </div>
 
-    <!-- <button (click)="enviarFormulario()">Crear POI</button> -->
+        <button id = "boton_enviar" (click)="enviarFormulario()">Agregar al mapa</button> 
+    </form>
 </div>
