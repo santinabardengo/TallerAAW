@@ -75,3 +75,55 @@
 .formulario_poi::-webkit-scrollbar-thumb:hover {
     background-color: #233a66;
 }
+
+.input-field, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 16px; 
+
+}
+
+select {
+    appearance: none; 
+    background-color: white;
+    cursor: pointer;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%; /* O el tamaño que desees */
+    font-family: 'Montserrat', sans-serif; /* Aplica la tipografía que ya usas */
+}
+
+.custom-select select {
+    width: 100%;
+    padding: 10px;
+    appearance: none; /* Oculta el selector predeterminado del navegador */
+    font-family: inherit; /* Asegura que herede la tipografía */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-select::after {
+    content: '▼'; /* Icono de dropdown */
+    position: absolute;
+    top: 32%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #457B9D;
+}
+
+.custom-select select:focus {
+    border-color: #457B9D;
+    outline: none;
+}
+
