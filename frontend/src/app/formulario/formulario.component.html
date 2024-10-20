@@ -3,52 +3,61 @@
     
     <form (ngSubmit) = "enviarFormulario()">
 
-        <label for = "nombre">Nombre:</label>
+        <label for = "nombreId">Nombre:</label>
         <input type="text" 
+            id = "nombreId"
             placeholder="Nombre del POI" 
             [(ngModel)]="nombre" 
             name="nombre" 
             class="input-field" required /><br/><br/>
 
-        <label>Dirección:</label>
+        <label for = "direccionId">Dirección:</label>
         <input type="text" 
+            id = "direccionId"
             placeholder="Dirección del POI" 
             [(ngModel)]="direccion" 
             name="direccion" 
             class="input-field" required /><br/><br/>
 
-        <label>Categoría:</label>
+        <label for = "categoriaId">Categoría:</label>
         <div class="custom-select">
-        <select [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" class="input-field">
+            <select id = "categoriaId"
+                [(ngModel)]="categoriaSeleccionada" 
+                (change)="CambioCategoria()" 
+                name = "categoriaSeleccionada"
+                class="input-field">
             <option value="" disabled selected>Seleccionar categoría</option>
             <option value="lugar">Lugar</option>
             <option value="evento">Evento</option>
         </select><br/><br/>
         </div>  
 
-
-        <label>Descripción:</label>
+        <label for = "descripcionId">Descripción:</label>
         <input type="text" 
+            id = "descripcionId"
             placeholder="Descripción" 
             [(ngModel)]="descripcion" 
             name="descripcion" 
             class="input-field" required /><br/><br/>
 
-        <label>Horario Apertura:</label>
+        <label for = "horarioAperturaId">Horario Apertura:</label>
         <input type="time" 
+            id = "horarioAperturaId"
             [(ngModel)]="horarioApertura" 
             name="horarioApertura" 
             class="input-field" required /><br/><br/>
 
-        <label>Horario Cierre:</label>
+        <label for = "horarioCierreId">Horario Cierre:</label>
         <input type="time" 
+            id = "horarioCierreId"
             [(ngModel)]="horarioCierre" 
             name="horarioCierre" 
             class="input-field" required /><br/><br/>
 
         <div *ngIf="mostrarFechaEvento">
-            <label>Fecha del Evento:</label>
+            <label for = "fechaEventoId">Fecha del Evento:</label>
             <input type="date" 
+                id = "fechaEventoId"
                 [(ngModel)]="fechaEvento" 
                 name="fechaEvento" 
                 class="input-field" /><br/><br/>

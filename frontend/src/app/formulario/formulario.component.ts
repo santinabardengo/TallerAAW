@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     CommonModule, FormsModule
   ],
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
   categoriaSeleccionada = '';
@@ -21,14 +21,15 @@ export class FormularioComponent {
   nombre = '';
   direccion = '';
   descripcion = '';
-  fechaEvento? = '';
-
-
-  CambioCategoria(){
-    this.mostrarFechaEvento = this.categoriaSeleccionada === 'evento';
-  }
+  fechaEvento = '';
 
   constructor(private poiService: PoiService, private router: Router){}
+
+  CambioCategoria(){
+    console.log('Categoría seleccionada:', this.categoriaSeleccionada);
+    this.mostrarFechaEvento = this.categoriaSeleccionada === 'evento';
+    console.log('Mostrar Fecha del Evento:', this.mostrarFechaEvento);
+  }
   
   //enviar el formulario cuando se copmlete
 
@@ -40,7 +41,7 @@ export class FormularioComponent {
       descripcion: this.descripcion,
       horarioApertura: this.horarioApertura,
       horarioCierre: this.horarioCierre,
-      fechaEvento: this.fechaEvento
+      fechaEvento: this.mostrarFechaEvento ? this.fechaEvento : null
     };
     
     this.poiService.createPOI(newPoi).subscribe({
