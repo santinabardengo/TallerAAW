@@ -21,9 +21,9 @@ const admin = new Admin(gestor);
 
 // obtener POIs pendienes
 app.get('/points-of-interest/pending', (req: Request, res: Response) => {
-  const pendingPOIs = gestor.getPendingPOIs();
-  const poiNames = pendingPOIs.map(poi => poi.getNombre()); 
-  res.json(poiNames); 
+  const pendingPOIs = gestor.getPendingPOIs();  
+  const poiNames = pendingPOIs.map(poi => poi.getNombre());  
+  res.json(poiNames);
 });
 
 //crear POI
