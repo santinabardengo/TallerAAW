@@ -23,7 +23,7 @@ export class PoiService {
 
   // Aprobar un POI
   approvePOI(nombre: string) {
-    return this.http.post(`${this.baseUrl}/${nombre}/approve`, {});
+    return this.http.post(`${this.baseUrl}/${encodeURIComponent(nombre)}/approve`, {});
   }
 
   // Rechazar un POI

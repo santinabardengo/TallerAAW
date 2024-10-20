@@ -52,6 +52,7 @@ export class GestorDePOIs {
     const poi = this.gestorBD.leerArchivo('pois.json').find(poi => poi.getNombre() === nombre);
     if (poi) {
       poi.setStatus(nuevoEstado);
+      this.gestorBD.guardarPoiArchivo('pois.json', poi)
       return true;
     }
     return false;

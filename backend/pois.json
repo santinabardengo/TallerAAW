@@ -6,7 +6,7 @@
     "descripcion": "Un lugar cultural en Neuquén.",
     "horarioApertura": "09:00",
     "horarioCierre": "18:00",
-    "status": "pending"
+    "status": "approved"
   },
   {
     "nombre": "Parque Nacional Lanín",
@@ -15,24 +15,6 @@
     "descripcion": "Un parque nacional con paisajes de montañas, lagos y bosques, ideal para senderismo y actividades al aire libre.",
     "horarioApertura": "08:00",
     "horarioCierre": "19:00",
-    "status": "pending"
-  },
-  {
-    "nombre": "Termas de Copahue",
-    "direccion": "Avenida Termas s/n, Caviahue-Copahue",
-    "categoria": "Lugar",
-    "descripcion": "Centro termal famoso por sus aguas minerales y terapias de relajación.",
-    "horarioApertura": "10:00",
-    "horarioCierre": "18:00",
-    "status": "pending"
-  },
-  {
-    "nombre": "Centro Cultural Alberdi",
-    "direccion": "Alberdi 12, Neuquén Capital",
-    "categoria": "Lugar",
-    "descripcion": "Espacio cultural con exposiciones de arte, talleres y eventos para la comunidad.",
-    "horarioApertura": "09:30",
-    "horarioCierre": "21:00",
-    "status": "pending"
+    "status": "approved"
   }
 ]

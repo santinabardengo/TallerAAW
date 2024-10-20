@@ -26,35 +26,48 @@ export class GestorBaseDeDatos {
 //Dado un POI, escribilo en el archivo
 guardarPoiArchivo(ruta: string, poi: POI | Evento): void {
     try {
-        let poisLeidos: any[] = [];
-        try {
-            const data = fs.readFileSync(ruta, 'utf-8');
-            if (data.trim() !== '') {
-                poisLeidos = JSON.parse(data); // Parsear el JSON si el archivo no está vacío
-            }
-        } catch (error) {
-            console.log('Archivo no encontrado o vacío, inicializando un nuevo arreglo.');
+      let poisLeidos: any[] = [];
+  
+      // Leer el contenido del archivo, si existe
+      try {
+        const data = fs.readFileSync(ruta, 'utf-8');
+        if (data.trim() !== '') {
+          poisLeidos = JSON.parse(data);
         }
-        const poiData = {
-            nombre: poi.getNombre(),
-            direccion: poi.getDireccion(),
-            categoria: poi.getCategoria(),
-            descripcion: poi.getDescripcion(),
-            horarioApertura: poi.getHorarioApertura(),
-            horarioCierre: poi.getHorarioCierre(),
-            status: poi.getStatus(),
-            ...(poi instanceof Evento && { fecha: poi.getFecha() })  // Solo agregar fecha si es un Evento
-        };
-
+      } catch (error) {
+        console.log('Archivo no encontrado o vacío, inicializando un nuevo arreglo.');
+      }
+  
+      // Crear el objeto POI a guardar
+      const poiData = {
+        nombre: poi.getNombre(),
+        direccion: poi.getDireccion(),
+        categoria: poi.getCategoria(),
+        descripcion: poi.getDescripcion(),
+        horarioApertura: poi.getHorarioApertura(),
+        horarioCierre: poi.getHorarioCierre(),
+        status: poi.getStatus(),
+        ...(poi instanceof Evento && { fecha: poi.getFecha() })  // Solo si es un Evento
+      };
+  
+      // Buscar el índice del POI existente en el arreglo
+      const index = poisLeidos.findIndex((p) => p.nombre === poi.getNombre());
+  
+      if (index !== -1) {
+        // Si el POI existe, actualizarlo
+        poisLeidos[index] = poiData;
+      } else {
+        // Si no existe, agregarlo al final del arreglo
         poisLeidos.push(poiData);
-
-        // Escribir el arreglo actualizado en el archivo
-        fs.writeFileSync(ruta, JSON.stringify(poisLeidos, null, 2), 'utf-8');
-
+      }
+  
+      // Escribir el arreglo actualizado en el archivo
+      fs.writeFileSync(ruta, JSON.stringify(poisLeidos, null, 2), 'utf-8');
     } catch (error) {
-        console.error('Error al guardar los POIs en el archivo:', error);
+      console.error('Error al guardar los POIs en el archivo:', error);
     }
-}
+  }
+  
 
 
 iniciarBD(ruta: string): void {
