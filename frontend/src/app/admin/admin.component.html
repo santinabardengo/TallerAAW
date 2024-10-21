@@ -1,22 +1,27 @@
 <div class="admin-container">
   <!-- Mapa integrado -->
-  <app-mapa></app-mapa> <!-- Aquí se renderiza el mapa -->
+  <app-mapa></app-mapa>
 
   <!-- Botón para cargar los POIs pendientes -->
   <div class="pois-pendientes-btn">
     <button (click)="loadPendingPOIs()">POIs pendientes</button>
   </div>
 
-  <!-- Recuadro de POIs pendientes superpuesto sobre el mapa -->
+  <!-- Recuadro de POIs pendientes -->
   <div class="pois-pendientes" *ngIf="showPendingPOIs">
     <h3>POIs pendientes:</h3>
     <ul>
       <li *ngFor="let poi of pendingPOIs">
         {{ poi }}
-        <button (click)="approvePOI(poi)">Aprobar</button>
-        <button (click)="rejectPOI(poi)">Rechazar</button>
+        <button class="icon-button" (click)="approvePOI(poi)">✔️</button>
+        <button class="icon-button" (click)="rejectPOI(poi)">❌</button>
       </li>
     </ul>
-  </div>  
+  </div>
+
+  <!-- Contenedor de confirmación -->
+  <div class="confirmation" *ngIf="confirmationMessage">
+    {{ confirmationMessage }}
+  </div>
 </div>
 
