@@ -150,3 +150,13 @@ button:hover {
     background-color: #154360; /* Color más oscuro en hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
 }
+
+/* Mensajes de error pequeños en rojo */
+.error-msg {
+    color: red;
+    font-size: 0.75em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  

@@ -27,10 +27,10 @@ export class GestorDePOIs {
     const { nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, fecha } = datosPOI;
     const status = 'pending';
 
-    if (categoria === 'Lugar') {
+    if (categoria === 'lugar') {
       const nuevoPOI = new POI(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status);
       this.gestorBD.guardarPoiArchivo('pois.json', nuevoPOI);
-    } else if (categoria === 'Evento') {
+    } else if (categoria === 'evento') {
       if (!fecha) {
         throw new Error("La fecha es obligatoria para crear un evento.");
       }

@@ -15,6 +15,15 @@
     "descripcion": "Un parque nacional con paisajes de montañas, lagos y bosques, ideal para senderismo y actividades al aire libre.",
     "horarioApertura": "08:00",
     "horarioCierre": "19:00",
-    "status": "approved"
+    "status": "pending"
+  },
+  {
+    "nombre": "hola",
+    "direccion": "Casa Ine",
+    "categoria": "lugar",
+    "descripcion": "Un cerro xd",
+    "horarioApertura": "16:53",
+    "horarioCierre": "22:49",
+    "status": "pending"
   }
 ]
