@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 
 interface PointOfInterest {
-  name: string;
-  description: string;
+  nombre: string;
+  descripcion: string;
   direccion: string;
   horarioApertura: string;
   horarioCierre: string;
