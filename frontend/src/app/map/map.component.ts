@@ -4,8 +4,8 @@ import { GeocodingService } from '../services/geocodificacion.service';
 import { Router } from '@angular/router';
 
 interface PointOfInterest {
-  name: string;
-  description: string;
+  nombre: string;
+  descripcion: string;
   direccion: string;
   horarioApertura: string;
   horarioCierre: string;
@@ -65,7 +65,13 @@ export class MapComponent implements AfterViewInit {
   agregarMarcador(lat: number, lng: number, punto: PointOfInterest): void {
     const L = (window as any).L;
     const marcador = L.marker([lat, lng]).addTo(this.marcador);
-    marcador.bindPopup(`<strong>${punto.name}</strong><br>${punto.description}`).openPopup();
+    marcador.bindPopup(`
+    <strong>${punto.nombre}</strong><br>
+    <p>${punto.descripcion}</p>
+    <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+    <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+    <p><strong>Dirección:</strong> ${punto.direccion}</p>
+  `).openPopup();
   }
 
   buscarDireccion(punto: PointOfInterest): void {
