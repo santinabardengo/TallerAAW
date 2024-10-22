@@ -12,9 +12,9 @@
     <h3>POIs pendientes:</h3>
     <ul>
       <li *ngFor="let poi of pendingPOIs">
-        {{ poi }}
-        <button class="icon-button" (click)="approvePOI(poi)">✔️</button>
-        <button class="icon-button" (click)="rejectPOI(poi)">❌</button>
+        {{ poi.nombre }}
+        <button class="icon-button" (click)="approvePOI(poi.nombre)">✔️</button>
+        <button class="icon-button" (click)="rejectPOI(poi.nombre)">❌</button>
       </li>
     </ul>
   </div>
