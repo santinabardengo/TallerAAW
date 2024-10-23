@@ -1,4 +1,5 @@
 .pin-container {
+    font-family: 'Montserrat', sans-serif;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -20,11 +21,13 @@ p {
     align-self: flex-start;
     padding-left: 30px;
     font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
 }
 h3 {
     margin-bottom: 30px; /* Espacio debajo del encabezado */
     font-size: 25px;
     color: #333; /* Color del texto del encabezado */
+    font-family: 'Montserrat', sans-serif;
 }
 
 input[type="password"] {
@@ -34,6 +37,7 @@ input[type="password"] {
     border-radius: 4px; /* Bordes redondeados */
     margin-bottom: 20px; /* Espacio debajo del input */
     font-size: 16px; /* Tamaño de fuente */
+    font-family: 'Montserrat', sans-serif;
 }
 
 button {
@@ -46,6 +50,10 @@ button {
     cursor: pointer; /* Cursor de puntero */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efecto de transición */
+    font-family: 'Montserrat', sans-serif;
+    justify-items: center;
+    align-items: center;
+    font-weight: 600;
 }
 
 button:hover {
@@ -55,4 +63,5 @@ button:hover {
 
 div[style*="color: red;"] {
     margin-top: 10px; /* Espacio encima del mensaje de error */
+    font-family: 'Montserrat', sans-serif;
 }
