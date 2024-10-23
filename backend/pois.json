@@ -25,5 +25,14 @@
     "horarioApertura": "16:53",
     "horarioCierre": "22:49",
     "status": "pending"
+  },
+  {
+    "nombre": "lo de betty",
+    "direccion": "san martin ",
+    "categoria": "lugar",
+    "descripcion": "restoran muy rico de fondue",
+    "horarioApertura": "19:05",
+    "horarioCierre": "22:05",
+    "status": "pending"
   }
 ]
