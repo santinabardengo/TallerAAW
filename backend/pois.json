@@ -15,7 +15,7 @@
     "descripcion": "Este museo alberga una colección de arte argentino y latinoamericano, incluyendo obras de artistas contemporáneos y clásicos. También ofrece exposiciones temporales y actividades culturales.",
     "horarioApertura": "9:00",
     "horarioCierre": "19:00",
-    "status": "pending"
+    "status": "approved"
   },
   {
     "nombre": "Volcán Copahue",
@@ -34,5 +34,32 @@
     "horarioApertura": "9:00",
     "horarioCierre": "17:00",
     "status": "approved"
+  },
+  {
+    "nombre": "Cuore Di Panna",
+    "direccion": "Santa Fe 797, Q8300",
+    "categoria": "lugar",
+    "descripcion": "Heladería artesanal en el centro de la ciudad de Neuquén",
+    "horarioApertura": "08:30",
+    "horarioCierre": "23:00",
+    "status": "approved"
+  },
+  {
+    "nombre": "Chapelco",
+    "direccion": "Ruta Provincial 19 Km 12, Q8370",
+    "categoria": "lugar",
+    "descripcion": "Centro de esquí y snowboard",
+    "horarioApertura": "09:30",
+    "horarioCierre": "17:00",
+    "status": "pending"
+  },
+  {
+    "nombre": "mi casa",
+    "direccion": "hola",
+    "categoria": "lugar",
+    "descripcion": "nanu crack",
+    "horarioApertura": "13:44",
+    "horarioCierre": "18:44",
+    "status": "pending"
   }
 ]
