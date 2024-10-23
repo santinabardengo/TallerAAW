@@ -26,14 +26,14 @@
   
       <label for="horarioCierreId">Horario Cierre:</label>
       <input type="time" id="horarioCierreId" [(ngModel)]="horarioCierre" name="horarioCierre" class="input-field" /><br />
-      <span *ngIf="horarioApertura && horarioCierre && horarioApertura >= horarioCierre" class="error-msg">{{ errorHorario }}
-      </span>
+     
   
       <div *ngIf="mostrarFechaEvento">
         <label for="fechaEventoId">Fecha del Evento:</label>
-        <input type="date" id="fechaEventoId" [(ngModel)]="fechaEvento" name="fechaEvento" class="input-field" /><br />
+        <input type="date" id="fechaEventoId" [(ngModel)]="fecha" name="fecha" class="input-field" /><br />
       </div>
-  
+      <span *ngIf="fecha > fechaFormateada" class="error-msg">{{ errorFecha }}
+    </span>
       <div *ngIf="errorCamposFaltantes" class="error-msg">{{ errorCamposFaltantes }}</div>
   
       <button id="boton_enviar" type="submit" [disabled]="!poiForm.form.valid">Agregar al mapa</button>

@@ -19,14 +19,18 @@ export class FormularioComponent {
   nombre = '';
   direccion = '';
   descripcion = '';
-  fechaEvento = '';
+  fecha = '';
   errorCamposFaltantes = '';
   errorLongitudDesc = ''; 
-  errorHorario = '';
+  errorFecha = '';
+  fechaFormateada = '';
 
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
-  constructor(private poiService: PoiService, private router: Router) {}
+  constructor(private poiService: PoiService, private router: Router) {
+    const hoy = new Date();
+    const fechaFormateada = hoy.toISOString().split('T')[0]; 
+  }
 
   CambioCategoria() {
     this.mostrarFechaEvento = this.categoriaSeleccionada === 'evento';
@@ -51,14 +55,16 @@ export class FormularioComponent {
       this.errorLongitudDesc = 'La descripción no puede exceder los 150 caracteres.';
       noHayError = false;
     }
-
+   
+    
     // Validación de horarios si ambos están completos
-    if (this.horarioApertura && this.horarioCierre && this.horarioApertura >= this.horarioCierre) {
-      this.errorHorario = 'El horario de apertura debe ser menor que el de cierre.';
+
+    if (this.fecha > this.fechaFormateada) {
+      this.errorFecha = 'Fecha inválida';
       noHayError = false;
     }
 
-    if (!this.errorCamposFaltantes && !this.errorLongitudDesc && !this.errorHorario){ // Sin errores
+    if (!this.errorCamposFaltantes && !this.errorLongitudDesc && !this.errorFecha){ // Sin errores
       noHayError = true;
     }
 
@@ -68,6 +74,7 @@ export class FormularioComponent {
   enviarFormulario() {
     if (!this.esFormularioValido()) {
       return; // No enviar si es inválido
+
     }
 
     const newPoi = {
@@ -77,15 +84,16 @@ export class FormularioComponent {
       descripcion: this.descripcion,
       horarioApertura: this.horarioApertura,
       horarioCierre: this.horarioCierre,
-      fechaEvento: this.mostrarFechaEvento ? this.fechaEvento : null
+      fecha: this.mostrarFechaEvento ? this.fecha : null
     };
-
+  
     this.poiService.createPOI(newPoi).subscribe({
       next: (response) => {
         console.log('POI creado', response);
-        this.router.navigate(['/map']);
+        this.router.navigate(['/user-map']);
       },
       error: (err) => console.error('Error al crear POI', err)
+
     });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PoiService } from '../services/poi.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
+import { Router, NavigationEnd } from '@angular/router';
 
 interface PointOfInterest {
   nombre: string;
@@ -22,17 +23,29 @@ interface PointOfInterest {
 export class UserMapComponent implements OnInit {
   puntosDeInteres: PointOfInterest[] = [];
 
-  constructor(private poiService: PoiService) {}
-
-  ngOnInit(): void {
-    // Obtener los puntos de interés del servicio
+  constructor(private poiService: PoiService, private router: Router) {}
+  cargarPuntosDeInteres(): void {
     this.poiService.getApprovedPOIs().subscribe(
       (puntos: PointOfInterest[]) => {
-        this.puntosDeInteres = puntos; 
+        this.puntosDeInteres = puntos;
       },
       (error) => {
         console.error('Error al obtener puntos de interés:', error);
       }
     );
   }
+  ngOnInit(): void {
+    // Inicialmente cargamos los POIs
+    this.cargarPuntosDeInteres();
+
+    // Escuchar cuando el usuario navega de vuelta a este componente
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Cuando la navegación termina (ej. regresando a este componente)
+        this.cargarPuntosDeInteres();
+      }
+    });
+  }
+
+
 }

@@ -13,6 +13,7 @@ export class PoiService {
 
   // Crear un nuevo POI
   createPOI(poiData: any) {
+    console.log(poiData);
     return this.http.post(`${this.baseUrl}`, poiData);
   }
 

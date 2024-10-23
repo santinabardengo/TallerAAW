@@ -57,6 +57,7 @@ export class MapComponent implements AfterViewInit {
   private marcarPuntosDeInteres(): void {
     const L = (window as any).L;
     // Iterar sobre los puntos de interés y añadir un marcador para cada uno
+    
     this.puntosDeInteres.forEach((punto) => {
       this.buscarDireccion(punto)
     });
