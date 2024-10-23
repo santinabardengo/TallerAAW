@@ -10,7 +10,7 @@ export class GestorBaseDeDatos {
         const data = fs.readFileSync(ruta, 'utf-8');
         const poisLeidos = JSON.parse(data);
         const pois = poisLeidos.map((poiData: any) => {
-            return poiData.categoria === 'Evento'
+            return poiData.categoria === 'evento'
                 ? Evento.fromJSON(poiData)
                 : POI.fromJSON(poiData); //PREGUNTAR
         });

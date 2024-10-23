@@ -12,7 +12,7 @@ export class HomeComponent {
   constructor(private router: Router) { }
 
   navigateToUser() {
-    this.router.navigate(['/map']);
+    this.router.navigate(['/user-map']);
   }
 
   navigateToAdmin() {

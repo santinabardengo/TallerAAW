@@ -48,6 +48,10 @@ export class GestorDePOIs {
     return this.gestorBD.leerArchivo('pois.json').filter(poi => poi.getStatus() === 'pending');
   }
 
+  getApprovedPOIs(): (POI | Evento)[] {
+    return this.gestorBD.leerArchivo('pois.json').filter(poi => poi.getStatus() === 'approved');
+  }
+
   actualizarEstadoPOI(nombre: string, nuevoEstado: string): boolean {
     const poi = this.gestorBD.leerArchivo('pois.json').find(poi => poi.getNombre() === nombre);
     if (poi) {

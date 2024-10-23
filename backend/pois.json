@@ -1,29 +1,65 @@
 [
   {
-    "nombre": "Museo de Neuquén",
-    "direccion": "Calle Falsa 123",
+    "nombre": "Parque Nacional Lanín",
+    "direccion": "Ruta 40, Neuquén, Argentina",
     "categoria": "Lugar",
-    "descripcion": "Un lugar cultural en Neuquén.",
-    "horarioApertura": "09:00",
+    "descripcion": "Un área protegida que ofrece paisajes espectaculares con montañas, lagos y bosques. Es ideal para el senderismo, el camping y la observación de flora y fauna.",
+    "horarioApertura": "8:00",
     "horarioCierre": "18:00",
     "status": "approved"
   },
   {
-    "nombre": "Parque Nacional Lanín",
-    "direccion": "Ruta Provincial 61, San Martín de los Andes",
+    "nombre": "Museo Nacional de Bellas Arte",
+    "direccion": "Avenida Olascoaga 200, Neuquén, Argentina",
     "categoria": "Lugar",
-    "descripcion": "Un parque nacional con paisajes de montañas, lagos y bosques, ideal para senderismo y actividades al aire libre.",
-    "horarioApertura": "08:00",
+    "descripcion": "Este museo alberga una colección de arte argentino y latinoamericano, incluyendo obras de artistas contemporáneos y clásicos. También ofrece exposiciones temporales y actividades culturales.",
+    "horarioApertura": "9:00",
     "horarioCierre": "19:00",
+    "status": "approved"
+  },
+  {
+    "nombre": "Volcán Copahue",
+    "direccion": "Copahue, Provincia de Neuquén, Argentina.",
+    "categoria": "Lugar",
+    "descripcion": "Un volcán activo que se encuentra en la Cordillera de los Andes, famoso por sus aguas termales y sus paisajes únicos. Es un destino popular para el turismo aventura y la relajación.",
+    "horarioApertura": "6:00",
+    "horarioCierre": "23:00",
+    "status": "approved"
+  },
+  {
+    "nombre": "Centro de Esquí Cerro Bayo",
+    "direccion": "Los Ñires 383, Q8349 Caviahue, Neuquén",
+    "categoria": "Lugar",
+    "descripcion": "Un popular centro de esquí y snowboard que ofrece diversas pistas y servicios para los amantes de los deportes de invierno.",
+    "horarioApertura": "9:00",
+    "horarioCierre": "17:00",
+    "status": "approved"
+  },
+  {
+    "nombre": "Cuore Di Panna",
+    "direccion": "Santa Fe 797, Q8300",
+    "categoria": "lugar",
+    "descripcion": "Heladería artesanal en el centro de la ciudad de Neuquén",
+    "horarioApertura": "08:30",
+    "horarioCierre": "23:00",
+    "status": "approved"
+  },
+  {
+    "nombre": "Chapelco",
+    "direccion": "Ruta Provincial 19 Km 12, Q8370",
+    "categoria": "lugar",
+    "descripcion": "Centro de esquí y snowboard",
+    "horarioApertura": "09:30",
+    "horarioCierre": "17:00",
     "status": "pending"
   },
   {
-    "nombre": "hola",
-    "direccion": "Casa Ine",
+    "nombre": "mi casa",
+    "direccion": "hola",
     "categoria": "lugar",
-    "descripcion": "Un cerro xd",
-    "horarioApertura": "16:53",
-    "horarioCierre": "22:49",
+    "descripcion": "nanu crack",
+    "horarioApertura": "13:44",
+    "horarioCierre": "18:44",
     "status": "pending"
   },
   {

@@ -1,5 +1,6 @@
 import express, { Request, Response, Express } from 'express'; 
 import { GestorDePOIs } from './gestorpoi';
+import { Evento } from './evento';
 import { Admin } from './admin';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -21,9 +22,32 @@ const admin = new Admin(gestor);
 
 // obtener POIs pendienes
 app.get('/points-of-interest/pending', (req: Request, res: Response) => {
-  const pendingPOIs = gestor.getPendingPOIs();  
-  const poiNames = pendingPOIs.map(poi => poi.getNombre());  
-  res.json(poiNames);
+  const pendingPOIs = gestor.getPendingPOIs();
+  const poiData = pendingPOIs.map(poi => ({
+    nombre: poi.getNombre(),
+    descripcion: poi.getDescripcion(),  
+    direccion: poi.getDireccion(),     
+    horarioApertura: poi.getHorarioApertura(),          
+    horarioCierre: poi.getHorarioCierre(),    
+    ...(poi instanceof Evento ? { fecha: poi.getFecha() } : {})    
+  }));
+  
+  res.json(poiData);
+});
+
+//obtener POIs aprobados
+app.get('/points-of-interest/approved', (req: Request, res: Response) => {
+  const pendingPOIs = gestor.getApprovedPOIs();
+  const poiData = pendingPOIs.map(poi => ({
+    nombre: poi.getNombre(),
+    descripcion: poi.getDescripcion(),  
+    direccion: poi.getDireccion(),     
+    horarioApertura: poi.getHorarioApertura(),          
+    horarioCierre: poi.getHorarioCierre(),    
+    ...(poi instanceof Evento ? { fecha: poi.getFecha() } : {})    
+  }));
+  
+  res.json(poiData);
 });
 
 //crear POI

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PoiService } from '../services/poi.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -16,13 +17,15 @@ export class AdminComponent {
   pendingPOIs: any[] = [];
   showPendingPOIs: boolean = false;
   confirmationMessage: string | null = null;
+  moreInfoPOI: any = null;
+  mostrarFechaEvento: boolean = false;
 
   loadPendingPOIs() {
     console.log('Cargando POIs pendientes...');
     this.poiService.getPendingPOIs().subscribe({
       next: (pois) => {
         console.log('Datos recibidos:', pois);
-        this.pendingPOIs = pois;
+        this.pendingPOIs = pois.map( poi => ({...poi, showInfo: false}));
         this.showPendingPOIs = true;
       },
       error: (err) => {
@@ -55,6 +58,10 @@ export class AdminComponent {
         console.error('Error al rechazar POI:', err);
       }
     });
+  }
+
+  toggleInfo(poi: any) {
+    poi.showInfo = !poi.showInfo;
   }
 
   showConfirmation(message: string) {
