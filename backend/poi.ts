@@ -1,7 +1,7 @@
 export class POI {
     // Propiedades privadas con #
     #nombre: string;
-    #direccion: string;
+    #ubicacion: string;
     #categoria: string;
     #descripcion: string;
     #horarioApertura: string;
@@ -10,7 +10,7 @@ export class POI {
   
     constructor(
       nombre: string = '',
-      direccion: string = '',
+      ubicacion: string = '',
       categoria: string = '',
       descripcion: string = '',
       horarioApertura: string = '',
@@ -18,7 +18,7 @@ export class POI {
       status: string = 'pending'
     ) {
       this.#nombre = nombre;
-      this.#direccion = direccion;
+      this.#ubicacion = ubicacion;
       this.#categoria = categoria;
       this.#descripcion = descripcion;
       this.#horarioApertura = horarioApertura;
@@ -36,8 +36,8 @@ export class POI {
       this.#nombre = nombre;
     } 
 
-    setDireccion(direccion: string): void {
-      this.#direccion = direccion;
+    setUbicacion(ubicacion: string): void {
+      this.#ubicacion = ubicacion;
     } 
 
     setDescripcion(descripcion: string): void {
@@ -59,7 +59,7 @@ export class POI {
     static fromJSON(data: any): POI {
       const poi = new POI();
       poi.setNombre(data.nombre);
-      poi.setDireccion(data.direccion);
+      poi.setUbicacion(data.ubicacion);
       poi.setCategoria(data.categoria);
       poi.setDescripcion(data.descripcion);
       poi.setApertura(data.horarioApertura);
@@ -74,7 +74,7 @@ export class POI {
     }
   
     getDireccion(): string {
-      return this.#direccion;
+      return this.#ubicacion;
     }
   
     getCategoria(): string {

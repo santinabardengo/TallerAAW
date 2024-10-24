@@ -1,13 +1,32 @@
+
 <div class="formulario_poi">
     <h3>Agregar Punto de interés</h3>
   
     <form (ngSubmit)="enviarFormulario()" #poiForm="ngForm">
       <label for="nombreId">Nombre:</label>
-      <input type="text" id="nombreId" [(ngModel)]="nombre" name="nombre" class="input-field" /><br />
-  
-      <label for="direccionId">Dirección:</label>
-      <input type="text" id="direccionId" [(ngModel)]="direccion" name="direccion" class="input-field" /><br />
-  
+      <input type="text" id="nombreId" [(ngModel)]="nombre" name="nombre" class="input-field" />
+      
+      <div class = "ubicacion-con-mapa">
+        <div>
+          <label for="ubicacionId">Ubicación:</label>
+          <input 
+            type="text" 
+            id="ubicacionId" 
+            [(ngModel)]="ubicacion" 
+            name="ubicacion" 
+            class = "readonly-field" 
+            readonly 
+            placeholder = "Seleccionar punto en el mapa"
+            />
+        </div>
+
+        <div class = "mapa-container">
+          <app-mapa-formulario
+            (ubicacionSeleccionada)="onUbicacionSeleccionada($event)">
+          </app-mapa-formulario>
+        </div>
+      </div>
+
       <label for="categoriaId">Categoría:</label>
       <div class="custom-select">
         <select id="categoriaId" [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" name="categoriaSeleccionada">

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, Input } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID, Input, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { GeocodingService } from '../services/geocodificacion.service';
 import { Router } from '@angular/router';
@@ -20,6 +20,7 @@ interface PointOfInterest {
 
 export class MapComponent implements AfterViewInit {
   @Input() puntosDeInteres: PointOfInterest[] = [];  // Input para recibir los puntos de interés
+
 
   private mapa: any;
   private marcador: any;

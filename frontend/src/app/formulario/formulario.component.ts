@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PoiService } from '../services/poi.service';
 import { Router } from '@angular/router';
+import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MapaFormularioComponent],
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
@@ -17,19 +18,23 @@ export class FormularioComponent {
   horarioApertura = '';
   horarioCierre = '';
   nombre = '';
-  direccion = '';
+  ubicacion : string | null = null;
   descripcion = '';
   fecha = '';
   errorCamposFaltantes = '';
   errorLongitudDesc = ''; 
   errorFecha = '';
   fechaFormateada = '';
-
+  
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
   constructor(private poiService: PoiService, private router: Router) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
+  }
+
+  onUbicacionSeleccionada(event: { lat: number; lng: number }) {
+    this.ubicacion = `${event.lat.toFixed(6)}, ${event.lng.toFixed(6)}`;
   }
 
   CambioCategoria() {
@@ -40,7 +45,7 @@ export class FormularioComponent {
     let noHayError:boolean = true;
     this.camposFaltantes = [];
     if (!this.nombre) this.camposFaltantes.push('nombre');
-    if (!this.direccion) this.camposFaltantes.push('dirección');
+    if (!this.ubicacion) this.camposFaltantes.push('ubicacion');
     if (!this.descripcion) this.camposFaltantes.push('descripción');
     if (!this.horarioApertura) this.camposFaltantes.push('horario de apertura');
     if (!this.horarioCierre) this.camposFaltantes.push('horario de cierre');
@@ -79,7 +84,7 @@ export class FormularioComponent {
 
     const newPoi = {
       nombre: this.nombre,
-      direccion: this.direccion,
+      ubicacion: this.ubicacion,
       categoria: this.categoriaSeleccionada,
       descripcion: this.descripcion,
       horarioApertura: this.horarioApertura,
@@ -96,4 +101,9 @@ export class FormularioComponent {
 
     });
   }
+
+  abrirMapa() {
+    this.router.navigate(['/mapa']);
+  }
+
 }
