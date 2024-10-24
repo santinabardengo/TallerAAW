@@ -59,7 +59,7 @@ export class FormularioComponent {
     
     // Validación de horarios si ambos están completos
 
-    if (this.fecha > this.fechaFormateada) {
+    if (this.fecha < this.fechaFormateada) {
       this.errorFecha = 'Fecha inválida';
       noHayError = false;
     }
