@@ -9,8 +9,8 @@ interface DatosPOI {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
-  fecha?: string;
   status: string;
+  fecha?: string;
 }
 
 export class GestorDePOIs {
@@ -34,7 +34,8 @@ export class GestorDePOIs {
       if (!fecha) {
         throw new Error("La fecha es obligatoria para crear un evento.");
       }
-      const nuevoEvento = new Evento(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status, fecha);
+      const nuevoEvento = new Evento(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre,fecha, status);
+
       this.gestorBD.guardarPoiArchivo('pois.json', nuevoEvento);
     }
 

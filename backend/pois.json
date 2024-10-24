@@ -51,7 +51,7 @@
     "descripcion": "Centro de esquí y snowboard",
     "horarioApertura": "09:30",
     "horarioCierre": "17:00",
-    "status": "rejected"
+    "status": "approved"
   },
   {
     "nombre": "mi casa",
@@ -60,24 +60,15 @@
     "descripcion": "nanu crack",
     "horarioApertura": "13:44",
     "horarioCierre": "18:44",
-    "status": "rejected"
+    "status": "approved"
   },
   {
     "nombre": "lo de betty",
-    "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
+    "direccion": "Gabriel Obeid 956, Q8370 San Martín de los Andes, Neuquén",
     "categoria": "lugar",
     "descripcion": "restoran muy rico de fondue",
-    "horarioApertura": "09:51",
-    "horarioCierre": "15:51",
-    "status": "pending"
-  },
-  {
-    "nombre": "Lago Lolog",
-    "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
-    "categoria": "lugar",
-    "descripcion": "Lago glacial rodeado de montañas",
-    "horarioApertura": "00:00",
-    "horarioCierre": "23:00",
+    "horarioApertura": "20:32",
+    "horarioCierre": "22:32",
     "status": "approved"
   },
   {
@@ -85,27 +76,9 @@
     "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
     "categoria": "evento",
     "descripcion": "Joditaaaaaaaaaaa",
-    "horarioApertura": "09:23",
-    "horarioCierre": "14:23",
-    "status": "rejected",
-    "fecha": "2024-11-07"
-  },
-  {
-    "nombre": "cerro chapelco",
-    "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
-    "categoria": "lugar",
-    "descripcion": "cerro",
-    "horarioApertura": "11:39",
-    "horarioCierre": "15:39",
-    "status": "pending"
-  },
-  {
-    "nombre": "casitas",
-    "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
-    "categoria": "lugar",
-    "descripcion": "casitas lindas",
-    "horarioApertura": "10:49",
-    "horarioCierre": "13:49",
-    "status": "pending"
+    "horarioApertura": "16:18",
+    "horarioCierre": "21:18",
+    "fecha": "2024-11-10",
+    "status": "approved"
   }
 ]

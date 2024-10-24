@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { PoiService } from '../services/poi.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
-import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-admin',
@@ -12,16 +13,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  constructor(private poiService: PoiService) {}
+constructor(private poiService: PoiService) {}
+
 
   pendingPOIs: any[] = [];
   showPendingPOIs: boolean = false;
   confirmationMessage: string | null = null;
+  noHayPoisMensaje: string | null = null;
   moreInfoPOI: any = null;
   mostrarFechaEvento: boolean = false;
 
   loadPendingPOIs() {
     console.log('Cargando POIs pendientes...');
+
+    if (this.showPendingPOIs) {
+      this.showPendingPOIs = false;
+      this.pendingPOIs = []; 
+      return; 
+    }
+
+    if (this.pendingPOIs.length == 0){
+      this.mostrarNoHayPois("No hay POIs pendientes");
+      this.showPendingPOIs = false;
+    }
+    
+
+
     this.poiService.getPendingPOIs().subscribe({
       next: (pois) => {
         console.log('Datos recibidos:', pois);
@@ -33,7 +50,10 @@ export class AdminComponent {
       }
     });
   }
-
+  removePOI(nombre: string) {
+    this.pendingPOIs = this.pendingPOIs.filter((poi) => poi !== nombre);
+    
+  }
   approvePOI(nombre: string) {
     this.poiService.approvePOI(nombre).subscribe({
       next: (response) => {
@@ -69,8 +89,10 @@ export class AdminComponent {
     setTimeout(() => (this.confirmationMessage = null), 5000); // Desaparece en 3 segundos
   }
 
-  removePOI(nombre: string) {
-    this.pendingPOIs = this.pendingPOIs.filter((poi) => poi !== nombre);
+  mostrarNoHayPois(message:string) {
+    this.noHayPoisMensaje = message;
+    setTimeout(() => (this.noHayPoisMensaje = null), 5000); 
   }
+  
 }
 

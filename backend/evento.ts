@@ -11,7 +11,8 @@ import { POI } from './poi';
       horarioApertura: string = '',
       horarioCierre: string = '',
       fecha: string = '',
-      status: string = 'pending',
+      status: string = 'pending', 
+      
       
     ) {
       super(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status);
@@ -35,6 +36,7 @@ import { POI } from './poi';
       evento.setCierre(data.horarioCierre);
       evento.setFecha(data.fecha);
       evento.setStatus(data.status);
+      
       
       return evento;
   }
