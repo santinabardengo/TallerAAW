@@ -46,8 +46,9 @@ guardarPoiArchivo(ruta: string, poi: POI | Evento): void {
         descripcion: poi.getDescripcion(),
         horarioApertura: poi.getHorarioApertura(),
         horarioCierre: poi.getHorarioCierre(),
+        ...(poi instanceof Evento && { fecha: poi.getFecha() }),
         status: poi.getStatus(),
-        ...(poi instanceof Evento && { fecha: poi.getFecha() })  // Solo si es un Evento
+        
       };
   
       // Buscar el índice del POI existente en el arreglo
