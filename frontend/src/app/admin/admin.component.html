@@ -17,9 +17,11 @@
         <div class="nombre-POI" (click) = "mapComponent.centrarEnPOI(poi.nombre)">{{ poi.nombre }} </div>
         <div class = "icon-buttons">
           <button class="icon-button-accept" (click)="approvePOI(poi.nombre)">
-            <span  style="color: green;">✔️</span>
+            <img src="assets/001-comprobar.png" class = "tick-png">
           </button>
-          <button class="icon-button-reject" (click)="rejectPOI(poi.nombre)">❌</button>
+          <button class="icon-button-reject" (click)="rejectPOI(poi.nombre)">
+            <img src="assets/cerrar.png" class = "cross-png">
+          </button>
         </div>
       </li>
     </ul>
