@@ -25,5 +25,15 @@
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
     "status": "pending"
+  },
+  {
+    "nombre": "Festichola",
+    "ubicacion": "-36.649687, -70.420445",
+    "categoria": "evento",
+    "descripcion": "Joditaaaa ",
+    "horarioApertura": "23:30",
+    "horarioCierre": "06:00",
+    "fecha": "2024-12-20",
+    "status": "approved"
   }
 ]
