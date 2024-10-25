@@ -73,7 +73,7 @@ export class POI {
       return this.#nombre;
     }
   
-    getDireccion(): string {
+    getUbicacion(): string {
       return this.#ubicacion;
     }
   

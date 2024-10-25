@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 
 
-
 @Component({
   selector: 'app-admin',
   standalone: true,
@@ -14,7 +13,6 @@ import { MapComponent } from '../map/map.component';
 })
 export class AdminComponent {
 constructor(private poiService: PoiService) {}
-
 
   pendingPOIs: any[] = [];
   showPendingPOIs: boolean = false;

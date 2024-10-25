@@ -1,15 +1,7 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, Input, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { GeocodingService } from '../services/geocodificacion.service';
 import { Router } from '@angular/router';
 
-interface PointOfInterest {
-  nombre: string;
-  descripcion: string;
-  direccion: string;
-  horarioApertura: string;
-  horarioCierre: string;
-}
 
 @Component({
   selector: 'app-mapa-formulario',
@@ -26,7 +18,6 @@ export class MapaFormularioComponent implements AfterViewInit {
 
   constructor(
     private router: Router,
-    private geocodingService: GeocodingService,
     @Inject(PLATFORM_ID) private platformId: Object // Detectar la plataforma
   ) {}
 
@@ -60,7 +51,6 @@ export class MapaFormularioComponent implements AfterViewInit {
     });
 
   }
-
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.cargarLeafletCSS();
@@ -68,8 +58,5 @@ export class MapaFormularioComponent implements AfterViewInit {
     }
   }
 
-  navigateToForm() {
-    this.router.navigate(['/formulario']);
-  }
 }
 

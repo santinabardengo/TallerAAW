@@ -26,7 +26,7 @@ app.get('/points-of-interest/pending', (req: Request, res: Response) => {
   const poiData = pendingPOIs.map(poi => ({
     nombre: poi.getNombre(),
     descripcion: poi.getDescripcion(),  
-    direccion: poi.getDireccion(),     
+    ubicacion: poi.getUbicacion(),     
     horarioApertura: poi.getHorarioApertura(),          
     horarioCierre: poi.getHorarioCierre(),    
     ...(poi instanceof Evento ? { fecha: poi.getFecha() } : {})    
@@ -41,7 +41,7 @@ app.get('/points-of-interest/approved', (req: Request, res: Response) => {
   const poiData = pendingPOIs.map(poi => ({
     nombre: poi.getNombre(),
     descripcion: poi.getDescripcion(),  
-    direccion: poi.getDireccion(),     
+    ubicacion: poi.getUbicacion(),     
     horarioApertura: poi.getHorarioApertura(),          
     horarioCierre: poi.getHorarioCierre(),    
     ...(poi instanceof Evento ? { fecha: poi.getFecha() } : {})    

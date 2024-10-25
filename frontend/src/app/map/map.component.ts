@@ -1,12 +1,12 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, Input, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { GeocodingService } from '../services/geocodificacion.service';
 import { Router } from '@angular/router';
+
 
 interface PointOfInterest {
   nombre: string;
+  ubicacion: string;
   descripcion: string;
-  direccion: string;
   horarioApertura: string;
   horarioCierre: string;
 }
@@ -15,20 +15,17 @@ interface PointOfInterest {
   selector: 'app-mapa',
   standalone: true,
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'
+  ]
 })
-
 export class MapComponent implements AfterViewInit {
-  @Input() puntosDeInteres: PointOfInterest[] = [];  // Input para recibir los puntos de interés
-
-
+  @Input() puntosDeInteres: PointOfInterest[] = [];
   private mapa: any;
   private marcador: any;
 
   constructor(
     private router: Router,
-    private geocodingService: GeocodingService,
-    @Inject(PLATFORM_ID) private platformId: Object // Detectar la plataforma
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   private cargarLeafletCSS(): void {
@@ -41,58 +38,49 @@ export class MapComponent implements AfterViewInit {
   }
 
   private async initMapa(): Promise<void> {
-    const L = await import('leaflet');
+    if (isPlatformBrowser(this.platformId)) {
+      const L = await import('leaflet');
 
-    this.mapa = L.map('mapa').setView([-38.5937, -69.9954], 8); // Coordenadas de Neuquén
+      this.mapa = L.map('mapa').setView([-38.5937, -69.9954], 8);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(this.mapa);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(this.mapa);
 
-    this.marcador = L.layerGroup().addTo(this.mapa);
-
-    // Agregar marcadores para todos los puntos de interés recibidos
-    this.marcarPuntosDeInteres();
+      this.marcador = L.layerGroup().addTo(this.mapa);
+  
+      // Marcar los puntos de interés después de inicializar el mapa
+      this.marcarPuntosDeInteres();
+    }
   }
 
   private marcarPuntosDeInteres(): void {
-    const L = (window as any).L;
-    // Iterar sobre los puntos de interés y añadir un marcador para cada uno
-    
-    this.puntosDeInteres.forEach((punto) => {
-      this.buscarDireccion(punto)
-    });
-  }
+    if (isPlatformBrowser(this.platformId)) {
+      const L = (window as any).L; // Asegúrate de que estamos en el navegador
 
-  agregarMarcador(lat: number, lng: number, punto: PointOfInterest): void {
-    const L = (window as any).L;
-    const marcador = L.marker([lat, lng]).addTo(this.marcador);
-    marcador.bindPopup(`
-    <strong>${punto.nombre}</strong><br>
-    <p>${punto.descripcion}</p>
-    <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
-    <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
-    <p><strong>Dirección:</strong> ${punto.direccion}</p>
-  `).openPopup();
-  }
+      this.marcador.clearLayers();  // Limpiar los marcadores previos
+      const marcadores = this.puntosDeInteres.map(punto => {
+        const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
+        return L.marker([lat, lng]).bindPopup(`
+          <strong>${punto.nombre}</strong><br>
+          <p>${punto.descripcion}</p>
+          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+        `);
+      });
 
-  buscarDireccion(punto: PointOfInterest): void {
-    this.geocodingService.geocodeDireccion(punto.direccion).subscribe(
-      (coordenadas) => {
-        this.agregarMarcador(coordenadas.lat, coordenadas.lon, punto);
-        this.mapa.setView([coordenadas.lat, coordenadas.lon], 13); // Centrar el mapa
-      },
-      (error) => {
-        console.error('Error al buscar la dirección:', error);
-      }
-    );
+      marcadores.forEach(marcador => marcador.addTo(this.marcador));
+    }
+  }
+  
+  public setPuntosDeInteres(puntos: PointOfInterest[]): void {
+    this.puntosDeInteres = puntos;
+    this.marcarPuntosDeInteres();
   }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.cargarLeafletCSS();
-      this.initMapa();
-    }
+    this.cargarLeafletCSS();
+    this.initMapa();
   }
 
   navigateToForm() {

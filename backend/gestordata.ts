@@ -41,7 +41,7 @@ guardarPoiArchivo(ruta: string, poi: POI | Evento): void {
       // Crear el objeto POI a guardar
       const poiData = {
         nombre: poi.getNombre(),
-        direccion: poi.getDireccion(),
+        ubicacion: poi.getUbicacion(),
         categoria: poi.getCategoria(),
         descripcion: poi.getDescripcion(),
         horarioApertura: poi.getHorarioApertura(),

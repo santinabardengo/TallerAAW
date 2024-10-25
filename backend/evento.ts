@@ -5,7 +5,7 @@ import { POI } from './poi';
   
     constructor(
       nombre: string = '',
-      direccion: string = '',
+      ubicacion: string = '',
       categoria: string = '',
       descripcion: string = '',
       horarioApertura: string = '',
@@ -15,7 +15,7 @@ import { POI } from './poi';
       
       
     ) {
-      super(nombre, direccion, categoria, descripcion, horarioApertura, horarioCierre, status);
+      super(nombre, ubicacion, categoria, descripcion, horarioApertura, horarioCierre, status);
       this.#fecha = fecha;
     }
   
@@ -29,7 +29,7 @@ import { POI } from './poi';
     static fromJSON(data: any): Evento {
       const evento = new Evento();
       evento.setNombre(data.nombre);
-      evento.setDireccion(data.direccion);
+      evento.setUbicacion(data.ubicacion);
       evento.setCategoria(data.categoria);
       evento.setDescripcion(data.descripcion);
       evento.setApertura(data.horarioApertura);

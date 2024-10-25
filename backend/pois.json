@@ -1,84 +1,29 @@
 [
   {
-    "nombre": "Parque Nacional Lanín",
-    "direccion": "Ruta 40, Neuquén, Argentina",
-    "categoria": "Lugar",
-    "descripcion": "Un área protegida que ofrece paisajes espectaculares con montañas, lagos y bosques. Es ideal para el senderismo, el camping y la observación de flora y fauna.",
-    "horarioApertura": "8:00",
-    "horarioCierre": "18:00",
-    "status": "approved"
-  },
-  {
-    "nombre": "Museo Nacional de Bellas Arte",
-    "direccion": "Avenida Olascoaga 200, Neuquén, Argentina",
-    "categoria": "Lugar",
-    "descripcion": "Este museo alberga una colección de arte argentino y latinoamericano, incluyendo obras de artistas contemporáneos y clásicos. También ofrece exposiciones temporales y actividades culturales.",
-    "horarioApertura": "9:00",
-    "horarioCierre": "19:00",
-    "status": "approved"
-  },
-  {
-    "nombre": "Volcán Copahue",
-    "direccion": "Copahue, Provincia de Neuquén, Argentina.",
-    "categoria": "Lugar",
-    "descripcion": "Un volcán activo que se encuentra en la Cordillera de los Andes, famoso por sus aguas termales y sus paisajes únicos. Es un destino popular para el turismo aventura y la relajación.",
-    "horarioApertura": "6:00",
-    "horarioCierre": "23:00",
-    "status": "approved"
-  },
-  {
-    "nombre": "Centro de Esquí Cerro Bayo",
-    "direccion": "Los Ñires 383, Q8349 Caviahue, Neuquén",
-    "categoria": "Lugar",
-    "descripcion": "Un popular centro de esquí y snowboard que ofrece diversas pistas y servicios para los amantes de los deportes de invierno.",
-    "horarioApertura": "9:00",
-    "horarioCierre": "17:00",
-    "status": "approved"
-  },
-  {
-    "nombre": "Cuore Di Panna",
-    "direccion": "Santa Fe 797, Q8300",
+    "nombre": "Lago Lolog",
+    "ubicacion": "-40.045958, -71.351343",
     "categoria": "lugar",
-    "descripcion": "Heladería artesanal en el centro de la ciudad de Neuquén",
-    "horarioApertura": "08:30",
-    "horarioCierre": "23:00",
+    "descripcion": "Un lago muy hermoso en San Martin de los Andes",
+    "horarioApertura": "00:00",
+    "horarioCierre": "00:00",
     "status": "approved"
   },
   {
     "nombre": "Chapelco",
-    "direccion": "Ruta Provincial 19 Km 12, Q8370",
+    "ubicacion": "-40.197740, -71.319749",
     "categoria": "lugar",
-    "descripcion": "Centro de esquí y snowboard",
-    "horarioApertura": "09:30",
-    "horarioCierre": "17:00",
+    "descripcion": "Aca podemos esquiar xd",
+    "horarioApertura": "08:30",
+    "horarioCierre": "17:30",
     "status": "approved"
   },
   {
-    "nombre": "mi casa",
-    "direccion": "hola",
+    "nombre": "Farmacia",
+    "ubicacion": "-38.957269, -68.061532",
     "categoria": "lugar",
-    "descripcion": "nanu crack",
-    "horarioApertura": "13:44",
-    "horarioCierre": "18:44",
-    "status": "approved"
-  },
-  {
-    "nombre": "lo de betty",
-    "direccion": "Gabriel Obeid 956, Q8370 San Martín de los Andes, Neuquén",
-    "categoria": "lugar",
-    "descripcion": "restoran muy rico de fondue",
-    "horarioApertura": "20:32",
-    "horarioCierre": "22:32",
-    "status": "approved"
-  },
-  {
-    "nombre": "Fiesta Año Nuevo",
-    "direccion": "RP62, Q8370, San Martín de los Andes, Neuquén",
-    "categoria": "evento",
-    "descripcion": "Joditaaaaaaaaaaa",
-    "horarioApertura": "16:18",
-    "horarioCierre": "21:18",
-    "fecha": "2024-11-10",
-    "status": "approved"
+    "descripcion": "Farmacia de barrio",
+    "horarioApertura": "13:30",
+    "horarioCierre": "19:30",
+    "status": "pending"
   }
 ]
