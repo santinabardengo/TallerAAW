@@ -1,6 +1,9 @@
 <div class="admin-container">
   <!-- Mapa integrado -->
-  <app-mapa></app-mapa>
+  <app-mapa
+            [puntosDeInteresAprobados]="approvedPOIs"
+            [puntosDeInteresPendientes]="pendingPOIs">
+  </app-mapa>
 
   <!-- Botón para cargar los POIs pendientes -->
   <div class="pois-pendientes-btn">
@@ -11,24 +14,24 @@
   <div class="pois-pendientes" *ngIf="showPendingPOIs">
     <ul>
       <li class = "poi-item" *ngFor="let poi of pendingPOIs">
-        <div class="nombre-POI"> {{ poi.nombre }} </div>
+        <div class="nombre-POI" (click) = "mapComponent.centrarEnPOI(poi.nombre)">{{ poi.nombre }} </div>
         <div class = "icon-buttons">
           <button class="icon-button-accept" (click)="approvePOI(poi.nombre)">
             <span  style="color: green;">✔️</span>
           </button>
           <button class="icon-button-reject" (click)="rejectPOI(poi.nombre)">❌</button>
           <!-- Botón para ver más info -->
-          <button class="icon-button-info" (click)="toggleInfo(poi)">Ver más</button>
+          <!-- <button class="icon-button-info" (click)="toggleInfo(poi)">Ver más</button> -->
         </div>
         <!-- Condicional para mostrar detalles si se activa toggleInfo en el POI especifico -->
-        <div class = "detalles" *ngIf="poi.showInfo">
+        <!-- <div class = "detalles" *ngIf="poi.showInfo">
           <p>Categoría: {{ poi.categoria }}</p>
           <p>Descripción: {{ poi.descripcion }}</p>
           <p>Ubicación: {{ poi.ubicacion }}</p>
           <p>Horario de apertura: {{ poi.horarioApertura }}</p>
           <p>Horario de cierre: {{ poi.horarioCierre }}</p>
           <p *ngIf="poi.fecha">Fecha de evento: {{ poi.fecha }}</p>
-        </div>
+        </div> -->
       </li>
     </ul>
   </div>

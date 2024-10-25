@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PoiService } from '../services/poi.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 
+
+interface PointOfInterest {
+  nombre: string;
+  ubicacion: string;
+  descripcion: string;
+  horarioApertura: string;
+  horarioCierre: string;
+}
 
 @Component({
   selector: 'app-admin',
@@ -11,64 +19,87 @@ import { MapComponent } from '../map/map.component';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
-constructor(private poiService: PoiService) {}
 
-  pendingPOIs: any[] = [];
+export class AdminComponent {
+
+  @ViewChild(MapComponent) mapComponent!: MapComponent;
+
+  constructor(private poiService: PoiService) {}
+
+  pendingPOIs: PointOfInterest[] = [];
+  approvedPOIs: PointOfInterest[] = [];
   showPendingPOIs: boolean = false;
   confirmationMessage: string | null = null;
   noHayPoisMensaje: string | null = null;
   moreInfoPOI: any = null;
   mostrarFechaEvento: boolean = false;
 
-  loadPendingPOIs() {
-    console.log('Cargando POIs pendientes...');
+  
 
+  loadPendingPOIs() {
     if (this.showPendingPOIs) {
       this.showPendingPOIs = false;
       this.pendingPOIs = []; 
       return; 
     }
-
-    if (this.pendingPOIs.length == 0){
-      this.mostrarNoHayPois("No hay POIs pendientes");
-      this.showPendingPOIs = false;
-    }
-    
-
-
     this.poiService.getPendingPOIs().subscribe({
       next: (pois) => {
-        console.log('Datos recibidos:', pois);
-        this.pendingPOIs = pois.map( poi => ({...poi, showInfo: false}));
+        this.pendingPOIs = pois;
+        //this.pendingPOIs = pois.map( poi => ({...poi, showInfo: false}));
         this.showPendingPOIs = true;
+
+        if (this.mapComponent) {
+          this.mapComponent.setPuntosDeInteresPendientes(this.pendingPOIs);
+        }
+
+        if (pois.length === 0) {
+          this.mostrarNoHayPois("No hay POIs pendientes");
+        }
       },
       error: (err) => {
         console.error('Error al cargar POIs pendientes:', err);
       }
     });
-  }
-  removePOI(nombre: string) {
-    this.pendingPOIs = this.pendingPOIs.filter((poi) => poi !== nombre);
+
     
   }
+
+
+  loadApprovedPOIs(): void {
+    this.poiService.getApprovedPOIs().subscribe(
+      (puntosAprobados: PointOfInterest[]) => {
+        this.approvedPOIs = puntosAprobados;
+      },
+      (error) => {
+        console.error('Error al obtener puntos de interés:', error);
+      }
+    );
+  }
+
+
+  removePOI(nombre: string) {
+    this.pendingPOIs = this.pendingPOIs.filter((poi) => poi.nombre !== nombre);  
+  }
+
   approvePOI(nombre: string) {
     this.poiService.approvePOI(nombre).subscribe({
       next: (response) => {
-        console.log('POI aprobado:', response);
         this.showConfirmation(`POI "${nombre}" aprobado`);
-        this.removePOI(nombre);
+        const poiAprobado = this.pendingPOIs.find(poi => poi.nombre === nombre);
+        if (poiAprobado) {
+          this.approvedPOIs.push(poiAprobado); // Añadir a aprobados
+          this.removePOI(nombre); // Quitar de pendientes
+        }
       },
       error: (err) => {
         console.error('Error al aprobar POI:', err);
       }
     });
   }
-
+  
   rejectPOI(nombre: string) {
     this.poiService.rejectPOI(nombre).subscribe({
       next: (response) => {
-        console.log('POI rechazado:', response);
         this.showConfirmation(`POI "${nombre}" rechazado`);
         this.removePOI(nombre);
       },
@@ -90,6 +121,15 @@ constructor(private poiService: PoiService) {}
   mostrarNoHayPois(message:string) {
     this.noHayPoisMensaje = message;
     setTimeout(() => (this.noHayPoisMensaje = null), 5000); 
+  }
+
+  ngOnInit(): void {
+    // Cargar los POIs al inicio
+    this.loadApprovedPOIs();
+    if (this.mapComponent) {
+      this.mapComponent.setPuntosDeInteresAprobados(this.approvedPOIs);
+    }
+    
   }
   
 }

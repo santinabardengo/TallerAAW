@@ -70,6 +70,11 @@ ul {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 0px;
+  cursor: pointer; 
+}
+
+.nombre-POI:hover {
+  text-decoration: underline;
 }
 
 .pois-pendientes:hover {

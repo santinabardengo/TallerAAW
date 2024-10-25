@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import { Router, NavigationEnd } from '@angular/router';
 
-interface PointOfInterest {
+interface PointOfInterestApproved {
   nombre: string;
   ubicacion: string;
   descripcion: string;
@@ -19,8 +19,9 @@ interface PointOfInterest {
   templateUrl: './user-map.component.html',
   styleUrls: ['./user-map.component.css']
 })
+
 export class UserMapComponent implements OnInit {
-  puntosDeInteres: PointOfInterest[] = [];
+  puntosDeInteresAprobados: PointOfInterestApproved[] = [];
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
@@ -28,12 +29,12 @@ export class UserMapComponent implements OnInit {
 
   cargarPuntosDeInteres(): void {
     this.poiService.getApprovedPOIs().subscribe(
-      (puntos: PointOfInterest[]) => {
-        this.puntosDeInteres = puntos;
+      (puntos: PointOfInterestApproved[]) => {
+        this.puntosDeInteresAprobados = puntos;
 
         // Asegurarse de actualizar los marcadores en el mapa
         if (this.mapComponent) {
-          this.mapComponent.setPuntosDeInteres(puntos);
+          this.mapComponent.setPuntosDeInteresAprobados(puntos);
         }
       },
       (error) => {

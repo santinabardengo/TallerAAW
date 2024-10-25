@@ -11,6 +11,7 @@ interface PointOfInterest {
   horarioCierre: string;
 }
 
+
 @Component({
   selector: 'app-mapa',
   standalone: true,
@@ -18,8 +19,10 @@ interface PointOfInterest {
   styleUrls: ['./map.component.css'
   ]
 })
+
 export class MapComponent implements AfterViewInit {
-  @Input() puntosDeInteres: PointOfInterest[] = [];
+  @Input() puntosDeInteresPendientes: PointOfInterest[] = [];
+  @Input() puntosDeInteresAprobados: PointOfInterest[] = [];
   private mapa: any;
   private marcador: any;
 
@@ -58,10 +61,24 @@ export class MapComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       const L = (window as any).L; // Asegúrate de que estamos en el navegador
 
+      const iconoAprobado = L.icon({
+        iconUrl: '/assets/iconoAprobados.png',  
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+      
+      const iconoPendiente = L.icon({
+        iconUrl: '/assets/iconoPendintes.png',  
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+
       this.marcador.clearLayers();  // Limpiar los marcadores previos
-      const marcadores = this.puntosDeInteres.map(punto => {
+      const marcadoresAprobados = this.puntosDeInteresAprobados.map(punto => {
         const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
-        return L.marker([lat, lng]).bindPopup(`
+        return L.marker([lat, lng], {icon: iconoAprobado}).bindPopup(`
           <strong>${punto.nombre}</strong><br>
           <p>${punto.descripcion}</p>
           <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
@@ -69,13 +86,47 @@ export class MapComponent implements AfterViewInit {
         `);
       });
 
-      marcadores.forEach(marcador => marcador.addTo(this.marcador));
+      const marcadoresPendientes = this.puntosDeInteresPendientes.map(punto => {
+        const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
+        return L.marker([lat, lng], {icon: iconoPendiente}).bindPopup(`
+          <strong>${punto.nombre}</strong><br>
+          <p>${punto.descripcion}</p>
+          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+        `);
+      });
+
+      const todosLosMarcadores = [...marcadoresAprobados, ...marcadoresPendientes];
+      todosLosMarcadores.forEach(marcador => marcador.addTo(this.marcador));
     }
   }
   
-  public setPuntosDeInteres(puntos: PointOfInterest[]): void {
-    this.puntosDeInteres = puntos;
+  public setPuntosDeInteresAprobados(puntos: PointOfInterest[]): void {
+    this.puntosDeInteresAprobados = puntos;
     this.marcarPuntosDeInteres();
+  }
+
+  public setPuntosDeInteresPendientes(puntosPendientes: PointOfInterest[] ): void {
+    this.puntosDeInteresPendientes = puntosPendientes;
+    this.marcarPuntosDeInteres();
+  }
+
+  centrarEnPOI(nombre: string) {
+    const poi = this.puntosDeInteresPendientes.find(punto => punto.nombre === nombre);
+
+    if (poi && isPlatformBrowser(this.platformId)) {
+      const [lat, lng] = poi.ubicacion.split(',').map(coord => parseFloat(coord));
+      this.mapa.setView([lat, lng], 14); 
+    
+    // Encontrar y abrir el popup del marcador correspondiente
+    this.marcador.eachLayer((layer: any) => {
+      if (layer.getLatLng().lat === lat && layer.getLatLng().lng === lng) {
+        layer.openPopup(); // Abre el popup del marcador
+      }
+    });
+  } else {
+    console.warn(`Punto de interés con nombre "${nombre}" no encontrado.`);
+  }
   }
 
   ngAfterViewInit(): void {
