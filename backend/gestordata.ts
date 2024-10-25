@@ -8,6 +8,9 @@ export class GestorBaseDeDatos {
   leerArchivo(ruta: string): (POI | Evento)[] | null {
     try {
         const data = fs.readFileSync(ruta, 'utf-8');
+        if (!data.trim()) {
+          return []; 
+      }
         const poisLeidos = JSON.parse(data);
         const pois = poisLeidos.map((poiData: any) => {
             return poiData.categoria === 'evento'
