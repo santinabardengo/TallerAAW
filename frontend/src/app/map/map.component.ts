@@ -9,6 +9,7 @@ interface PointOfInterest {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  fecha? : string;
 }
 
 
@@ -61,15 +62,22 @@ export class MapComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       const L = (window as any).L; // Asegúrate de que estamos en el navegador
 
-      const iconoAprobado = L.icon({
-        iconUrl: '/assets/iconoAprobados.png',  
+      const iconoLugar = L.icon({
+        iconUrl: '/assets/iconoLugar.png',  
         iconSize: [32, 32],
         iconAnchor: [16, 32],
         popupAnchor: [0, -32]
       });
       
       const iconoPendiente = L.icon({
-        iconUrl: '/assets/iconoPendintes.png',  
+        iconUrl: '/assets/iconoPendiente.png',  
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+
+      const iconoEvento= L.icon({
+        iconUrl: '/assets/iconoEvento.png',  
         iconSize: [32, 32],
         iconAnchor: [16, 32],
         popupAnchor: [0, -32]
@@ -78,13 +86,15 @@ export class MapComponent implements AfterViewInit {
       this.marcador.clearLayers();  // Limpiar los marcadores previos
       const marcadoresAprobados = this.puntosDeInteresAprobados.map(punto => {
         const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
-        return L.marker([lat, lng], {icon: iconoAprobado}).bindPopup(`
-          <strong>${punto.nombre}</strong><br>
-          <p>${punto.descripcion}</p>
-          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
-          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
-        `);
-      });
+        const icono = punto.fecha ? iconoEvento : iconoLugar;
+          return L.marker([lat, lng], { icon: icono }).bindPopup(`
+            <strong>${punto.nombre}</strong><br>
+            <p>${punto.descripcion}</p>
+            ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
+            <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+            <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+          `);
+        });
 
       const marcadoresPendientes = this.puntosDeInteresPendientes.map(punto => {
         const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));

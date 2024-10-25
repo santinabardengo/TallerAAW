@@ -10,6 +10,7 @@ interface PointOfInterestApproved {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  fecha? : string;
 }
 
 @Component({
