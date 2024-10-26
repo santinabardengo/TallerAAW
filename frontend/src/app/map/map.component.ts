@@ -126,7 +126,7 @@ export class MapComponent implements AfterViewInit {
 
     if (poi && isPlatformBrowser(this.platformId)) {
       const [lat, lng] = poi.ubicacion.split(',').map(coord => parseFloat(coord));
-      this.mapa.setView([lat, lng], 14); 
+      this.mapa.setView([lat, lng], 10); 
     
     // Encontrar y abrir el popup del marcador correspondiente
     this.marcador.eachLayer((layer: any) => {
