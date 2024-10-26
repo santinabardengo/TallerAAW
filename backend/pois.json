@@ -24,7 +24,7 @@
     "descripcion": "Farmacia de barrio",
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
-    "status": "pending"
+    "status": "approved"
   },
   {
     "nombre": "Festichola",
@@ -35,5 +35,24 @@
     "horarioCierre": "06:00",
     "fecha": "2024-12-20",
     "status": "approved"
+  },
+  {
+    "nombre": "Nadia Kissner",
+    "ubicacion": "-39.067732, -70.322113",
+    "categoria": "lugar",
+    "descripcion": "jJKAHKHASDJH",
+    "horarioApertura": "02:02",
+    "horarioCierre": "15:08",
+    "status": "pending"
+  },
+  {
+    "nombre": "rancho wow ow",
+    "ubicacion": "-38.662740, -70.135801",
+    "categoria": "evento",
+    "descripcion": "rancheada top mas mas",
+    "horarioApertura": "21:00",
+    "horarioCierre": "00:00",
+    "fecha": "2024-11-29",
+    "status": "rejected"
   }
 ]

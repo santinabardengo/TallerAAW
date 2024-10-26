@@ -29,7 +29,7 @@
 }
 
 .pois-pendientes-btn button:hover {
-  background-color: #154360;
+  background-color: #21638d;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -54,25 +54,26 @@
 ul {
   padding: 0 20px 0 20px;
   list-style-type: none;
+  margin-bottom: 10px;
 }
 
 .poi-item {
-  padding: 0px;
-  margin-top: 0px;
+  margin-top: 14px;
+  margin-bottom: 14px;
   display: flex;
+  padding-bottom: 10px;
   justify-content: space-between;
-  border-bottom: 1px solid #9c9c9c;
-  margin-bottom: 0px;
+  border-bottom: 1px solid #c2c0c0;
 }
 
 .poi-item:last-child {
   border-bottom: none;
+  padding-bottom: 0px;
 }
 
 .nombre-POI {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 0px;
   cursor: pointer; 
 }
 
@@ -85,7 +86,7 @@ ul {
 }
 
 .icon-buttons {
-  margin-top: 3px;
+  margin: 0px;
   justify-content: right;
   justify-self: right;
 }
@@ -98,6 +99,7 @@ ul {
   cursor: pointer;
   transition: transform 0.2s; /* Transición suave al hacer hover */
   padding: 0px;
+  margin: 0px;
 }
 
 .cross-png {
@@ -114,15 +116,6 @@ ul {
 .icon-button-accept:hover,
 .icon-button-reject:hover {
   transform: scale(1.15); /* Aumenta el tamaño al pasar el mouse */
-}
-
-.detalles {
-  font-size: 14px;
-  font-weight: 550;
-}
-
-.detalles p:first-child{
-  margin-top: 0px;
 }
 
 /* Contenedor de confirmación */
