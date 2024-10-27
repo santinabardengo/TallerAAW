@@ -25,5 +25,32 @@
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
     "status": "pending"
+  },
+  {
+    "nombre": "Aeropuerto",
+    "ubicacion": "-38.666709, -69.890555",
+    "categoria": "lugar",
+    "descripcion": "una casa muy casona",
+    "horarioApertura": "15:54",
+    "horarioCierre": "18:54",
+    "status": "pending"
+  },
+  {
+    "nombre": "casitas",
+    "ubicacion": "-37.833925, -71.392596",
+    "categoria": "lugar",
+    "descripcion": "Aeropuerto de Neuquén",
+    "horarioApertura": "19:23",
+    "horarioCierre": "17:23",
+    "status": "pending"
+  },
+  {
+    "nombre": "Un lugar llamado casa",
+    "ubicacion": "-38.688133, -69.797270",
+    "categoria": "lugar",
+    "descripcion": "casitas lindas",
+    "horarioApertura": "16:53",
+    "horarioCierre": "19:53",
+    "status": "pending"
   }
 ]
