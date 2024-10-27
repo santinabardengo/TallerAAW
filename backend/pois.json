@@ -24,6 +24,24 @@
     "descripcion": "Farmacia de barrio",
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
+    "status": "approved"
+  },
+  {
+    "nombre": "Un lugar llamado casa",
+    "ubicacion": "-38.919105, -69.199153",
+    "categoria": "lugar",
+    "descripcion": "una casa muy casona",
+    "horarioApertura": "21:30",
+    "horarioCierre": "21:36",
     "status": "pending"
+  },
+  {
+    "nombre": "casitas",
+    "ubicacion": "-38.784329, -69.808245",
+    "categoria": "lugar",
+    "descripcion": "Aeropuerto de Neuquén",
+    "horarioApertura": "18:27",
+    "horarioCierre": "20:27",
+    "status": "approved"
   }
 ]
