@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PoiService } from '../services/poi.service';
+import { PoiCreationService } from '../services/poi-creation.service';
 import { Router } from '@angular/router';
 import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
 
@@ -28,7 +28,7 @@ export class FormularioComponent {
   
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
-  constructor(private poiService: PoiService, private router: Router) {
+  constructor(private poiCreationService: PoiCreationService, private router: Router) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
@@ -92,7 +92,7 @@ export class FormularioComponent {
       fecha: this.mostrarFechaEvento ? this.fecha : null
     };
   
-    this.poiService.createPOI(newPoi).subscribe({
+    this.poiCreationService.createPOI(newPoi).subscribe({
       next: (response) => {
         console.log('POI creado', response);
         this.router.navigate(['/user-map']);

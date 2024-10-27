@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoiService } from '../services/poi.service';
+import { PoiRetrievalService } from '../services/poi-retrieval.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import { Router, NavigationEnd } from '@angular/router';
@@ -26,10 +26,10 @@ export class UserMapComponent implements OnInit {
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
-  constructor(private poiService: PoiService, private router: Router) {}
+  constructor(private poiRetrievalService: PoiRetrievalService, private router: Router) {}
 
   cargarPuntosDeInteres(): void {
-    this.poiService.getApprovedPOIs().subscribe(
+    this.poiRetrievalService.getApprovedPOIs().subscribe(
       (puntos: PointOfInterestApproved[]) => {
         this.puntosDeInteresAprobados = puntos;
 
