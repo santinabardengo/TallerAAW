@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import { Router, NavigationEnd } from '@angular/router';
 
+
 interface PointOfInterestApproved {
   nombre: string;
   ubicacion: string;
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  fecha? : string;
 }
 
 @Component({
@@ -26,6 +28,8 @@ export class UserMapComponent implements OnInit {
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
   constructor(private poiService: PoiService, private router: Router) {}
+  mostrarMensajeConfirmacion : boolean = false;
+  mensajeConfirmacion: string | null = null;
 
   cargarPuntosDeInteres(): void {
     this.poiService.getApprovedPOIs().subscribe(
@@ -41,6 +45,15 @@ export class UserMapComponent implements OnInit {
         console.error('Error al obtener puntos de interés:', error);
       }
     );
+  }
+  showConfirmation(message: string) {
+    this.mensajeConfirmacion = message;
+    setTimeout(() => (this.mensajeConfirmacion = null), 5000); // Desaparece en 3 segundos
+  }
+
+  mostrarMensaje(): void{
+    if(this.mostrarMensajeConfirmacion)
+      this.showConfirmation('Puntos de interés cargados con éxito');
   }
 
   ngOnInit(): void {

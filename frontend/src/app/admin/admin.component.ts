@@ -69,6 +69,9 @@ export class AdminComponent {
     this.poiService.getApprovedPOIs().subscribe(
       (puntosAprobados: PointOfInterest[]) => {
         this.approvedPOIs = puntosAprobados;
+        if (this.mapComponent) {
+          this.mapComponent.setPuntosDeInteresAprobados(this.approvedPOIs);
+        }
       },
       (error) => {
         console.error('Error al obtener puntos de interés:', error);
@@ -87,8 +90,8 @@ export class AdminComponent {
         this.showConfirmation(`POI "${nombre}" aprobado`);
         const poiAprobado = this.pendingPOIs.find(poi => poi.nombre === nombre);
         if (poiAprobado) {
-          this.approvedPOIs.push(poiAprobado); // Añadir a aprobados
-          this.removePOI(nombre); // Quitar de pendientes
+          this.approvedPOIs.push(poiAprobado); 
+          this.removePOI(nombre); 
         }
       },
       error: (err) => {
@@ -109,13 +112,9 @@ export class AdminComponent {
     });
   }
 
-  toggleInfo(poi: any) {
-    poi.showInfo = !poi.showInfo;
-  }
-
   showConfirmation(message: string) {
     this.confirmationMessage = message;
-    setTimeout(() => (this.confirmationMessage = null), 5000); // Desaparece en 3 segundos
+    setTimeout(() => (this.confirmationMessage = null), 5000); 
   }
 
   mostrarNoHayPois(message:string) {
@@ -124,13 +123,9 @@ export class AdminComponent {
   }
 
   ngOnInit(): void {
-    // Cargar los POIs al inicio
     this.loadApprovedPOIs();
-    if (this.mapComponent) {
-      this.mapComponent.setPuntosDeInteresAprobados(this.approvedPOIs);
-    }
     
   }
-  
+
 }
 
