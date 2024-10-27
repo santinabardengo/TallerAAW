@@ -1,62 +1,73 @@
  h1 {
-  font-family: "Arima", system-ui;
-  font-size: 70px;
   text-align: center;
-  margin-top: 2cm;
-
+  margin-top: 114px;
+  margin-bottom: 0px;
+  padding: 0px;
  } 
+
+ .titulo {
+  justify-content: center;
+  justify-self: center;
+  width: 400px;
+  height: auto;
+  margin-bottom: 0px;
+  padding: 0px;
+ }
 
  p {
   font-size: 20px;
   margin-left: 6cm;
  }
 
-.button-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    gap: 1rem;
-  }
-  
-  button {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
-    font-weight: 600; /* Asegura un peso moderado */
-    color: #ffffff; /* color del texto */
-    background-color: #457b9d; /* Color de fondo */
-    width: 250px; 
-    height: 80px; 
-    border: none; /* Eliminar bordes por defecto */
-    border-radius: 100px; /* Bordes redondeados para un look moderno */
-    padding: 12px 24px; /* Espaciado interno cómodo */
-    cursor: pointer; /* Cambiar el cursor a mano para botones */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+ button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
+  font-weight: 600; /* Asegura un peso moderado */
+  color: #ffffff; /* color del texto */
+  width: auto;  
+  border: none; /* Eliminar bordes por defecto */
+  border-radius: 100px; /* Bordes redondeados para un look moderno */
+  padding: 12px 24px; /* Espaciado interno cómodo */
+  cursor: pointer; /* Cambiar el cursor a mano para botones */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
 }
-
 
 button:hover {
   background-color: #2774a4; /* Color más oscuro en hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
 }
 
-/* Estilo para el enlace */
-.button-admin {
-  color: #457b9d; /* Color del texto */
+.button-user {
   justify-content: center;
-  align-items: center;
-  font-weight: bold; /* Hacer el texto en negrita */
-  font-size: 18px; /* Tamaño de la fuente */
-  transition: color 0.3s ease; /* Animación suave para cambiar el color */
-  text-decoration: underline; /* Añadir subrayado al pasar el mouse */
-  margin: 0;
-  height: 30vh;
-  cursor: pointer;
   display: flex;
+  align-items: center;
+  height: auto;
+  margin-top: 114px;
 }
 
-/* Cambiar el color del texto al pasar el mouse */
-.button-admin:hover {
-  color: #2774a4;
+.button-user button {
+  background-color: #457b9d;
+}
+
+.button-user button:hover {
+  background-color: #21638d; /* Color más oscuro en hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+}
+
+.button-admin {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin-top: 16px;
+}
+
+.button-admin button {
+  background-color: #1d3557;
+}
+
+.button-admin button:hover {
+  background-color: #081b35;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
 }

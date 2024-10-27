@@ -17,21 +17,12 @@
         <div class="nombre-POI" (click) = "mapComponent.centrarEnPOI(poi.nombre)">{{ poi.nombre }} </div>
         <div class = "icon-buttons">
           <button class="icon-button-accept" (click)="approvePOI(poi.nombre)">
-            <span  style="color: green;">✔️</span>
+            <img src="assets/001-comprobar.png" class = "tick-png">
           </button>
-          <button class="icon-button-reject" (click)="rejectPOI(poi.nombre)">❌</button>
-          <!-- Botón para ver más info -->
-          <!-- <button class="icon-button-info" (click)="toggleInfo(poi)">Ver más</button> -->
+          <button class="icon-button-reject" (click)="rejectPOI(poi.nombre)">
+            <img src="assets/cerrar.png" class = "cross-png">
+          </button>
         </div>
-        <!-- Condicional para mostrar detalles si se activa toggleInfo en el POI especifico -->
-        <!-- <div class = "detalles" *ngIf="poi.showInfo">
-          <p>Categoría: {{ poi.categoria }}</p>
-          <p>Descripción: {{ poi.descripcion }}</p>
-          <p>Ubicación: {{ poi.ubicacion }}</p>
-          <p>Horario de apertura: {{ poi.horarioApertura }}</p>
-          <p>Horario de cierre: {{ poi.horarioCierre }}</p>
-          <p *ngIf="poi.fecha">Fecha de evento: {{ poi.fecha }}</p>
-        </div> -->
       </li>
     </ul>
   </div>

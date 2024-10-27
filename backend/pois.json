@@ -24,33 +24,25 @@
     "descripcion": "Farmacia de barrio",
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
-    "status": "pending"
+    "status": "approved"
   },
   {
-    "nombre": "Aeropuerto",
-    "ubicacion": "-38.666709, -69.890555",
-    "categoria": "lugar",
-    "descripcion": "una casa muy casona",
-    "horarioApertura": "15:54",
-    "horarioCierre": "18:54",
-    "status": "pending"
+    "nombre": "Festichola",
+    "ubicacion": "-36.649687, -70.420445",
+    "categoria": "evento",
+    "descripcion": "Joditaaaa ",
+    "horarioApertura": "23:30",
+    "horarioCierre": "06:00",
+    "fecha": "2024-12-20",
+    "status": "approved"
   },
   {
-    "nombre": "casitas",
-    "ubicacion": "-37.833925, -71.392596",
+    "nombre": "Nadia Kissner",
+    "ubicacion": "-39.067732, -70.322113",
     "categoria": "lugar",
-    "descripcion": "Aeropuerto de Neuquén",
-    "horarioApertura": "19:23",
-    "horarioCierre": "17:23",
-    "status": "pending"
-  },
-  {
-    "nombre": "Un lugar llamado casa",
-    "ubicacion": "-38.688133, -69.797270",
-    "categoria": "lugar",
-    "descripcion": "casitas lindas",
-    "horarioApertura": "16:53",
-    "horarioCierre": "19:53",
+    "descripcion": "jJKAHKHASDJH",
+    "horarioApertura": "02:02",
+    "horarioCierre": "15:08",
     "status": "pending"
   }
 ]

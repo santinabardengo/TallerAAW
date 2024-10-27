@@ -25,10 +25,11 @@
   border-radius: 7px;
   color: white;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .pois-pendientes-btn button:hover {
-  background-color: #154360;
+  background-color: #21638d;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -51,25 +52,28 @@
 }
 
 ul {
-  padding: 0 30px 0 30px;
+  padding: 0 20px 0 20px;
   list-style-type: none;
+  margin-bottom: 10px;
 }
 
 .poi-item {
-  padding: 0px;
-  margin-top: 0px;
-  border-bottom: 1px solid #9c9c9c;
-  margin-bottom: 6px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  display: flex;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid #c2c0c0;
 }
 
 .poi-item:last-child {
   border-bottom: none;
+  padding-bottom: 0px;
 }
 
 .nombre-POI {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 0px;
   cursor: pointer; 
 }
 
@@ -82,11 +86,9 @@ ul {
 }
 
 .icon-buttons {
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Alinea verticalmente */
-  margin-top: 0px;
-  justify-self: center;
-  padding-bottom: 10px;
+  margin: 0px;
+  justify-content: right;
+  justify-self: right;
 }
 
 /* Botones de íconos */
@@ -95,48 +97,25 @@ ul {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 24px;
   transition: transform 0.2s; /* Transición suave al hacer hover */
-  margin-right: 8px;
+  padding: 0px;
+  margin: 0px;
 }
 
-.icon-button-accept {
-  margin-left: 8px;
-  margin-right: 6px;
-  font-size: 28px;
-  color: green;
+.cross-png {
+  width: 20px;
+  height: auto;
+}
+
+.tick-png {
+  width: 24px;
+  height: auto;
+  margin-right: 30px;
 }
 
 .icon-button-accept:hover,
 .icon-button-reject:hover {
   transform: scale(1.15); /* Aumenta el tamaño al pasar el mouse */
-}
-
-.icon-button-info {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 550;
-  border-radius: 5px;
-  height: 20px;
-  font-size: 12px;
-  background-color: #457b9d;
-  border: none;
-  color: #ffff;
-  cursor: pointer;
-  transition: transform 0.2s;
-  margin-left: 4px;
-}
-
-.icon-button-info:hover {
-  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
-}
-
-.detalles {
-  font-size: 14px;
-  font-weight: 550;
-}
-
-.detalles p:first-child{
-  margin-top: 0px;
 }
 
 /* Contenedor de confirmación */
@@ -176,45 +155,5 @@ ul {
   100% {
     opacity: 0;
   }
-}
-
-/* Botones de ícono (✔️ y ❌) */
-.icon-button {
-  background-color: transparent; /* Fondo transparente */
-  border: 2px solid; /* Borde sólido para que tenga mejor visibilidad */
-  border-radius: 50%; /* Botón circular */
-  width: 40px; /* Ancho fijo */
-  height: 40px; /* Alto fijo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px; /* Tamaño del icono */
-  cursor: pointer; /* Cambiar el cursor a pointer */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
-  margin-left: 10px;
-}
-
-/* Botón de aprobar (✔️) */
-.icon-button.approve {
-  border-color: #4caf50; /* Borde verde */
-  color: #4caf50; /* Color del icono verde */
-}
-
-/* Botón de rechazar (❌) */
-.icon-button.reject {
-  border-color: #f44336; /* Borde rojo */
-  color: #f44336; /* Color del icono rojo */
-}
-
-/* Estilo cuando el usuario pasa el cursor por encima (hover) en botón de aprobar */
-.icon-button.approve:hover {
-  background-color: #4caf50; /* Fondo verde al hacer hover */
-  color: white; /* Cambiar el color del icono a blanco */
-}
-
-/* Estilo cuando el usuario pasa el cursor por encima (hover) en botón de rechazar */
-.icon-button.reject:hover {
-  background-color: #f44336; /* Fondo rojo al hacer hover */
-  color: white; /* Cambiar el color del icono a blanco */
 }
 
