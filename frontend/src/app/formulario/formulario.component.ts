@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { PoiCreationService } from '../services/poi-creation.service';
 import { Router } from '@angular/router';
 import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
+import { UserMapComponent } from '../user-map/user-map.component';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule, FormsModule, MapaFormularioComponent],
+  imports: [CommonModule, FormsModule, MapaFormularioComponent, UserMapComponent],
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
@@ -25,10 +26,12 @@ export class FormularioComponent {
   errorLongitudDesc = ''; 
   errorFecha = '';
   fechaFormateada = '';
+  mensajeConfirmacion: string | null = null;
   
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
-  constructor(private poiCreationService: PoiCreationService, private router: Router) {
+
+  constructor(private poiCreationService: PoiCreationService, private router: Router, private UserMap: UserMapComponent) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
@@ -95,15 +98,19 @@ export class FormularioComponent {
     this.poiCreationService.createPOI(newPoi).subscribe({
       next: (response) => {
         console.log('POI creado', response);
+        this.UserMap.mostrarMensajeConfirmacion = true;
         this.router.navigate(['/user-map']);
+        
       },
       error: (err) => console.error('Error al crear POI', err)
 
     });
   }
-
-  abrirMapa() {
-    this.router.navigate(['/mapa']);
+  showConfirmation(message: string) {
+    this.mensajeConfirmacion = message;
+    setTimeout(() => (this.mensajeConfirmacion = null), 5000); // Desaparece en 3 segundos
   }
+
+  
 
 }

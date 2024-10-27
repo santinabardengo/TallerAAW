@@ -44,15 +44,5 @@
     "horarioApertura": "02:02",
     "horarioCierre": "15:08",
     "status": "pending"
-  },
-  {
-    "nombre": "rancho wow ow",
-    "ubicacion": "-38.662740, -70.135801",
-    "categoria": "evento",
-    "descripcion": "rancheada top mas mas",
-    "horarioApertura": "21:00",
-    "horarioCierre": "00:00",
-    "fecha": "2024-11-29",
-    "status": "rejected"
   }
 ]

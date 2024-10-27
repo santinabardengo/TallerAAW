@@ -189,4 +189,9 @@ button:hover {
     margin-bottom: 10px;
     display: block;
   }
+  .confirmacion#confirmacion {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
   
