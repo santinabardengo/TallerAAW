@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { PoiService } from '../services/poi.service';
+import { PoiRetrievalService } from '../services/poi-retrieval.service';
+import { PoiModerationService } from '../services/poi-moderation.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 
@@ -24,7 +25,7 @@ export class AdminComponent {
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
-  constructor(private poiService: PoiService) {}
+  constructor(private poiRetrievalService: PoiRetrievalService, private poiModerationService: PoiModerationService ) {}
 
   pendingPOIs: PointOfInterest[] = [];
   approvedPOIs: PointOfInterest[] = [];
@@ -42,7 +43,7 @@ export class AdminComponent {
       this.pendingPOIs = []; 
       return; 
     }
-    this.poiService.getPendingPOIs().subscribe({
+    this.poiRetrievalService.getPendingPOIs().subscribe({
       next: (pois) => {
         this.pendingPOIs = pois;
         //this.pendingPOIs = pois.map( poi => ({...poi, showInfo: false}));
@@ -66,7 +67,7 @@ export class AdminComponent {
 
 
   loadApprovedPOIs(): void {
-    this.poiService.getApprovedPOIs().subscribe(
+    this.poiRetrievalService.getApprovedPOIs().subscribe(
       (puntosAprobados: PointOfInterest[]) => {
         this.approvedPOIs = puntosAprobados;
         if (this.mapComponent) {
@@ -85,7 +86,7 @@ export class AdminComponent {
   }
 
   approvePOI(nombre: string) {
-    this.poiService.approvePOI(nombre).subscribe({
+    this.poiModerationService.approvePOI(nombre).subscribe({
       next: (response) => {
         this.showConfirmation(`POI "${nombre}" aprobado`);
         const poiAprobado = this.pendingPOIs.find(poi => poi.nombre === nombre);
@@ -101,7 +102,7 @@ export class AdminComponent {
   }
   
   rejectPOI(nombre: string) {
-    this.poiService.rejectPOI(nombre).subscribe({
+    this.poiModerationService.rejectPOI(nombre).subscribe({
       next: (response) => {
         this.showConfirmation(`POI "${nombre}" rechazado`);
         this.removePOI(nombre);
