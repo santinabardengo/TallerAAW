@@ -3,6 +3,7 @@ import { PoiRetrievalService } from '../services/poi-retrieval.service';
 import { PoiModerationService } from '../services/poi-moderation.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
+import {Router} from '@angular/router';
 
 
 interface PointOfInterest {
@@ -25,7 +26,7 @@ export class AdminComponent {
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
-  constructor(private poiRetrievalService: PoiRetrievalService, private poiModerationService: PoiModerationService ) {}
+  constructor(private poiRetrievalService: PoiRetrievalService, private poiModerationService: PoiModerationService, private router:Router ) {}
 
   pendingPOIs: PointOfInterest[] = [];
   approvedPOIs: PointOfInterest[] = [];
@@ -122,7 +123,9 @@ export class AdminComponent {
     this.noHayPoisMensaje = message;
     setTimeout(() => (this.noHayPoisMensaje = null), 5000); 
   }
-
+  navigateToForm() {
+    this.router.navigate(['/formulario'], { queryParams: { from: 'admin' }});
+  }
   ngOnInit(): void {
     this.loadApprovedPOIs();
     

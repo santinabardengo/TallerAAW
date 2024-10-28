@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PoiCreationService } from '../services/poi-creation.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
 import { UserMapComponent } from '../user-map/user-map.component';
 import { MessageService } from '../services/message.service';
@@ -28,11 +28,12 @@ export class FormularioComponent {
   errorFecha = '';
   fechaFormateada = '';
   mensajeConfirmacion: string | null = null;
-  
+  from: string | null = null;
+
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
 
-  constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService) {
+  constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService, private route: ActivatedRoute) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
@@ -100,7 +101,11 @@ export class FormularioComponent {
       next: (response) => {
         console.log('POI creado', response);
         this.messageService.setMensaje('Su POI está pendiente de aprobación.');
-        this.router.navigate(['/user-map']);
+        if (this.from === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/user-map']);
+        }
         
       },
       error: (err) => console.error('Error al crear POI', err)
@@ -111,6 +116,13 @@ export class FormularioComponent {
     this.mensajeConfirmacion = message;
     setTimeout(() => (this.mensajeConfirmacion = null), 5000); // Desaparece en 3 segundos
   }
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.from = params['from'] || 'user-map'; // Por defecto, redirige a 'user-map'
+    });
+  }
+
+  
 
   
 

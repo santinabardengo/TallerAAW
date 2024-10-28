@@ -144,7 +144,5 @@ export class MapComponent implements AfterViewInit {
     this.initMapa();
   }
 
-  navigateToForm() {
-    this.router.navigate(['/formulario']);
-  }
+  
 }

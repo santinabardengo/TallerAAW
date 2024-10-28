@@ -56,7 +56,9 @@ export class UserMapComponent implements OnInit {
     if(this.mostrarMensajeConfirmacion)
       this.showConfirmation('Puntos de interés cargados con éxito');
   }
-
+  navigateToForm() {
+    this.router.navigate(['/formulario'], { queryParams: { from: 'user-map' } });
+  }
   ngOnInit(): void {
     // Cargar los POIs al inicio
     this.cargarPuntosDeInteres();
