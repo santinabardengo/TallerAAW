@@ -52,8 +52,8 @@ export class FormularioComponent {
     if (!this.nombre) this.camposFaltantes.push('nombre');
     if (!this.ubicacion) this.camposFaltantes.push('ubicacion');
     if (!this.descripcion) this.camposFaltantes.push('descripción');
-    if (!this.horarioApertura) this.camposFaltantes.push('horario de apertura');
-    if (!this.horarioCierre) this.camposFaltantes.push('horario de cierre');
+    //if (!this.horarioApertura) this.camposFaltantes.push('horario de apertura');
+    //if (!this.horarioCierre) this.camposFaltantes.push('horario de cierre');
 
     if (this.camposFaltantes.length > 0) {
       this.errorCamposFaltantes = `Debes completar los siguientes campos: ${this.camposFaltantes.join(', ')}`;
