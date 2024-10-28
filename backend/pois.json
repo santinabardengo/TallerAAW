@@ -24,16 +24,42 @@
     "descripcion": "Farmacia de barrio",
     "horarioApertura": "13:30",
     "horarioCierre": "19:30",
-    "status": "pending"
+    "status": "approved"
   },
   {
     "nombre": "casitas",
-    "ubicacion": "-38.784329, -69.808245",
+    "ubicacion": "-38.576658, -69.753372",
     "categoria": "lugar",
-    "descripcion": "Aeropuerto de Neuquén",
-    "horarioApertura": "18:27",
-    "horarioCierre": "20:27",
-    "status": "approved"
+    "descripcion": "casitas lindas",
+    "horarioApertura": "01:20",
+    "horarioCierre": "04:20",
+    "status": "rejected"
+  },
+  {
+    "nombre": "Aeropuerto",
+    "ubicacion": "-38.632417, -69.720448",
+    "categoria": "lugar",
+    "descripcion": "una casa muy casona",
+    "horarioApertura": "01:18",
+    "horarioCierre": "03:18",
+    "status": "rejected"
+  },
+  {
+    "nombre": "Mamushka",
+    "ubicacion": "-38.782323, -69.528392",
+    "categoria": "lugar",
+    "descripcion": "una casa muy casona",
+    "horarioApertura": "02:26",
+    "horarioCierre": "02:26",
+    "status": "rejected"
+  },
+  {
+    "nombre": "hola",
+    "ubicacion": "-38.931915, -69.923479",
+    "categoria": "lugar",
+    "descripcion": "casitas lindas",
+    "horarioApertura": "02:26",
+    "horarioCierre": "17:26",
+    "status": "rejected"
   }
 ]
-

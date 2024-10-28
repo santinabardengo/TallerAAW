@@ -3,7 +3,7 @@ import { PoiRetrievalService } from '../services/poi-retrieval.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import { Router, NavigationEnd } from '@angular/router';
-
+import { MessageService } from '../services/message.service';
 
 interface PointOfInterestApproved {
   nombre: string;
@@ -28,7 +28,7 @@ export class UserMapComponent implements OnInit {
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
 
-  constructor(private poiRetrievalService: PoiRetrievalService, private router: Router) {}
+  constructor(private poiRetrievalService: PoiRetrievalService, private router: Router, private messageService: MessageService) {}
   mostrarMensajeConfirmacion : boolean = false;
   mensajeConfirmacion: string | null = null;
 
@@ -67,6 +67,13 @@ export class UserMapComponent implements OnInit {
       }
     });
     
+    this.messageService.mensaje$.subscribe(mensaje => {
+      this.mensajeConfirmacion = mensaje;
+      console.log('Mensaje recibido:', mensaje); 
+      if (mensaje) {
+        setTimeout(() => this.messageService.clearMensaje(), 5000); // Borra el mensaje después de 5 segundos
+      }
+    });
   }
   
 }

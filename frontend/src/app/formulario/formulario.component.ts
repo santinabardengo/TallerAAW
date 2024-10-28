@@ -5,6 +5,7 @@ import { PoiCreationService } from '../services/poi-creation.service';
 import { Router } from '@angular/router';
 import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
 import { UserMapComponent } from '../user-map/user-map.component';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-formulario',
@@ -31,7 +32,7 @@ export class FormularioComponent {
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
 
-  constructor(private poiCreationService: PoiCreationService, private router: Router) {
+  constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
@@ -98,7 +99,7 @@ export class FormularioComponent {
     this.poiCreationService.createPOI(newPoi).subscribe({
       next: (response) => {
         console.log('POI creado', response);
-        
+        this.messageService.setMensaje('Su POI está pendiente de aprobación.');
         this.router.navigate(['/user-map']);
         
       },
