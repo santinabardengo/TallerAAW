@@ -31,7 +31,7 @@ export class FormularioComponent {
   camposFaltantes: string[] = []; // Lista de campos faltantes
 
 
-  constructor(private poiCreationService: PoiCreationService, private router: Router, private UserMap: UserMapComponent) {
+  constructor(private poiCreationService: PoiCreationService, private router: Router) {
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
@@ -98,7 +98,7 @@ export class FormularioComponent {
     this.poiCreationService.createPOI(newPoi).subscribe({
       next: (response) => {
         console.log('POI creado', response);
-        this.UserMap.mostrarMensajeConfirmacion = true;
+        
         this.router.navigate(['/user-map']);
         
       },
