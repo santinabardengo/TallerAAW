@@ -40,11 +40,19 @@ export class MapaFormularioComponent implements AfterViewInit {
     }).addTo(this.mapa);
 
     this.mapa.on('click', (e: any) => {
+
+      const iconoPendiente = L.icon({
+        iconUrl: '/assets/iconoPendiente.png',  
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+
       const { lat, lng } = e.latlng;
       if (this.marcador) {
         this.marcador.setLatLng([lat, lng]);  // Mover marcador
       } else {
-        this.marcador = L.marker([lat, lng]).addTo(this.mapa);  // Crear nuevo marcador
+        this.marcador = L.marker([lat, lng], {icon: iconoPendiente}).addTo(this.mapa);  // Crear nuevo marcador
       }
 
       this.ubicacionSeleccionada.emit({ lat, lng });
