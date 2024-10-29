@@ -1,6 +1,6 @@
 
 <div class="formulario_poi">
-    <h3>Agregar Punto de interés</h3>
+    <h3>Agregar punto de interés</h3>
   
     <form (ngSubmit)="enviarFormulario()" #poiForm="ngForm">
       <label for="nombreId">Nombre:</label>
@@ -56,17 +56,15 @@
       
       <div *ngIf="errorCamposFaltantes" class="error-msg">{{ errorCamposFaltantes }}</div>
   
-      <button 
-      id="boton_enviar" 
-      type="submit" 
-      [disabled]="!poiForm.form.valid"
-      [ngClass]="{'boton-desactivado': !poiForm.form.valid, 'boton-activado': poiForm.form.valid}">
-      Agregar al mapa
-    </button>
-      
-      
-      <!-- Resto del contenido del mapa -->
-      
+      <div class = "boton-agregar">
+        <button 
+        id="boton_enviar" 
+        type="submit" 
+        [disabled]="!poiForm.form.valid"
+        [ngClass]="{'boton-desactivado': !poiForm.form.valid, 'boton-activado': poiForm.form.valid}">
+        Agregar al mapa
+        </button>
+      </div>
 
     </form>
   </div>

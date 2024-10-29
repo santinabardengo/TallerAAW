@@ -5,7 +5,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 320px;
@@ -19,8 +19,9 @@
 .formulario_poi h3 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
-    font-size: 1.5em;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 1.4em;
     font-weight: bold;
 }
 
@@ -161,7 +162,7 @@ select {
 
 button {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px; /* Ajusta este valor según el tamaño que necesites */
+    font-size: 12px; /* Ajusta este valor según el tamaño que necesites */
     font-weight: 600; /* Asegura un peso moderado */
     color: #ffffff; /* color del texto */
     background-color: #457b9d; /* Color de fondo */
@@ -169,14 +170,27 @@ button {
     height: 40px; 
     border: none; /* Eliminar bordes por defecto */
     border-radius: 100px; /* Bordes redondeados para un look moderno */
-    padding: 12px 24px; /* Espaciado interno cómodo */
+    padding: 12px 20px; /* Espaciado interno cómodo */
     cursor: pointer; /* Cambiar el cursor a mano para botones */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
     align-items: center;
-
 }
-button:hover {
+
+.boton-aregar { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.boton-agregar button {
+    margin: 10px auto;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.boton-activado:hover {
     background-color: #154360; /* Color más oscuro en hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
 }
@@ -199,6 +213,10 @@ button:hover {
     background-color: grey;
     color: white;
     cursor: not-allowed;
+}
+
+.boton-desactivado:hover {
+    background-color: grey;
 }
 
 .boton-activado {

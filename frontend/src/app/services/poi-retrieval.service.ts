@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class PoiRetrievalService {
 
   private baseUrl = 'http://localhost:3000/points-of-interest';
-  ;
 
   constructor(private http: HttpClient) { }
 
