@@ -35,7 +35,7 @@ export class FormularioComponent {
 
   constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService, private route: ActivatedRoute) {
     const hoy = new Date();
-    const fechaFormateada = hoy.toISOString().split('T')[0]; 
+    this.fechaFormateada = hoy.toISOString().split('T')[0]; 
   }
 
   onUbicacionSeleccionada(event: { lat: number; lng: number }) {
@@ -66,12 +66,13 @@ export class FormularioComponent {
       noHayError = false;
     }
    
-    
     // Validación de horarios si ambos están completos
 
-    if (this.fecha < this.fechaFormateada) {
+    if (this.mostrarFechaEvento && (!this.fecha || this.fecha < this.fechaFormateada)) {
       this.errorFecha = 'Fecha inválida';
       noHayError = false;
+    }else{
+      this.errorFecha = '';
     }
 
     if (!this.errorCamposFaltantes && !this.errorLongitudDesc && !this.errorFecha){ // Sin errores

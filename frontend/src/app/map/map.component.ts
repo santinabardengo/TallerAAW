@@ -101,6 +101,7 @@ export class MapComponent implements AfterViewInit {
         return L.marker([lat, lng], {icon: iconoPendiente}).bindPopup(`
           <strong>${punto.nombre}</strong><br>
           <p>${punto.descripcion}</p>
+          ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
           <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
           <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
         `);

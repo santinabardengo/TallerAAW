@@ -4,7 +4,7 @@
   
     <form (ngSubmit)="enviarFormulario()" #poiForm="ngForm">
       <label for="nombreId">Nombre:</label>
-      <input type="text" id="nombreId" [(ngModel)]="nombre" name="nombre" class="input-field" />
+      <input type="text" id="nombreId" [(ngModel)]="nombre" name="nombre" class="input-field"required  />
       
       <div class = "ubicacion-con-mapa">
         <div>
@@ -17,6 +17,7 @@
             class = "readonly-field" 
             readonly 
             placeholder = "Seleccionar punto en el mapa"
+            required 
             />
         </div>
 
@@ -29,7 +30,7 @@
 
       <label for="categoriaId">Categoría:</label>
       <div class="custom-select">
-        <select id="categoriaId" [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" name="categoriaSeleccionada">
+        <select id="categoriaId" [(ngModel)]="categoriaSeleccionada" (change)="CambioCategoria()" name="categoriaSeleccionada"required >
           <option value="" disabled selected>Seleccionar categoría</option>
           <option value="lugar">Lugar</option>
           <option value="evento">Evento</option>
@@ -37,25 +38,31 @@
       </div><br />
   
       <label for="descripcionId">Descripción:</label>
-      <input type="text" id="descripcionId" [(ngModel)]="descripcion" name="descripcion" class="input-field" /><br />
+      <input type="text" id="descripcionId" [(ngModel)]="descripcion" name="descripcion" class="input-field"required  /><br />
       <span *ngIf="descripcion.length > 150" class="error-msg">{{ errorLongitudDesc }}</span>
   
       <label for="horarioAperturaId">Horario Apertura:</label>
-      <input type="time" id="horarioAperturaId" [(ngModel)]="horarioApertura" name="horarioApertura" class="input-field" /><br />
+      <input type="time" id="horarioAperturaId" [(ngModel)]="horarioApertura" name="horarioApertura" class="input-field"required  /><br />
   
       <label for="horarioCierreId">Horario Cierre:</label>
-      <input type="time" id="horarioCierreId" [(ngModel)]="horarioCierre" name="horarioCierre" class="input-field" /><br />
-     
+      <input type="time" id="horarioCierreId" [(ngModel)]="horarioCierre" name="horarioCierre" class="input-field"required  /><br />
   
       <div *ngIf="mostrarFechaEvento">
         <label for="fechaEventoId">Fecha del Evento:</label>
-        <input type="date" id="fechaEventoId" [(ngModel)]="fecha" name="fecha" class="input-field" /><br />
+        <input type="date" id="fechaEventoId" [(ngModel)]="fecha" name="fecha" class="input-field" required /><br />
+        
       </div>
-      <span *ngIf="fecha > fechaFormateada" class="error-msg">{{ errorFecha }}
-    </span>
+      <span *ngIf="errorFecha" class="error-msg">{{ errorFecha }}</span>
+      
       <div *ngIf="errorCamposFaltantes" class="error-msg">{{ errorCamposFaltantes }}</div>
   
-      <button id="boton_enviar" type="submit" [disabled]="!poiForm.form.valid">Agregar al mapa</button>
+      <button 
+      id="boton_enviar" 
+      type="submit" 
+      [disabled]="!poiForm.form.valid"
+      [ngClass]="{'boton-desactivado': !poiForm.form.valid, 'boton-activado': poiForm.form.valid}">
+      Agregar al mapa
+    </button>
       
       
       <!-- Resto del contenido del mapa -->
