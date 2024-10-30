@@ -30,9 +30,6 @@ export class FormularioComponent {
   mensajeConfirmacion: string | null = null;
   from: string | null = null;
 
-  camposFaltantes: string[] = []; // Lista de campos faltantes
-
-
   constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService, private route: ActivatedRoute) {
     const hoy = new Date();
     this.fechaFormateada = hoy.toISOString().split('T')[0]; 
@@ -48,17 +45,6 @@ export class FormularioComponent {
 
   esFormularioValido(): boolean {
     let noHayError:boolean = true;
-    this.camposFaltantes = [];
-    if (!this.nombre) this.camposFaltantes.push('nombre');
-    if (!this.ubicacion) this.camposFaltantes.push('ubicacion');
-    if (!this.descripcion) this.camposFaltantes.push('descripción');
-    //if (!this.horarioApertura) this.camposFaltantes.push('horario de apertura');
-    //if (!this.horarioCierre) this.camposFaltantes.push('horario de cierre');
-
-    if (this.camposFaltantes.length > 0) {
-      this.errorCamposFaltantes = `Debes completar los siguientes campos: ${this.camposFaltantes.join(', ')}`;
-      noHayError = false;
-    }
 
     // Validación de descripción
     if (this.descripcion.length > 150) {
@@ -75,17 +61,13 @@ export class FormularioComponent {
       this.errorFecha = '';
     }
 
-    if (!this.errorCamposFaltantes && !this.errorLongitudDesc && !this.errorFecha){ // Sin errores
-      noHayError = true;
-    }
-
     return noHayError;
   }
+
 
   enviarFormulario() {
     if (!this.esFormularioValido()) {
       return; // No enviar si es inválido
-
     }
 
     const newPoi = {
@@ -113,10 +95,12 @@ export class FormularioComponent {
 
     });
   }
+  
   showConfirmation(message: string) {
     this.mensajeConfirmacion = message;
     setTimeout(() => (this.mensajeConfirmacion = null), 5000); // Desaparece en 3 segundos
   }
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.from = params['from'] || 'user-map'; // Por defecto, redirige a 'user-map'
