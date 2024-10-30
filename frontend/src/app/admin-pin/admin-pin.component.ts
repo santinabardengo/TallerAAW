@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necesario para directivas como *ngIf
+import { CommonModule } from '@angular/common'; 
 import { Router } from '@angular/router';
+import { AuthService } from '../services/authenticate.service';
 
 @Component({
   selector: 'app-admin-pin',
@@ -14,7 +15,8 @@ export class AdminPinComponent {
   pin: string = '';
   errorMessage: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
+  
   // Método que maneja el cambio de valor del input
   onPinChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement; // Type assertion
@@ -22,14 +24,13 @@ export class AdminPinComponent {
   }
 
   validatePin(): void {
-    if (this.pin === '1234') {
-      console.log('PIN válido');
+    if (this.authService.authenticate(this.pin)) {
       this.errorMessage = null;
       this.router.navigate(['/admin']);
       
     } else {
       this.errorMessage = 'PIN inválido. Inténtalo de nuevo.';
-      console.log('PIN inválido');
     }
   }
 }
+
