@@ -36,6 +36,14 @@
     "horarioCierre": "07:30",
     "fecha": "2024-12-31",
     "status": "approved"
+  },
+  {
+    "nombre": "Volcan Copahue",
+    "ubicacion": "-37.853113, -71.156214",
+    "categoria": "lugar",
+    "descripcion": "El volcán Copahue, en Neuquén, es famoso por sus fumarolas activas y aguas termales. Un destino ideal para quienes buscan aventura y paisajes únicos.",
+    "horarioApertura": "06:00",
+    "horarioCierre": "10:00",
+    "status": "approved"
   }
-  
 ]
