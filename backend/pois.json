@@ -45,5 +45,23 @@
     "horarioApertura": "06:00",
     "horarioCierre": "10:00",
     "status": "approved"
+  },
+  {
+    "nombre": "Cuore Di Panna",
+    "ubicacion": "-38.955136, -68.062102",
+    "categoria": "lugar",
+    "descripcion": "Heladería artesanal en el centro de la ciudad de Neuquén",
+    "horarioApertura": "09:00",
+    "horarioCierre": "02:10",
+    "status": "approved"
+  },
+  {
+    "nombre": "Cuchau",
+    "ubicacion": "-38.688301, -70.346929",
+    "categoria": "lugar",
+    "descripcion": "rayo mcqueen",
+    "horarioApertura": "10:47",
+    "horarioCierre": "22:47",
+    "status": "pending"
   }
 ]
