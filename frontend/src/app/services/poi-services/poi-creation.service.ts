@@ -1,14 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BasePoiService } from './base-poi.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PoiCreationService {
-
-  private baseUrl = 'http://localhost:3000/points-of-interest';
-
-  constructor(private http: HttpClient) { }
+export class PoiCreationService extends BasePoiService {
 
   // Crear un nuevo POI
   createPOI(poiData: any) {

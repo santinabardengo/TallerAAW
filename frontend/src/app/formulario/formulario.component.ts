@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PoiCreationService } from '../services/poi-creation.service';
+import { PoiCreationService } from '../services/poi-services/poi-creation.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MapaFormularioComponent } from '../mapa-formulario/mapa-formulario.component';
 import { UserMapComponent } from '../user-map/user-map.component';

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { PoiRetrievalService } from '../services/poi-retrieval.service';
-import { PoiModerationService } from '../services/poi-moderation.service';
+import { PoiRetrievalService } from '../services/poi-services/poi-retrieval.service';
+import { PoiModerationService } from '../services/poi-services/poi-moderation.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import {Router} from '@angular/router';
