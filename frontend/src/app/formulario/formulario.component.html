@@ -47,6 +47,11 @@
       <label for="horarioCierreId">Horario Cierre:</label>
       <input type="time" id="horarioCierreId" [(ngModel)]="horarioCierre" name="horarioCierre" class="input-field"required  /><br />
   
+      <div>
+        <label for="imagen">Imágenes del Punto de Interés:</label>
+        <input type="file" name = "images" id="images" (change)="onImagenSeleccionada($event)" multiple>
+      </div>
+      
       <div *ngIf="mostrarFechaEvento">
         <label for="fechaEventoId">Fecha del Evento:</label>
         <input type="date" id="fechaEventoId" [(ngModel)]="fecha" name="fecha" class="input-field" required /><br />

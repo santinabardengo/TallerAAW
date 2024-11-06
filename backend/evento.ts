@@ -10,12 +10,13 @@ import { POI } from './poi';
       descripcion: string = '',
       horarioApertura: string = '',
       horarioCierre: string = '',
+      imagenes: string[] = [],
       fecha: string = '',
       status: string = 'pending', 
       
       
     ) {
-      super(nombre, ubicacion, categoria, descripcion, horarioApertura, horarioCierre, status);
+      super(nombre, ubicacion, categoria, descripcion, horarioApertura, horarioCierre, imagenes, status);
       this.#fecha = fecha;
     }
   
@@ -34,6 +35,7 @@ import { POI } from './poi';
       evento.setDescripcion(data.descripcion);
       evento.setApertura(data.horarioApertura);
       evento.setCierre(data.horarioCierre);
+      if (data.imagenes) evento.setImagenes(data.imagenes); 
       evento.setFecha(data.fecha);
       evento.setStatus(data.status);
       

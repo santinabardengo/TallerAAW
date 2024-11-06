@@ -63,5 +63,36 @@
     "horarioApertura": "10:47",
     "horarioCierre": "22:47",
     "status": "pending"
+  },
+  {
+    "nombre": "Nanu diosa, vos mugrosa",
+    "ubicacion": "-38.867842, -70.131997",
+    "categoria": "lugar",
+    "descripcion": "sdfv",
+    "horarioApertura": "17:02",
+    "horarioCierre": "20:02",
+    "status": "pending"
+  },
+  {
+    "nombre": "Santina Bardengo",
+    "ubicacion": "-39.064147, -70.121022",
+    "categoria": "lugar",
+    "descripcion": "xdcfd",
+    "horarioApertura": "16:03",
+    "horarioCierre": "20:04",
+    "imagenes": [],
+    "status": "approved"
+  },
+  {
+    "nombre": "Chapelco",
+    "ubicacion": "-38.799435, -70.131997",
+    "categoria": "lugar",
+    "descripcion": "sdfghgfds",
+    "horarioApertura": "16:05",
+    "horarioCierre": "20:05",
+    "imagenes": [
+      "./images/DiagramaDeObjetos_AAW.png"
+    ],
+    "status": "pending"
   }
 ]

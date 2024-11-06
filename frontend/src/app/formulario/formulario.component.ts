@@ -14,6 +14,7 @@ import { MessageService } from '../services/message.service';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
+
 export class FormularioComponent {
   categoriaSeleccionada = '';
   mostrarFechaEvento = false;
@@ -29,6 +30,7 @@ export class FormularioComponent {
   fechaFormateada = '';
   mensajeConfirmacion: string | null = null;
   from: string | null = null;
+  imagenes: File[] = [];
 
   constructor(private poiCreationService: PoiCreationService, private router: Router, private messageService: MessageService, private route: ActivatedRoute) {
     const hoy = new Date();
@@ -37,6 +39,11 @@ export class FormularioComponent {
 
   onUbicacionSeleccionada(event: { lat: number; lng: number }) {
     this.ubicacion = `${event.lat.toFixed(6)}, ${event.lng.toFixed(6)}`;
+  }
+
+  onImagenSeleccionada(event: any) {
+    const archivos = event.target.files;
+    this.imagenes = Array.from(archivos);
   }
 
   CambioCategoria() {
@@ -70,17 +77,20 @@ export class FormularioComponent {
       return; // No enviar si es inválido
     }
 
-    const newPoi = {
-      nombre: this.nombre,
-      ubicacion: this.ubicacion,
-      categoria: this.categoriaSeleccionada,
-      descripcion: this.descripcion,
-      horarioApertura: this.horarioApertura,
-      horarioCierre: this.horarioCierre,
-      fecha: this.mostrarFechaEvento ? this.fecha : null
-    };
+    const formData = new FormData(); 
+    formData.append('nombre', this.nombre);
+    formData.append('ubicacion', this.ubicacion || '');
+    formData.append('categoria', this.categoriaSeleccionada);
+    formData.append('descripcion', this.descripcion);
+    formData.append('horarioApertura', this.horarioApertura);
+    formData.append('horarioCierre', this.horarioCierre);
+    formData.append('fecha', this.mostrarFechaEvento ? this.fecha : '');
   
-    this.poiCreationService.createPOI(newPoi).subscribe({
+    this.imagenes.forEach(imagen => {
+      formData.append('images', imagen, imagen.name); 
+    });
+
+    this.poiCreationService.createPOI(formData).subscribe({
       next: (response) => {
         console.log('POI creado', response);
         this.messageService.setMensaje('Su POI está pendiente de aprobación.');

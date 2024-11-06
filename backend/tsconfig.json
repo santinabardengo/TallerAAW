@@ -9,6 +9,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["*.ts", "server/poiRoutes.ts"],
+  "include": ["*.ts", "server/poiRoutes.ts", "express-multer.d.ts"],
   //"exclude": ["node_modules"]
 }

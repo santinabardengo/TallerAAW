@@ -7,8 +7,7 @@ import { BasePoiService } from './base-poi.service';
 export class PoiCreationService extends BasePoiService {
 
   // Crear un nuevo POI
-  createPOI(poiData: any) {
-    console.log(poiData);
-    return this.http.post(`${this.baseUrl}`, poiData);
+  createPOI(formData: FormData) {
+    return this.http.post(`${this.baseUrl}`, formData);
   }
 }

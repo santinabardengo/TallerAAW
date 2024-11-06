@@ -49,6 +49,7 @@ guardarPoiArchivo(ruta: string, poi: POI | Evento): void {
         descripcion: poi.getDescripcion(),
         horarioApertura: poi.getHorarioApertura(),
         horarioCierre: poi.getHorarioCierre(),
+        imagenes: poi.getImagenes(),
         ...(poi instanceof Evento && { fecha: poi.getFecha() }),
         status: poi.getStatus(),
         

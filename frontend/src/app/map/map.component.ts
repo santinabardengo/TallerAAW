@@ -9,6 +9,7 @@ interface PointOfInterest {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  imagenes?:any;
   fecha? : string;
 }
 
@@ -93,6 +94,7 @@ export class MapComponent implements AfterViewInit {
             ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
             <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
             <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+            ${punto.imagenes ? `<p><strong>Imagenes: </strong> ${punto.imagenes}</p>`: ''}
           `);
         });
 
@@ -104,6 +106,7 @@ export class MapComponent implements AfterViewInit {
           ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
           <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
           <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+          ${punto.imagenes ? `<p><strong>Imagenes: </strong> ${punto.imagenes}</p>`: ''}
         `);
       });
 

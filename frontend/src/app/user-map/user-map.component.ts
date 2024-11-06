@@ -11,6 +11,7 @@ interface PointOfInterestApproved {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  imagenes: any;
   fecha? : string;
 }
 

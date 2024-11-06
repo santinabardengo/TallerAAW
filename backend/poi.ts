@@ -6,8 +6,9 @@ export class POI {
     #descripcion: string;
     #horarioApertura: string;
     #horarioCierre: string;
+    #imagenes: string[]; 
     #status: string;
-  
+    
     constructor(
       nombre: string = '',
       ubicacion: string = '',
@@ -15,7 +16,9 @@ export class POI {
       descripcion: string = '',
       horarioApertura: string = '',
       horarioCierre: string = '',
+      imagenes: string[] = [],
       status: string = 'pending'
+
     ) {
       this.#nombre = nombre;
       this.#ubicacion = ubicacion;
@@ -23,6 +26,7 @@ export class POI {
       this.#descripcion = descripcion;
       this.#horarioApertura = horarioApertura;
       this.#horarioCierre = horarioCierre;
+      this.#imagenes = imagenes;
       this.#status = status;
     }
 
@@ -52,6 +56,10 @@ export class POI {
       this.#horarioCierre = horarioCierre;
     } 
 
+    setImagenes(imagenes: string[]): void {
+      this.#imagenes = imagenes;
+    }
+
     setStatus(status: string): void {
       this.#status = status;
     } 
@@ -65,6 +73,7 @@ export class POI {
       poi.setApertura(data.horarioApertura);
       poi.setCierre(data.horarioCierre);
       poi.setStatus(data.status);
+      if (data.imagenes) poi.setImagenes(data.imagenes); 
       return poi;
   }
   
@@ -91,6 +100,10 @@ export class POI {
   
     getHorarioCierre(): string {
       return this.#horarioCierre;
+    }
+
+    getImagenes(): string[] {
+      return this.#imagenes;
     }
 
     getStatus(): string {
