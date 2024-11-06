@@ -6,7 +6,10 @@
     "descripcion": "Centro de esquí",
     "horarioApertura": "09:00",
     "horarioCierre": "16:30",
-    "status": "pending"
+    "imagenes": [
+      "./images/chapelco.jpg", "./images/chapelco2.jpg", "./images/chapelco3.jpg"
+    ],
+    "status": "approved"
   },
   {
     "nombre": "La Anónima",
@@ -71,7 +74,8 @@
     "descripcion": "sdfv",
     "horarioApertura": "17:02",
     "horarioCierre": "20:02",
-    "status": "pending"
+    "imagenes": ["./images/nanu.jpg"],
+    "status": "approved"
   },
   {
     "nombre": "Santina Bardengo",
@@ -80,19 +84,7 @@
     "descripcion": "xdcfd",
     "horarioApertura": "16:03",
     "horarioCierre": "20:04",
-    "imagenes": [],
+    "imagenes": ["./images/sansan.jpg"],
     "status": "approved"
-  },
-  {
-    "nombre": "Chapelco",
-    "ubicacion": "-38.799435, -70.131997",
-    "categoria": "lugar",
-    "descripcion": "sdfghgfds",
-    "horarioApertura": "16:05",
-    "horarioCierre": "20:05",
-    "imagenes": [
-      "./images/DiagramaDeObjetos_AAW.png"
-    ],
-    "status": "pending"
   }
 ]

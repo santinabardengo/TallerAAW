@@ -88,14 +88,30 @@ export class MapComponent implements AfterViewInit {
       const marcadoresAprobados = this.puntosDeInteresAprobados.map(punto => {
         const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
         const icono = punto.fecha ? iconoEvento : iconoLugar;
-          return L.marker([lat, lng], { icon: icono }).bindPopup(`
-            <strong>${punto.nombre}</strong><br>
-            <p>${punto.descripcion}</p>
-            ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
-            <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
-            <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
-            ${punto.imagenes ? `<p><strong>Imagenes: </strong> ${punto.imagenes}</p>`: ''}
-          `);
+        
+
+        
+        const imagenesHtml = punto.imagenes?.map((imagen: string) => {
+          // Reemplaza la ruta relativa con la URL completa del backend
+          const imagenUrl = `http://localhost:3000${imagen.replace('./', '/')}`;
+          return `<img src="${imagenUrl}" alt="${punto.nombre}" style="width: 200px; height: auto; display: inline-block; margin-right: 5px;">`;
+        }).join('') || '';  // Unir todas las imágenes en una cadena de HTML
+      
+        const carruselHtml = `
+        <div class = "carrusel" style="width: 100%; max-height: 300px; overflow-y: scroll; padding-right: 1px;">
+          ${imagenesHtml}
+        </div>
+      `;
+
+        return L.marker([lat, lng], { icon: icono }).bindPopup(`
+          <strong>${punto.nombre}</strong><br>
+          <p>${punto.descripcion}</p>
+          ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
+          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+          <p><strong>Imagenes:</strong> </p>
+          ${carruselHtml}
+        `);
         });
 
       const marcadoresPendientes = this.puntosDeInteresPendientes.map(punto => {
