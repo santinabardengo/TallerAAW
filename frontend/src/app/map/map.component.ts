@@ -94,35 +94,118 @@ export class MapComponent implements AfterViewInit {
         const imagenesHtml = punto.imagenes?.map((imagen: string) => {
           // Reemplaza la ruta relativa con la URL completa del backend
           const imagenUrl = `http://localhost:3000${imagen.replace('./', '/')}`;
-          return `<img src="${imagenUrl}" alt="${punto.nombre}" style="width: 200px; height: auto; display: inline-block; margin-right: 5px;">`;
+          return `<img src="${imagenUrl}" alt="${punto.nombre}" style="width: 200px; height: auto; object-fit: cover; display: inline-block; border-radius: 8px; justify-items:center;">`;
         }).join('') || '';  // Unir todas las imágenes en una cadena de HTML
       
         const carruselHtml = `
-        <div class = "carrusel" style="width: 100%; max-height: 300px; overflow-y: scroll; padding-right: 1px;">
-          ${imagenesHtml}
-        </div>
-      `;
+          <div style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding: 0px 10px 10px 0px;
+            width: 100%;
+            max-height: 300px;
+          ">
+            ${imagenesHtml}
+          </div>
+        `;
+
+        const customScrollbarStyle = `
+          <style>
+            div::-webkit-scrollbar {
+              height: 8px; /* Barra horizontal fina */
+            }
+            div::-webkit-scrollbar-track {
+              background-color: transparent; /* Fondo transparente (sin flechas) */
+            }
+            div::-webkit-scrollbar-thumb {
+              background-color: #457B9D; /* Color de la barra */
+              border-radius: 10px; /* Forma redondeada */
+              border: 2px solid #f1f1f1
+            }
+            div::-webkit-scrollbar-thumb:hover {
+              background-color: #233a66;; /* Color de la barra al pasar el cursor */
+            }
+          </style>
+        `;
+
+        const imagenesSection = punto.imagenes && punto.imagenes.length > 0
+          ? `<p style="font-family: 'Montserrat', sans-serif; margin-bottom: 12px;"><strong>Imagenes:</strong></p>`
+          : '';  // Si no tiene imágenes, no se agrega nada
+
 
         return L.marker([lat, lng], { icon: icono }).bindPopup(`
-          <strong>${punto.nombre}</strong><br>
-          <p>${punto.descripcion}</p>
-          ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
-          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
-          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
-          <p><strong>Imagenes:</strong> </p>
+          <strong style = "font-size: 20px; font-weight: bold; font-family: 'Montserrat', sans-serif;">${punto.nombre}</strong><br>
+          <p style="font-family: 'Montserrat', sans-serif;">${punto.descripcion}</p>
+          ${punto.fecha ? `<p style="font-family: 'Montserrat', sans-serif;"><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
+          <p style="font-family: 'Montserrat', sans-serif;"><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+          <p style="font-family: 'Montserrat', sans-serif;"><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+          ${imagenesSection}
           ${carruselHtml}
+          ${customScrollbarStyle}
         `);
         });
 
       const marcadoresPendientes = this.puntosDeInteresPendientes.map(punto => {
         const [lat, lng] = punto.ubicacion.split(',').map(coord => parseFloat(coord));
+        
+        const imagenesHtml = punto.imagenes?.map((imagen: string) => {
+          const imagenUrl = `http://localhost:3000${imagen.replace('./', '/')}`;
+          return `<img src="${imagenUrl}" alt="${punto.nombre}" style="width: 200px; height: auto; object-fit: cover; display: inline-block; border-radius: 8px; justify-items:center;">`;
+        }).join('') || '';
+
+        const carruselHtml = `
+          <div style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding: 0px 10px 10px 0px;
+            width: 100%;
+            max-height: 300px;
+          ">
+            ${imagenesHtml}
+          </div>
+        `;
+
+        const customScrollbarStyle = `
+          <style>
+            div::-webkit-scrollbar {
+              height: 8px; /* Barra horizontal fina */
+            }
+            div::-webkit-scrollbar-track {
+              background-color: transparent; /* Fondo transparente (sin flechas) */
+            }
+            div::-webkit-scrollbar-thumb {
+              background-color: #457B9D; /* Color de la barra */
+              border-radius: 10px; /* Forma redondeada */
+              border: 2px solid #f1f1f1
+            }
+            div::-webkit-scrollbar-thumb:hover {
+              background-color: #233a66;; /* Color de la barra al pasar el cursor */
+            }
+          </style>
+        `;
+
+        const imagenesSection = punto.imagenes && punto.imagenes.length > 0
+          ? `<p style="font-family: 'Montserrat', sans-serif; margin-bottom: 12px;"><strong>Imagenes:</strong></p>`
+          : '';  // Si no tiene imágenes, no se agrega nada
+
+
         return L.marker([lat, lng], {icon: iconoPendiente}).bindPopup(`
-          <strong>${punto.nombre}</strong><br>
-          <p>${punto.descripcion}</p>
-          ${punto.fecha ? `<p><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
-          <p><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
-          <p><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
-          ${punto.imagenes ? `<p><strong>Imagenes: </strong> ${punto.imagenes}</p>`: ''}
+          <strong style = "font-size: 20px; font-weight: bold; font-family: 'Montserrat', sans-serif;">${punto.nombre}</strong><br>
+          <p style="font-family: 'Montserrat', sans-serif;">${punto.descripcion}</p>
+          ${punto.fecha ? `<p style="font-family: 'Montserrat', sans-serif;"><strong>Fecha del evento:</strong> ${punto.fecha}</p>` : ''}
+          <p style="font-family: 'Montserrat', sans-serif;"><strong>Horario de apertura:</strong> ${punto.horarioApertura}</p>
+          <p style="font-family: 'Montserrat', sans-serif;"><strong>Horario de cierre:</strong> ${punto.horarioCierre}</p>
+          ${imagenesSection}
+          ${carruselHtml}
+          ${customScrollbarStyle}
         `);
       });
 
