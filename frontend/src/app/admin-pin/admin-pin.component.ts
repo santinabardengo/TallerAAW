@@ -2,35 +2,35 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { Router } from '@angular/router';
 import { AuthService } from '../services/authenticate.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-pin',
   standalone: true,
   templateUrl: './admin-pin.component.html',
   styleUrls: ['./admin-pin.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
 })
 
 export class AdminPinComponent {
   pin: string = '';
+  email: string = '';
   errorMessage: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) {}
   
-  // Método que maneja el cambio de valor del input
-  onPinChange(event: Event): void {
-    const inputElement = event.target as HTMLInputElement; // Type assertion
-    this.pin = inputElement.value;
-  }
-
   validatePin(): void {
-    if (this.authService.authenticate(this.pin)) {
+    if (this.authService.authenticate(this.email, this.pin)) {
       this.errorMessage = null;
       this.router.navigate(['/admin']);
       
     } else {
       this.errorMessage = 'PIN inválido. Inténtalo de nuevo.';
     }
+  }
+
+  navigateToRegisterForm() {
+    this.router.navigate(['/registro']); //FALTA EL COMPONENTE 
   }
 }
 

@@ -52,25 +52,9 @@ input[type="email"] {
     font-family: 'Montserrat', sans-serif;
 }
 
-.registrarse {
-    background: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    border: none;
-    color: #457b9d; /* Cambia el color si deseas otro */
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 50px;
-}
-
-.registrarse:hover {
-    text-decoration: underline;
-    color: #457b9d; /* Color al hacer hover */
-}
 
 
-.ingresar{
+.registrarme{
     color: #ffffff; /* color del texto */
     background-color: #457b9d; /* Color de fondo */
     border: none; /* Sin borde */
@@ -87,7 +71,7 @@ input[type="email"] {
     margin-top: 12px;
 }
 
-.ingresar:hover {
+.registrarme:hover {
     background-color: #2774a4; /* Color más oscuro en hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Color del botón al pasar el ratón */
 }
