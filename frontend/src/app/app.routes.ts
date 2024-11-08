@@ -6,6 +6,7 @@ import { UserMapComponent } from './user-map/user-map.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { MapaFormularioComponent } from './mapa-formulario/mapa-formulario.component';
+import { RegistroComponent } from './registro/registro.component';
 import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'map', component: MapComponent},
   { path: 'user-map', component: UserMapComponent },
   { path: 'formulario', component: FormularioComponent},
-  { path: 'mapa-formulario', component: MapaFormularioComponent}
+  { path: 'mapa-formulario', component: MapaFormularioComponent},
+  { path: 'registro', component: RegistroComponent}
 
 ];

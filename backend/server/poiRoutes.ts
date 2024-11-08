@@ -1,6 +1,7 @@
 // routes/poiRoutes.ts
 import { Router } from 'express';
 import { POIController } from './poiController';
+
 import multer  from 'multer'
 
 const router = Router();
@@ -20,5 +21,6 @@ router.post('/:nombre/approve', POIController.approvePOI);
 
 // Ruta para rechazar un POI
 router.post('/:nombre/reject', POIController.rejectPOI);
+
 
 export default router;

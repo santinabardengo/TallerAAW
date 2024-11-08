@@ -61,7 +61,7 @@ export class MapComponent implements AfterViewInit {
 
   private marcarPuntosDeInteres(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const L = (window as any).L; // Asegúrate de que estamos en el navegador
+      const L = (window as any).L; 
 
       const iconoLugar = L.icon({
         iconUrl: '/assets/iconoLugar.png',  
@@ -92,10 +92,9 @@ export class MapComponent implements AfterViewInit {
 
         
         const imagenesHtml = punto.imagenes?.map((imagen: string) => {
-          // Reemplaza la ruta relativa con la URL completa del backend
           const imagenUrl = `http://localhost:3000${imagen.replace('./', '/')}`;
           return `<img src="${imagenUrl}" alt="${punto.nombre}" style="width: 200px; height: auto; object-fit: cover; display: inline-block; border-radius: 8px; justify-items:center;">`;
-        }).join('') || '';  // Unir todas las imágenes en una cadena de HTML
+        }).join('') || ''; 
       
         const carruselHtml = `
           <div style="

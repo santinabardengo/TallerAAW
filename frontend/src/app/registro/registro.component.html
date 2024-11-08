@@ -1,0 +1,29 @@
+<div class="pin-container">
+    <h3>Registrarse como administrador</h3>
+  
+  
+    <p>Introduce tu correo electrónico:</p>
+    <input 
+      type="email" 
+      [(ngModel)]="email" 
+      placeholder="Correo electrónico" 
+    />
+  
+    <p> Ingresa tu PIN de 4 dígitos: </p>
+    <input 
+        type="password" 
+        [(ngModel)]="pin" 
+        placeholder="PIN" 
+      />
+
+    <p> Confirma tu PIN: </p>
+    <input 
+        type="password" 
+        [(ngModel)]="re_pin" 
+        placeholder="PIN" 
+    />
+    <button class = "registrarme" (click)="validate()">Registrarme</button>
+    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+  
+  </div>
+  

@@ -3,6 +3,7 @@ import express, { Express } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import poiRoutes from './poiRoutes';
+import adminRoutes from './adminRoutes';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -24,6 +25,8 @@ app.use(bodyParser.json());
 
 // Rutas para puntos de interés
 app.use('/points-of-interest', poiRoutes);
+// Rutas para administrador
+app.use('/admin', adminRoutes); 
 app.use('/images', express.static(path.join(__dirname, '../images')));
 
 // Iniciar el servidor

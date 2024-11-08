@@ -1,12 +1,24 @@
 <div class="pin-container">
-    <h3>Autenticate como administrador</h3>
-    <p> Ingresa tu PIN de 4 dígitos: </p>
-    <input 
+  <h3>Autenticarse como administrador</h3>
+
+
+  <p>Introduce tu correo electrónico:</p>
+  <input 
+    type="email" 
+    [(ngModel)]="email" 
+    placeholder="Correo electrónico" 
+  />
+
+  <p> Ingresa tu PIN de 4 dígitos: </p>
+  <input 
       type="password" 
-      (input)="onPinChange($event)" 
+      [(ngModel)]="pin" 
       placeholder="PIN" 
     />
-    <button (click)="validatePin()">Ingresar</button>
-    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
-  </div>
-  
+  <button class = "ingresar" (click)="validatePin()">Ingresar</button>
+  <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+
+
+  <button class = "registrarse" (click)="navigateToRegisterForm()">Registrarme</button>
+
+</div>
