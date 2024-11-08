@@ -45,7 +45,20 @@ export class FormularioComponent {
     const archivos = event.target.files;
     this.imagenes = Array.from(archivos);
   }
-
+  openFileInput(): void {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    fileInput.click();
+  }
+  
+  onFileSelected(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      const selectedFile = target.files[0];
+      console.log('Archivo seleccionado:', selectedFile);
+      // Aquí puedes hacer algo con el archivo seleccionado
+    }
+  }
+  
   CambioCategoria() {
     this.mostrarFechaEvento = this.categoriaSeleccionada === 'evento';
   }

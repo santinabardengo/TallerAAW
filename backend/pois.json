@@ -7,7 +7,9 @@
     "horarioApertura": "09:00",
     "horarioCierre": "16:30",
     "imagenes": [
-      "./images/chapelco.jpg", "./images/chapelco2.jpg", "./images/chapelco3.jpg"
+      "./images/chapelco.jpg",
+      "./images/chapelco2.jpg",
+      "./images/chapelco3.jpg"
     ],
     "status": "approved"
   },
@@ -74,7 +76,9 @@
     "descripcion": "sdfv",
     "horarioApertura": "17:02",
     "horarioCierre": "20:02",
-    "imagenes": ["./images/nanu.jpg"],
+    "imagenes": [
+      "./images/nanu.jpg"
+    ],
     "status": "approved"
   },
   {
@@ -84,7 +88,49 @@
     "descripcion": "xdcfd",
     "horarioApertura": "16:03",
     "horarioCierre": "20:04",
-    "imagenes": ["./images/sansan.jpg"],
+    "imagenes": [
+      "./images/sansan.jpg"
+    ],
     "status": "approved"
+  },
+  {
+    "nombre": "lolazo",
+    "ubicacion": "72.226368, -80.206368",
+    "categoria": "lugar",
+    "descripcion": "ajdusihdus",
+    "horarioApertura": "18:58",
+    "horarioCierre": "16:58",
+    "imagenes": [
+      "./images/5.jpg",
+      "./images/4.jpg",
+      "./images/3.jpg"
+    ],
+    "status": "rejected"
+  },
+  {
+    "nombre": "hey",
+    "ubicacion": "-38.589529, -70.071636",
+    "categoria": "lugar",
+    "descripcion": "ajdusihdus",
+    "horarioApertura": "15:06",
+    "horarioCierre": "15:08",
+    "imagenes": [
+      "./images/cero.png",
+      "./images/uno.png"
+    ],
+    "status": "rejected"
+  },
+  {
+    "nombre": "Lago lolog",
+    "ubicacion": "-40.047124, -71.350052",
+    "categoria": "lugar",
+    "descripcion": "Lago hermoso en medio de las montañas ",
+    "horarioApertura": "00:10",
+    "horarioCierre": "00:10",
+    "imagenes": [
+      "./images/lolog2.webp",
+      "./images/lolog.jpg"
+    ],
+    "status": "pending"
   }
 ]
