@@ -37,7 +37,7 @@ export class AdminPinComponent {
   
 
   navigateToRegisterForm() {
-    this.router.navigate(['/registro']); //FALTA EL COMPONENTE 
+    this.router.navigate(['/registro']); 
   }
 }
 
