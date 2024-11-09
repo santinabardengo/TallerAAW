@@ -22,18 +22,25 @@ export class RegistroComponent {
   
 
   registrar(): void {
-    this.authService.registrar(this.email, this.pin)
+    this.authService.registrar(this.email, this.pin).subscribe(
+      response => {
+        console.log('Registro exitoso:', response);
+        this.router.navigate(['/admin']); 
+      },
+      error => {
+        console.error('Error en el registro:', error);
+        this.errorMessage = 'Error en el registro. Inténtalo de nuevo.'; 
+      }
+    );
   }
-
-  validate(): void{
-    if (this.pin === this.re_pin){
-      this.registrar()
-      this.router.navigate(['/admin']);
-    }
-    else{
+  
+  validate(): void {
+    if (this.pin === this.re_pin) {
+      this.registrar();
+    } else {
       this.errorMessage = 'Los PINs no coinciden';
     }
   }
-
+  
 
 }

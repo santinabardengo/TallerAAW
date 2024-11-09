@@ -29,7 +29,7 @@ export class AuthService {
       email: email,
       pin: pin
     }
-    this.http.post(`${this.baseUrl}/register`, admin)
+    return this.http.post(`${this.baseUrl}/register`, admin)
   }
 
   isAdminAuthenticated(): boolean {
