@@ -10,10 +10,10 @@ export class AdminController {
         const { email, pin } = req.body;
         // Verificar si ya existe un administrador
         const data = usuarios.getAdminData('usuarios.json');
-        if (data === null){
-        data.admin = { email, pin };
-        usuarios.saveAdminData('usuarios.json',data);
-        res.status(201).json({ message: 'Administrador registrado exitosamente' });
+        if (Object.keys(data).length === 0){
+          data.admin = { email, pin };
+          usuarios.saveAdminData('usuarios.json',data);
+          res.status(201).json({ message: 'Administrador registrado exitosamente' });
         }else {
           res.status(409).json({ message: 'Administrador ya registrado' });
       }
@@ -21,9 +21,10 @@ export class AdminController {
 
     static obtenerAdmin(req: Request, res: Response): any{
         const data = usuarios.getAdminData('usuarios.json');
-        if (data) {
-            res.status(200).json(data);
-            return data;
+
+        if (Object.keys(data).length != 0) {
+            res.status(200).json(data.admin);
+            return data.admin;
           } else {
             res.status(404).json({ message: 'Datos de administrador no encontrados' });
             return null;

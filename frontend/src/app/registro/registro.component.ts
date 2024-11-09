@@ -29,7 +29,7 @@ export class RegistroComponent {
       },
       error => {
         console.error('Error en el registro:', error);
-        this.errorMessage = 'Error en el registro. Inténtalo de nuevo.'; 
+        this.errorMessage = 'Ya existe un administrador. Inicia sesión o ingresa como usuario.'; 
       }
     );
   }

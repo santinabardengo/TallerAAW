@@ -15,7 +15,7 @@ export class GestorDataUsuarios {
 
   saveAdminData(ruta: string, data: any): void {
     try {
-      fs.writeFileSync("us", JSON.stringify(data, null, 2));
+      fs.writeFileSync(ruta, JSON.stringify(data, null, 2));
     } catch (error) {
       console.error('Error al guardar los datos del administrador:', error);
     }

@@ -19,15 +19,22 @@ export class AdminPinComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
   
-  validatePin(): void {
-    if (this.authService.authenticate(this.email, this.pin)) {
+  async validateAdmin(): Promise<void> {
+    const isAuthenticated = await this.authService.authenticate(this.email, this.pin);
+    const adminExist = this.authService.DoesAdminExist();
+   
+    if (isAuthenticated) {
       this.errorMessage = null;
       this.router.navigate(['/admin']);
-      
     } else {
-      this.errorMessage = 'PIN inválido. Inténtalo de nuevo.';
+      if (!adminExist){
+        this.errorMessage = 'Debes registrarte para poder ingresar. '
+      } else{
+        this.errorMessage = 'PIN o email inválido. Inténtalo de nuevo.';
+      }
     }
   }
+  
 
   navigateToRegisterForm() {
     this.router.navigate(['/registro']); //FALTA EL COMPONENTE 
