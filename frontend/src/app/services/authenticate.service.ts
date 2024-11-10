@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  protected baseUrl = 'http://localhost:3000/admin';
+  protected baseUrl = `${environment.apiUrl}/points-of-interest`;;
   private isAuthenticated = false;
   private adminExiste = true;
 

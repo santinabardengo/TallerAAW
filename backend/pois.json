@@ -62,11 +62,12 @@
   },
   {
     "nombre": "Cuchau",
-    "ubicacion": "-38.688301, -70.346929",
+    "ubicacion": "-38.158674, -70.072077",
     "categoria": "lugar",
-    "descripcion": "rayo mcqueen",
-    "horarioApertura": "10:47",
-    "horarioCierre": "22:47",
+    "descripcion": "adsasasa",
+    "horarioApertura": "18:38",
+    "horarioCierre": "06:38",
+    "imagenes": [],
     "status": "pending"
   },
   {

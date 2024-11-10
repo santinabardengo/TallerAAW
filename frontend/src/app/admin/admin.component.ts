@@ -4,6 +4,7 @@ import { PoiModerationService } from '../services/poi-services/poi-moderation.se
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import {Router} from '@angular/router';
+import { MessageService } from '../services/message.service';
 
 
 interface PointOfInterest {
@@ -26,7 +27,7 @@ export class AdminComponent {
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
-  constructor(private poiRetrievalService: PoiRetrievalService, private poiModerationService: PoiModerationService, private router:Router ) {}
+  constructor(private poiRetrievalService: PoiRetrievalService, private poiModerationService: PoiModerationService, private router:Router, private messageService: MessageService ) {}
 
   pendingPOIs: PointOfInterest[] = [];
   approvedPOIs: PointOfInterest[] = [];
@@ -123,11 +124,20 @@ export class AdminComponent {
     this.noHayPoisMensaje = message;
     setTimeout(() => (this.noHayPoisMensaje = null), 5000); 
   }
+
   navigateToForm() {
     this.router.navigate(['/formulario'], { queryParams: { from: 'admin' }});
   }
   ngOnInit(): void {
     this.loadApprovedPOIs();
+
+    this.messageService.mensaje$.subscribe(mensaje => {
+      this.confirmationMessage = mensaje;
+      console.log('Mensaje recibido:', mensaje); 
+      if (mensaje) {
+        setTimeout(() => this.messageService.clearMensaje(), 5000); // Borra el mensaje después de 5 segundos
+      }
+    });
     
   }
 
