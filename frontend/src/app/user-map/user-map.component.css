@@ -46,8 +46,9 @@
   top: 20px;
   left: 80px; /* Ubica el contenedor a la izquierda */
   z-index: 1000;
-  width: 200px;
+  width: 250px;
   height: 25px; 
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -56,14 +57,15 @@
   outline: none;
   padding: 8px 10px;
   border-radius: 15px;
-  width: 150px;
+  width: 200px;
   position: relative;
   top: -3px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Estilo para el botón reducido */
 #search-container button {
-  background-color: #007bff;
+  background-color: #457b9d;
   color: white;
   border: none;
   border-radius: 50%; 
@@ -78,17 +80,16 @@
 }
 
 #search-container button:hover {
-  background-color: #0056b3;
+  background-color: #203948;
 }
 
 
 .search-area {
-  width: 200px; 
+  width: 250px; 
   max-height: 200px;
-  overflow-y: auto;
   border-radius: 7px;
   background-color: #ffffffb3;
-  margin-top: 20px; 
+  margin-top: 0; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s;
   position: absolute;
@@ -96,20 +97,41 @@
   left: 80px;
   border:  none;
   z-index: 1000;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .search-result {
-  margin-top: 10px;
+  margin-top: 0px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15px;
 }
 
 .nombre-POI {
   padding: 8px;
-  font-size: 16px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15px;
+}
+
+.nombre-POI:hover {
+  background-color: #e0e0e0;
+}
+
+.search-area p, .nombre-POI {
+  padding: 8px;
+  padding-left: 15px; /* Margen a la izquierda del texto */
+  font-size: 14px;
   background-color: #f1f1f1;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.nombre-POI:hover {
-  background-color: #e0e0e0;
+.search-area p {
+  margin: 0; /* Asegúrate de que el mensaje no tenga margen adicional */
+  color: #5d5b5b; /* Opcional: color de texto para el mensaje de "no se encontraron resultados" */
 }
