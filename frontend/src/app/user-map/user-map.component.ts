@@ -81,7 +81,6 @@ export class UserMapComponent implements OnInit {
     
     this.messageService.mensaje$.subscribe(mensaje => {
       this.mensajeConfirmacion = mensaje;
-      console.log('Mensaje recibido:', mensaje); 
       if (mensaje) {
         setTimeout(() => this.messageService.clearMensaje(), 5000); // Borra el mensaje después de 5 segundos
       }

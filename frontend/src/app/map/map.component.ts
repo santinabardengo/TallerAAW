@@ -224,8 +224,9 @@ export class MapComponent implements AfterViewInit {
   }
 
   centrarEnPOI(nombre: string) {
-    const poi = this.puntosDeInteresPendientes.find(punto => punto.nombre === nombre);
-
+    const poi = this.puntosDeInteresPendientes.find(punto => punto.nombre === nombre)
+                || this.puntosDeInteresAprobados.find(punto => punto.nombre === nombre);  
+    
     if (poi && isPlatformBrowser(this.platformId)) {
       const [lat, lng] = poi.ubicacion.split(',').map(coord => parseFloat(coord));
       this.mapa.setView([lat, lng], 10); 
