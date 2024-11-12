@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { MessageService } from '../services/message.service';
+import { SearchComponent } from '../search/search.component';
+import { FormsModule } from '@angular/forms';
 
 interface PointOfInterestApproved {
   nombre: string;
@@ -18,15 +20,21 @@ interface PointOfInterestApproved {
 @Component({
   selector: 'user-map',
   standalone: true,
-  imports: [CommonModule, MapComponent],
+  imports: [CommonModule, MapComponent, SearchComponent, FormsModule],
   templateUrl: './user-map.component.html',
   styleUrls: ['./user-map.component.css']
 })
 
 export class UserMapComponent implements OnInit {
+  
+  term: string = '';
   puntosDeInteresAprobados: PointOfInterestApproved[] = [];
+  searchResults: PointOfInterestApproved[] = [];
+  searchAttempted: boolean = false;
+  selectedResult: any = null;
 
   @ViewChild(MapComponent) mapComponent!: MapComponent;
+  @ViewChild(SearchComponent) searchComponent!: SearchComponent;
 
 
   constructor(private poiRetrievalService: PoiRetrievalService, private router: Router, private messageService: MessageService) {}
@@ -60,6 +68,7 @@ export class UserMapComponent implements OnInit {
   navigateToForm() {
     this.router.navigate(['/formulario'], { queryParams: { from: 'user-map' } });
   }
+
   ngOnInit(): void {
     // Cargar los POIs al inicio
     this.cargarPuntosDeInteres();
@@ -77,6 +86,15 @@ export class UserMapComponent implements OnInit {
         setTimeout(() => this.messageService.clearMensaje(), 5000); // Borra el mensaje después de 5 segundos
       }
     });
+  }
+
+  triggerSearch() {
+    this.searchAttempted = true;
+    this.searchComponent.onSearch(this.term); // Llama al método onSearch del componente <app-search>
+  }
+
+  handleSearchResults(results: PointOfInterestApproved[]) {
+    this.searchResults = results;
   }
   
 }

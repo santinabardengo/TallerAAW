@@ -3,7 +3,7 @@ import { PoiRetrievalService } from '../services/poi-services/poi-retrieval.serv
 import { PoiModerationService } from '../services/poi-services/poi-moderation.service';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from '../map/map.component';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
 
 
@@ -13,6 +13,7 @@ interface PointOfInterest {
   descripcion: string;
   horarioApertura: string;
   horarioCierre: string;
+  fecha ?: string;
 }
 
 @Component({

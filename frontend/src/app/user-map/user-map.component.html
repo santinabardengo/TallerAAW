@@ -2,6 +2,25 @@
     {{ mensajeConfirmacion }}
 </div>
 
+<input
+  type="text"
+  [(ngModel)]="term"
+  placeholder="Buscar..."
+/>
+
+<button (click)="triggerSearch()">→</button>
+
+<app-search #searchComponent [term] = "term" (searchEvent)="handleSearchResults($event)"></app-search>
+
+
+<div *ngFor="let result of searchResults">
+    <div class="nombre-POI" (click) = "mapComponent.centrarEnPOI(result.nombre)">{{ result.nombre }} </div>
+</div>
+
+<div *ngIf="searchResults.length === 0 && searchAttempted">
+    <p>No se encontraron resultados</p>
+</div>
+
 <app-mapa [puntosDeInteresAprobados]="puntosDeInteresAprobados"></app-mapa>
 
 <div>

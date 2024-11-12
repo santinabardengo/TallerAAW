@@ -8,6 +8,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { MapaFormularioComponent } from './mapa-formulario/mapa-formulario.component';
 import { RegistroComponent } from './registro/registro.component';
 import { adminGuard } from './guards/admin.guard';
+import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,8 @@ export const routes: Routes = [
   { path: 'user-map', component: UserMapComponent },
   { path: 'formulario', component: FormularioComponent},
   { path: 'mapa-formulario', component: MapaFormularioComponent},
-  { path: 'registro', component: RegistroComponent}
+  { path: 'registro', component: RegistroComponent},
+  { path: 'search', component: SearchComponent}
+
 
 ];

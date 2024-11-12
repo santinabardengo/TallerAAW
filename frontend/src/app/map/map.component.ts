@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { SearchComponent } from '../search/search.component'
 
 
 interface PointOfInterest {
@@ -18,8 +19,7 @@ interface PointOfInterest {
   selector: 'app-mapa',
   standalone: true,
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'
-  ]
+  styleUrls: ['./map.component.css']
 })
 
 export class MapComponent implements AfterViewInit {

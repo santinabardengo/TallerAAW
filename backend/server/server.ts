@@ -35,6 +35,6 @@ app.use('/images', express.static(path.join(__dirname, '../images')));
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`Server is running at ${allowedOrigin.replace(':4200', '')}:${port}`);
+  console.log(`Server is running at ${allowedOrigin}:${port}`);
 });
 

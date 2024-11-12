@@ -34,3 +34,13 @@
 #agregarPOI:hover {
   background-color: #d02735;
 }
+
+.nombre-POI {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer; 
+}
+
+.nombre-POI:hover {
+  text-decoration: underline;
+}

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 
 export class AuthService {
-  protected baseUrl = `${environment.apiUrl}/points-of-interest`;;
+  protected baseUrl = `${environment.apiUrl}/admin`;;
   private isAuthenticated = false;
   private adminExiste = true;
 

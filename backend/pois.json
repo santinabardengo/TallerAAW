@@ -53,12 +53,15 @@
   },
   {
     "nombre": "Cuore Di Panna",
-    "ubicacion": "-38.955136, -68.062102",
+    "ubicacion": "-38.262321, -70.094065",
     "categoria": "lugar",
-    "descripcion": "Heladería artesanal en el centro de la ciudad de Neuquén",
-    "horarioApertura": "09:00",
-    "horarioCierre": "02:10",
-    "status": "approved"
+    "descripcion": "sdfsdfsdf",
+    "horarioApertura": "09:52",
+    "horarioCierre": "14:56",
+    "imagenes": [
+      "./images/DSC02264.JPG"
+    ],
+    "status": "pending"
   },
   {
     "nombre": "Cuchau",
