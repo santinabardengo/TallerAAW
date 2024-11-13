@@ -55,8 +55,6 @@ export class POIController {
       imagenes: imagenesGuardadas, 
     };
 
-    console.log(datosPOI)
-
     try {
       gestor.crearPOI(datosPOI);
       res.status(201).json({ message: 'POI creado con éxito' });
