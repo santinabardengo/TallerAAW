@@ -86,7 +86,10 @@ export class UserMapComponent implements OnInit {
       }
     });
   }
-
+  hideSearchResults() {
+    this.searchResults = [];
+    this.searchAttempted = false;
+  }
   triggerSearch() {
     this.searchAttempted = true;
     this.searchComponent.onSearch(this.term); // Llama al método onSearch del componente <app-search>
