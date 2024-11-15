@@ -12,5 +12,31 @@
       "./images/chapelco3.jpg"
     ],
     "status": "approved"
+  },
+  {
+    "nombre": "Volcan Copahue",
+    "ubicacion": "-37.849308, -71.155700",
+    "categoria": "lugar",
+    "descripcion": "El volcán Copahue, en Neuquén, es un activo estratovolcán andino famoso por sus aguas termales y paisajes imponentes.",
+    "horarioApertura": "06:00",
+    "horarioCierre": "15:00",
+    "imagenes": [
+      "./images/volcan_copahue3.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Fiesta Provincial del Mote",
+    "ubicacion": "-37.159949, -70.623547",
+    "categoria": "evento",
+    "descripcion": " La Fiesta Provincial del Mote celebra en Neuquén las tradiciones, música y gastronomía, destacando el mote como protagonista.",
+    "horarioApertura": "15:00",
+    "horarioCierre": "00:30",
+    "imagenes": [
+      "./images/fiestaProvincialMote2.jpg",
+      "./images/fiestaProvincialMote.jpg"
+    ],
+    "fecha": "2024-12-21",
+    "status": "approved"
   }
 ]
