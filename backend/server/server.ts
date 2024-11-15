@@ -6,20 +6,16 @@ import poiRoutes from './poiRoutes';
 import adminRoutes from './adminRoutes';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:4200'
+const port = 3000;
 
 // Configuración de CORS
 app.use(cors({
-  origin: allowedOrigin,
+  origin: 'http://localhost:4200',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -29,12 +25,13 @@ app.use(bodyParser.json());
 
 // Rutas para puntos de interés
 app.use('/points-of-interest', poiRoutes);
+
 // Rutas para administrador
 app.use('/admin', adminRoutes); 
 app.use('/images', express.static(path.join(__dirname, '../images')));
 
 // Iniciar el servidor
-app.listen(port, () => {
-  console.log(`Server is running at ${allowedOrigin}:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
 
