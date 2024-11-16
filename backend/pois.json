@@ -38,5 +38,168 @@
     ],
     "fecha": "2024-12-21",
     "status": "approved"
+  },
+  {
+    "nombre": "Volcán Domuyo",
+    "ubicacion": "-36.636759, -70.431168",
+    "categoria": "lugar",
+    "descripcion": "Este estratovolcán geotérmicamente activo, ubicado a 4.7 km de altura, es la montaña más alta de la Patagonia.",
+    "horarioApertura": "00:00",
+    "horarioCierre": "00:00",
+    "imagenes": [
+      "./images/volcan_domuyo_1.jpg",
+      "./images/volcan_domuyo_2",
+      "./images/volcan_domuyo_3.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Lago Lolog",
+    "ubicacion": "-40.045905, -71.349099",
+    "categoria": "lugar",
+    "descripcion": "Lago glacial rodeado de colinas verdes y destacado destino de pesca de truchas accesible por carretera.",
+    "horarioApertura": "00:00",
+    "horarioCierre": "23:59",
+    "imagenes": [
+      "./images/lago_lolog.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Villa Traful",
+    "ubicacion": "-40.653177, -71.401911",
+    "categoria": "lugar",
+    "descripcion": "Villa Traful es una localidad turística de la Patagonia argentina. Está ubicada dentro del parque nacional Nahuel Huapi.",
+    "horarioApertura": "00:00",
+    "horarioCierre": "23:59",
+    "imagenes": [
+      "./images/villa_traful_1.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Cajón Negro",
+    "ubicacion": "-40.710034, -71.628481",
+    "categoria": "lugar",
+    "descripcion": "Bello mirador para apreciar la naturaleza. ",
+    "horarioApertura": "00:00",
+    "horarioCierre": "23:59",
+    "imagenes": [
+      "./images/cajon_negro_2.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Fiesta Nacional del Chivito la Danza y la Canción ",
+    "ubicacion": "-37.374678, -70.268670",
+    "categoria": "evento",
+    "descripcion": "Un evento que reúne cada año a miles de visitantes de todo el país para disfrutar de la cultura, la música y la gastronomía del norte neuquino.",
+    "horarioApertura": "18:00",
+    "horarioCierre": "04:00",
+    "imagenes": [
+      "./images/fiesta-del-chivito-2.jpg",
+      "./images/fiesta-del-chivito-2jpg.webp"
+    ],
+    "fecha": "2024-11-15",
+    "status": "approved"
+  },
+  {
+    "nombre": "Fiesta de la Cerveza Artesanal del Sur Neuquino",
+    "ubicacion": "-39.915312, -71.071999",
+    "categoria": "evento",
+    "descripcion": "fin de semana en un hermoso patio cervecero para recibir a destacados productores de la cordillera, propuestas gastronómicas, músicos y artistas",
+    "horarioApertura": "17:00",
+    "horarioCierre": "00:00",
+    "imagenes": [
+      "./images/Biergarten-Patagonia-02.webp"
+    ],
+    "fecha": "2024-11-16",
+    "status": "approved"
+  },
+  {
+    "nombre": "Represa el Chocón",
+    "ubicacion": "-39.270957, -68.755330",
+    "categoria": "lugar",
+    "descripcion": "Represa",
+    "horarioApertura": "00:00",
+    "horarioCierre": "23:59",
+    "imagenes": [
+      "./images/represa_chocon_1.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Walüng",
+    "ubicacion": "-40.128589, -71.187865",
+    "categoria": "evento",
+    "descripcion": "\"Te invitamos a vivir el mejor evento de musica electronica inmersos en la paradisiaca naturaleza de la Patagonia Argentina.",
+    "horarioApertura": "17:00",
+    "horarioCierre": "03:00",
+    "imagenes": [
+      "./images/walung_4.png",
+      "./images/walung_3.webp",
+      "./images/walung_2.jpg",
+      "./images/walung_1.jpg"
+    ],
+    "fecha": "2025-02-14",
+    "status": "approved"
+  },
+  {
+    "nombre": "Lago Hermoso",
+    "ubicacion": "-40.356729, -71.517480",
+    "categoria": "lugar",
+    "descripcion": "Lago cristalino rodeado de montañas boscosas que tiene una pequeña playa rocosa y popular para practicar kayakismo.",
+    "horarioApertura": "00:00",
+    "horarioCierre": "23:59",
+    "imagenes": [
+      "./images/lago_hermoso_2.webp",
+      "./images/lago_hermoso_1.webp"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Volcan Lanín",
+    "ubicacion": "-39.637762, -71.502845",
+    "categoria": "lugar",
+    "descripcion": "Estratovolcán emblemático que cruza la frontera de Chile y Argentina, con una cima cónica cubierta de hielo.",
+    "horarioApertura": "00:00",
+    "horarioCierre": "00:00",
+    "imagenes": [
+      "./images/lanin_5.jpg",
+      "./images/lanin_4.jpg",
+      "./images/lanin_3.webp",
+      "./images/lanin_2.jpg",
+      "./images/lanin_1.webp"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Lago Hermoso Ski Resort",
+    "ubicacion": "-40.357078, -71.449635",
+    "categoria": "lugar",
+    "descripcion": "Centro de Esquí en Lago Hermoso",
+    "horarioApertura": "10:00",
+    "horarioCierre": "17:00",
+    "imagenes": [
+      "./images/cerro_hermoso_4.jpg",
+      "./images/cerro_hermoso_3.webp",
+      "./images/cerro_hermoso_2.webp",
+      "./images/cerro_hermoso_1.jpg"
+    ],
+    "status": "approved"
+  },
+  {
+    "nombre": "Cerro Caviahue",
+    "ubicacion": "-37.862597, -71.075027",
+    "categoria": "lugar",
+    "descripcion": "Pequeño y hermoso centro de esquí en Caviahue",
+    "horarioApertura": "09:00",
+    "horarioCierre": "17:00",
+    "imagenes": [
+      "./images/cerro_caviahue_3.jpg",
+      "./images/cerro_caviahue_2.jpg",
+      "./images/cerro caviahue_1.webp"
+    ],
+    "status": "approved"
   }
 ]
