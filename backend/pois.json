@@ -63,7 +63,7 @@
     "imagenes": [
       "./images/lago_lolog.jpg"
     ],
-    "status": "approved"
+    "status": "pending"
   },
   {
     "nombre": "Villa Traful",
@@ -75,7 +75,7 @@
     "imagenes": [
       "./images/villa_traful_1.jpg"
     ],
-    "status": "approved"
+    "status": "pending"
   },
   {
     "nombre": "Cajón Negro",
