@@ -18,7 +18,7 @@ export class MapaFormularioComponent implements AfterViewInit {
 
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object // Detectar la plataforma
+    @Inject(PLATFORM_ID) private platformId: Object 
   ) {}
 
   private cargarLeafletCSS(): void {
@@ -50,9 +50,9 @@ export class MapaFormularioComponent implements AfterViewInit {
 
       const { lat, lng } = e.latlng;
       if (this.marcador) {
-        this.marcador.setLatLng([lat, lng]);  // Mover marcador
+        this.marcador.setLatLng([lat, lng]);  
       } else {
-        this.marcador = L.marker([lat, lng], {icon: iconoPendiente}).addTo(this.mapa);  // Crear nuevo marcador
+        this.marcador = L.marker([lat, lng], {icon: iconoPendiente}).addTo(this.mapa); 
       }
 
       this.ubicacionSeleccionada.emit({ lat, lng });

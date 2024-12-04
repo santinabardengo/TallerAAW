@@ -21,21 +21,21 @@
 
  button {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px; /* Ajusta este valor según el tamaño que necesites */
-  font-weight: 600; /* Asegura un peso moderado */
-  color: #ffffff; /* color del texto */
+  font-size: 20px; 
+  font-weight: 600; 
+  color: #ffffff; 
   width: auto;  
-  border: none; /* Eliminar bordes por defecto */
-  border-radius: 100px; /* Bordes redondeados para un look moderno */
-  padding: 12px 24px; /* Espaciado interno cómodo */
-  cursor: pointer; /* Cambiar el cursor a mano para botones */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  border: none; 
+  border-radius: 100px; 
+  padding: 12px 24px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 button:hover {
-  background-color: #2774a4; /* Color más oscuro en hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+  background-color: #2774a4; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 
 .button-user {
@@ -51,8 +51,8 @@ button:hover {
 }
 
 .button-user button:hover {
-  background-color: #21638d; /* Color más oscuro en hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+  background-color: #21638d; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 
 .button-admin {
@@ -69,5 +69,5 @@ button:hover {
 
 .button-admin button:hover {
   background-color: #081b35;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }

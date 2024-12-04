@@ -1,4 +1,3 @@
-// controllers/poiController.ts
 import { Request, Response } from 'express';
 import { GestorDePOIs } from '../gestorpoi';
 import { Evento } from '../evento';

@@ -70,7 +70,6 @@ export class UserMapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Cargar los POIs al inicio
     this.cargarPuntosDeInteres();
     // Recargar POIs si el usuario vuelve a esta vista
     this.router.events.subscribe(event => {
@@ -92,7 +91,7 @@ export class UserMapComponent implements OnInit {
   }
   triggerSearch() {
     this.searchAttempted = true;
-    this.searchComponent.onSearch(this.term); // Llama al método onSearch del componente <app-search>
+    this.searchComponent.onSearch(this.term); 
   }
 
   handleSearchResults(results: PointOfInterestApproved[]) {

@@ -54,7 +54,6 @@ export class FormularioComponent {
     if (target.files && target.files.length > 0) {
       const selectedFile = target.files[0];
       console.log('Archivo seleccionado:', selectedFile);
-      // Aquí puedes hacer algo con el archivo seleccionado
     }
   }
   
@@ -65,13 +64,11 @@ export class FormularioComponent {
   esFormularioValido(): boolean {
     let noHayError:boolean = true;
 
-    // Validación de descripción
     if (this.descripcion.length > 150) {
       this.errorLongitudDesc = 'La descripción no puede exceder los 150 caracteres.';
       noHayError = false;
     }
    
-    // Validación de horarios si ambos están completos
 
     if (this.mostrarFechaEvento && (!this.fecha || this.fecha < this.fechaFormateada)) {
       this.errorFecha = 'Fecha inválida';
@@ -86,7 +83,7 @@ export class FormularioComponent {
 
   enviarFormulario() {
     if (!this.esFormularioValido()) {
-      return; // No enviar si es inválido
+      return; 
     }
 
     const formData = new FormData(); 
@@ -128,9 +125,5 @@ export class FormularioComponent {
       this.from = params['from'] || 'user-map'; // Por defecto, redirige a 'user-map'
     });
   }
-
-  
-
-  
 
 }

@@ -38,7 +38,6 @@ export class AdminComponent {
   moreInfoPOI: any = null;
   mostrarFechaEvento: boolean = false;
 
-  
 
   loadPendingPOIs() {
     if (this.showPendingPOIs) {

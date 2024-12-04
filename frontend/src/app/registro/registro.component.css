@@ -4,16 +4,16 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    text-align: center; /* Centrar texto */
-    width: 400px; /* Ancho fijo */
+    text-align: center; 
+    width: 400px; 
     height:  500px;
-    position: absolute; /* Permite el uso de top, left, etc. */
-    top: 50%; /* Mueve el contenedor al 50% de la altura de la ventana */
-    left: 50%; /* Mueve el contenedor al 50% del ancho de la ventana */
-    transform: translate(-50%, -50%); /* Ajusta la posición para centrarlo */
-    display: flex; /* Activa flexbox */
-    flex-direction: column; /* Alinea elementos en columna */
-    justify-content: center; /* Centra verticalmente el contenido */
+    position: absolute; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
     align-items: center; 
 }
 
@@ -25,45 +25,45 @@ p {
 }
 
 h3 {
-    margin-bottom: 30px; /* Espacio debajo del encabezado */
+    margin-bottom: 30px; 
     font-size: 25px;
-    color: #333; /* Color del texto del encabezado */
+    color: #333; 
     font-family: 'Montserrat', sans-serif;
 }
 
 
 input[type="password"] {
-    width: 80%; /* Ancho completo */
+    width: 80%; 
     padding: 10px;
-    border: 1px solid #ccc; /* Borde del input */
-    border-radius: 4px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espacio debajo del input */
-    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    margin-bottom: 20px; 
+    font-size: 16px; 
     font-family: 'Montserrat', sans-serif;
 }
 
 input[type="email"] {
-    width: 80%; /* Ancho completo */
+    width: 80%; 
     padding: 10px;
-    border: 1px solid #ccc; /* Borde del input */
-    border-radius: 4px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espacio debajo del input */
-    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    margin-bottom: 20px; 
+    font-size: 16px; 
     font-family: 'Montserrat', sans-serif;
 }
 
 
 
 .registrarme{
-    color: #ffffff; /* color del texto */
-    background-color: #457b9d; /* Color de fondo */
-    border: none; /* Sin borde */
-    border-radius: 100px;  /* Bordes redondeados */
-    padding: 12px 24px; /* Relleno del botón */
-    font-size: 16px; /* Tamaño de fuente del botón */
-    cursor: pointer; /* Cursor de puntero */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efecto de transición */
+    color: #ffffff; 
+    background-color: #457b9d; 
+    border: none; 
+    border-radius: 100px; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     font-family: 'Montserrat', sans-serif;
     justify-items: center;
     align-items: center;
@@ -72,11 +72,11 @@ input[type="email"] {
 }
 
 .registrarme:hover {
-    background-color: #2774a4; /* Color más oscuro en hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Color del botón al pasar el ratón */
+    background-color: #2774a4; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 div[style*="color: red;"] {
-    margin-top: 10px; /* Espacio encima del mensaje de error */
+    margin-top: 10px; 
     font-family: 'Montserrat', sans-serif;
 }

@@ -234,7 +234,7 @@ export class MapComponent implements AfterViewInit {
     // Encontrar y abrir el popup del marcador correspondiente
     this.marcador.eachLayer((layer: any) => {
       if (layer.getLatLng().lat === lat && layer.getLatLng().lng === lng) {
-        layer.openPopup(); // Abre el popup del marcador
+        layer.openPopup(); 
       }
     });
   } else {

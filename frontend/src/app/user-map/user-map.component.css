@@ -1,7 +1,7 @@
 
 .mensaje-confirmacion {
   position: absolute;
-  top: 10px; /* Mover a la parte superior */
+  top: 10px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #4caf50;
@@ -44,7 +44,7 @@
   border-radius: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   top: 20px;
-  left: 80px; /* Ubica el contenedor a la izquierda */
+  left: 80px; 
   z-index: 1000;
   width: 250px;
   height: 25px; 
@@ -63,7 +63,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilo para el botón reducido */
 #search-container button {
   background-color: #457b9d;
   color: white;
@@ -124,7 +123,7 @@
 
 .search-area p, .nombre-POI {
   padding: 8px;
-  padding-left: 15px; /* Margen a la izquierda del texto */
+  padding-left: 15px; 
   font-size: 14px;
   background-color: #f1f1f1;
   border-radius: 5px;
@@ -132,6 +131,6 @@
 }
 
 .search-area p {
-  margin: 0; /* Asegúrate de que el mensaje no tenga margen adicional */
-  color: #5d5b5b; /* Opcional: color de texto para el mensaje de "no se encontraron resultados" */
+  margin: 0; 
+  color: #5d5b5b; 
 }

@@ -1,4 +1,4 @@
-/* Centrado del formulario */
+
 .formulario_poi {
     position: fixed;
     top: 50%;
@@ -11,11 +11,10 @@
     width: 320px;
     border: 1px solid #ccc;
     font-family: 'Montserrat', sans-serif;
-    max-height: 80vh; /* Altura máxima para permitir el scroll */
+    max-height: 80vh; 
     overflow-y: auto; 
 }
 
-/* Estilos para el título */
 .formulario_poi h3 {
     text-align: center;
     color: #333;
@@ -25,7 +24,6 @@
     font-weight: bold;
 }
 
-/* Estilos para las etiquetas */
 .formulario_poi label {
     display: block;
     margin-bottom: 8px;
@@ -34,7 +32,7 @@
     font-weight: 600;
 }
 
-/* Estilos para los campos de entrada */
+
 .formulario_poi .input-field {
     width: 100%;
     padding: 10px;
@@ -46,12 +44,10 @@
     color: #333;
 }
 
-/* Efecto de hover en los campos de entrada */
 .formulario_poi .input-field:hover {
     border-color: #457B9D;
 }
 
-/* Efecto de foco en los campos de entrada */
 .formulario_poi .input-field:focus {
     border-color: #457B9D;
     outline: none;
@@ -121,16 +117,16 @@ select {
 
 .custom-select {
     position: relative;
-    width: 100%; /* O el tamaño que desees */
-    font-family: 'Montserrat', sans-serif; /* Aplica la tipografía que ya usas */
+    width: 100%; 
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .custom-select select {
-    content: '▼'; /* Icono de dropdown */
+    content: '▼'; 
     width: 100%;
     padding: 10px;
-    appearance: none; /* Oculta el selector predeterminado del navegador */
-    font-family: inherit; /* Asegura que herede la tipografía */
+    appearance: none; 
+    font-family: inherit;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -141,7 +137,7 @@ select {
 
 
 .custom-select::after {
-    content: '▼'; /* Icono de dropdown */
+    content: '▼'; 
     align-items: right;
     justify-items: center;
     position: absolute;
@@ -162,18 +158,18 @@ select {
 
 button {
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px; /* Ajusta este valor según el tamaño que necesites */
-    font-weight: 600; /* Asegura un peso moderado */
-    color: #ffffff; /* color del texto */
-    background-color: #457b9d; /* Color de fondo */
+    font-size: 12px; 
+    font-weight: 600; 
+    color: #ffffff; 
+    background-color: #457b9d; 
     width: 150px; 
     height: 40px; 
-    border: none; /* Eliminar bordes por defecto */
-    border-radius: 100px; /* Bordes redondeados para un look moderno */
-    padding: 12px 20px; /* Espaciado interno cómodo */
-    cursor: pointer; /* Cambiar el cursor a mano para botones */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar transiciones */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    border: none; 
+    border-radius: 100px; 
+    padding: 12px 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     align-items: center;
 }
 
@@ -191,11 +187,10 @@ button {
 }
 
 .boton-activado:hover {
-    background-color: #154360; /* Color más oscuro en hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumentar sombra en hover */
+    background-color: #154360; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 
-/* Mensajes de error pequeños en rojo */
 .error-msg {
     color: red;
     font-size: 0.75em;
@@ -224,7 +219,7 @@ button {
     color: white;
     cursor: pointer;
 }
-/* Estilo del contenedor principal */
+
 .agregar-imagenes {
     display: flex;
     flex-direction: column;
@@ -233,7 +228,6 @@ button {
     font-family: 'Montserrat', sans-serif;
   }
   
-  /* Estilo de la etiqueta */
   .agregar-imagenes label {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
@@ -245,17 +239,17 @@ button {
   .custom-file-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #86c5ed; /* Customize the color */
-    color: white !important; /* Ensures the font color is white */
+    background-color: #86c5ed; 
+    color: white !important; 
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    text-decoration: none; /* Removes any underline if applied */
-    font-family: inherit; /* Keeps font consistent */
+    text-decoration: none; 
+    font-family: inherit; 
 }
 
 .custom-file-button:hover {
-    background-color: #457b9d; /* Hover effect */
+    background-color: #457b9d; 
 }
 

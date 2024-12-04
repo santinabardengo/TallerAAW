@@ -1,16 +1,13 @@
 <div class="admin-container">
-  <!-- Mapa integrado -->
   <app-mapa
             [puntosDeInteresAprobados]="approvedPOIs"
             [puntosDeInteresPendientes]="pendingPOIs">
   </app-mapa>
 
-  <!-- Botón para cargar los POIs pendientes -->
   <div class="pois-pendientes-btn">
     <button (click)="loadPendingPOIs()">POIs pendientes</button>
   </div>
 
-  <!-- Recuadro de POIs pendientes -->
   <div class="pois-pendientes" *ngIf="showPendingPOIs">
     <ul>
       <li class = "poi-item" *ngFor="let poi of pendingPOIs">
@@ -30,7 +27,6 @@
     <button id = "agregarPOI" (click)="navigateToForm()">+</button>
 </div>
 
-  <!-- Contenedor de confirmación -->
   <div class="confirmation" *ngIf="confirmationMessage">
     {{ confirmationMessage }}
   </div>

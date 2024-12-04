@@ -1,6 +1,6 @@
-import { POI } from './poi'; // Importamos la clase POI
-import { Evento } from './evento'; // Importamos la clase Evento
-import { GestorBaseDeDatos } from './gestordata'; // Importamos el gestor de base de datos
+import { POI } from './poi'; 
+import { Evento } from './evento'; 
+import { GestorBaseDeDatos } from './gestordata';
 
 interface DatosPOI {
   nombre: string;
@@ -16,7 +16,6 @@ interface DatosPOI {
 
 export class GestorDePOIs {
 
-  //private listaDePOIs: (POI | Evento)[] = []; 
   private gestorBD: GestorBaseDeDatos;
 
   constructor() {
